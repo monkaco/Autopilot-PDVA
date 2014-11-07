@@ -1,0 +1,2355 @@
+<?xml version='1.0'?>
+<?mso-application progid='Excel.Sheet'?>
+<Workbook xmlns='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:o='urn:schemas-microsoft-com:office:office'
+ xmlns:x='urn:schemas-microsoft-com:office:excel'
+ xmlns:ss='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:html='http://www.w3.org/TR/REC-html40'>
+ <DocumentProperties xmlns='urn:schemas-microsoft-com:office:office'>
+  <LastAuthor>LDRA Standards Wiki</LastAuthor>
+  <Created>2014-04-25T08:31:23Z</Created>
+  <LastSaved>2014-04-25T08:31:23Z</LastSaved>
+  <Version>12.0</Version>
+ </DocumentProperties>
+ <Styles>
+  <Style ss:ID='TableDefault'>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+    <Border ss:Position='Left' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+    <Border ss:Position='Right' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+    <Border ss:Position='Top' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='Default' ss:Name='Normal'>
+   <Alignment ss:Vertical='Top'/>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+   </Borders>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID='Title' ss:Name='Title' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='1'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='16' ss:Bold='1' ss:Color='#000000'/>
+   <Interior ss:Color='#FFCC99' ss:Pattern='Solid'/>
+   <Borders>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='Note' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='1'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+   <Interior ss:Color='#CCFFFF' ss:Pattern='Solid'/>
+   <Borders>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='Heading' ss:Name='Column Headings' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='1'/>
+   <Interior ss:Color='#C0C0C0' ss:Pattern='Solid'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='SummaryClass' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='SummaryValue' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='SummaryTotal' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Interior ss:Color='#C0C0C0' ss:Pattern='Solid'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='ComplianceID' ss:Name='Model Rule Column' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='ComplianceClassification' ss:Name='Classification Column' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='ComplianceLDRA' ss:Name='LDRA Standard Column' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='RuleDefault' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center'/>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='RuleDefaultWrapped' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Left' ss:WrapText='1'/>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='RuleEnhancedCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#88FF88' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleEnhancedCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#88FF88' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleEnhancedCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#88FF88' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleFullCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#CCFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleFullCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#CCFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleFullCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#CCFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePartialCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#FFFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePartialCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#FFFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePartialCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#FFFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePendingCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#CCCCFF' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePendingCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#CCCCFF' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePendingCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#CCCCFF' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleManualCoverage' ss:Parent='RuleDefault'>
+  </Style>
+  <Style ss:ID='RuleManualCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+  </Style>
+  <Style ss:ID='RuleManualCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name='Summary'>
+  <Table ss:StyleID='TableDefault'>
+   <Column ss:Index='1' ss:Width='75'/>
+   <Column ss:Index='2' ss:Width='75'/>
+   <Column ss:Index='3' ss:Width='75'/>
+   <Column ss:Index='4' ss:Width='75'/>
+   <Column ss:Index='5' ss:Width='75'/>
+   <Column ss:Index='6' ss:Width='75'/>
+   <Column ss:Index='7' ss:Width='37.5'/>
+   <Row ss:Height='20'>
+    <Cell ss:StyleID='Title' ss:MergeAcross='6'><Data ss:Type='String'>LMTCP Standards Model Summary for C++</Data></Cell>
+   </Row>
+   <Row ss:Index='3' ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='Note' ss:MergeAcross='6'><Data ss:Type='String'>The LDRA tool suite&reg; is developed and certified to BS EN ISO 9001:2000.</Data></Cell>
+   </Row>
+   <Row ss:Index='5' ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='Note' ss:MergeAcross='6' ss:MergeDown='1'><Data ss:Type='String'>This information is applicable to version 9.4.4 of the LDRA tool suite&reg;.&#10;It is correct as of 25th April 2014.</Data></Cell>
+   </Row>
+   <Row ss:Index='8' ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='Note' ss:MergeAcross='6' ss:MergeDown='3'><Data ss:Type='String'>Compliance is measured against&#10;"Lockheed Martin Train Control Program, Software Implementation Rules. SD-13-17588(NP), Rev. A"&#10;Copyright &copy; Lockheed Martin Corporation</Data></Cell>
+   </Row>
+   <Row ss:Index='13'>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Classification</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Enhanced&#10;Enforcement</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Fully&#10;Implemented</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Partially&#10;Implemented</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Not yet&#10;Implemented</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Not statically&#10;Checkable</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Total</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID='SummaryClass'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleEnhancedCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage'><Data ss:Type='Number'>167</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>167</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID='SummaryClass'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleEnhancedCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage'><Data ss:Type='Number'>50</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>50</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID='SummaryClass'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleEnhancedCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage'><Data ss:Type='Number'>16</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>16</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='String'>Total</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>233</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>233</Data></Cell>
+   </Row>
+  </Table>
+    <WorksheetOptions xmlns='urn:schemas-microsoft-com:office:excel'>
+     <PageSetup>
+      <Layout x:Orientation='Landscape' x:CenterHorizontal='1'/>
+      <Header x:Margin='0.19685039370078741'
+       x:Data='&amp;CVersion 9.4.4 Copyright &copy; 2014 LDRA Ltd.&#10;Copies of this document are not to be made or distributed.'/>
+      <Footer x:Margin='0.19685039370078741'
+       x:Data='&amp;CLDRA Ltd. reserves the right to change any specifications contained within this document without prior notice.&#10;The document was deemed correct at time of distribution.'/>
+      <PageMargins x:Bottom='0.78740157480314965' x:Left='0.59055118110236227'
+       x:Right='0.59055118110236227' x:Top='0.78740157480314965'/>
+     </PageSetup>
+     <FitToPage/>
+     <Print>
+      <FitHeight>0</FitHeight>
+      <ValidPrinterInfo/>
+      <PaperSizeIndex>9</PaperSizeIndex>
+      <Scale>91</Scale>
+      <HorizontalResolution>600</HorizontalResolution>
+      <VerticalResolution>600</VerticalResolution>
+     </Print>
+    </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name='Compliance'>
+  <Names>
+   <NamedRange ss:Name='Print_Titles' ss:RefersTo='=Compliance!R1:R3'/>
+  </Names>
+  <Table ss:StyleID='TableDefault'>
+   <Column ss:Index='1' ss:StyleID='ComplianceID'/>
+   <Column ss:Index='2' ss:StyleID='ComplianceClassification' ss:Width='95'/>
+   <Column ss:Index='3' ss:Width='250'/>
+   <Column ss:Index='4' ss:StyleID='ComplianceLDRA' ss:Width='55'/>
+   <Column ss:Index='5' ss:Width='250'/>
+   <Row ss:AutoRowHeight='1'>
+    <Cell ss:StyleID='Title' ss:MergeAcross='4'><Data ss:Type='String'>LMTCP Standards Model Compliance for C++</Data></Cell>
+   </Row>
+   <Row ss:Index='3'>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Rule</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Classification</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Rule Description</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>LDRA&#10;Standard</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>LDRA Standard Description</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 1 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>256 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure exceeds *** source lines of code.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 3 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 C  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cyclomatic complexity greater than ***.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>8</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 8 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>293 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non ANSI/ISO construct used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 9 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>113 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non standard character in source.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>11</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 11 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>329 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operation not appropriate to plain char.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>12</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 12 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>81 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of trigraph.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>13</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 13 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>295 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of digraph.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>14</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 14 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>252 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Lower case suffix to literal number.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>16</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='4'><Data ss:Type='String'>Rule 16 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>20 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No declaration for variable found before use.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>2 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Label name reused.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>113 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non standard character in source.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>412 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Undefined behaviour, \ before E-O-F.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>5 Q  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>File does not end with new line.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>17</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 17 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>88 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure is not pure assembler.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>19</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 19 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>176 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non standard escape sequence in source.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>21</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 21 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>22</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 22 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>23</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 23 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>130 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file is not permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>24</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 24 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>43 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of setjmp/longjmp.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>25</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 25 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>130 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file is not permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>26</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 26 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>130 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file is not permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>27</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 27 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>28</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 28 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>122 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of abort, exit, etc.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>29</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 29 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>130 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file is not permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>30</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 30 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>130 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file is not permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>32</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 32 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>68 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#undef used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>255 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Found #if, #ifdef, #else, #elif .</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>33</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 33 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>243 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file not protected with #define.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>34</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 34 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>272 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Found #ifndef (ref. removed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>35</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Rule 35 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>77 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Macro replacement list needs parentheses.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>79 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Macro contains unacceptable items.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>340 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of function like macro.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>347 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Macro parameter list has leading space.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>36</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 36 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>200 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Define used for numeric constant.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>37</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 37 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>273 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Found #define.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>38</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 38 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>288 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Header file is not .h.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>39</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 39 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>75 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Executable code before an included file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>338 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#include preceded by non preproc directives.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>40</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 40 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>100 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#include filename is non conformant.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>41</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 41 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>76 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than one of # or ## in a macro.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>125 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of ## or # in a macro.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>42</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 42 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>335 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operator defined contains illegal items.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>336 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#if expansion contains define operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>43</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 43 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>126 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>A #if has no #endif in the same file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>343 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#else has no #if, etc in the same file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>46</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 46 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>324 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Macro call has wrong number of parameters.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>47</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 47 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>341 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Preprocessor construct as macro parameter.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>48</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 48 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>337 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Undefined macro variable in #if.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>50</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 50 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>243 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file not protected with #define.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>51.1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 51.1 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>257 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Filename in #include not in &lt; &gt; .</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>56</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 56 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>285 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class definition not needed in file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>57</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 57 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>286 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Functions defined in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>287 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variable definition in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>61</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 61 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>352 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Declaration of type not in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>460 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inline or template function not in header.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>62</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 62 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>412 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Undefined behaviour, \ before E-O-F.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>5 Q  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>File does not end with new line.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>64</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 64 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>189 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Input line exceeds limit.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>65</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 65 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>183 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No newline after semi colon.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>259 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Statement not on new line (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>66</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 66 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>187 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Tab character in source.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>67</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 67 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>190 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ ... } contents not indented by *** spaces.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>69</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 69 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>17 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Identifier not unique within *** characters.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>355 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variables not unique within *** characters.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>61 X  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Identifier match in *** chars.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>70</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 70 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>219 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>User name starts with underscore.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>71</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 71 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>217 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Names only differ by case.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>73</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 73 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>221 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Start of class/struct/union/enum lower case.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>74</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 74 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>312 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function name is not all lower case.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>75</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 75 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>474 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Enum name is not all upper case.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>76</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 76 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>288 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Header file is not .h.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>77</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 77 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>100 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#include filename is non conformant.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>78</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 78 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>225 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inappropriate file extension.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>300 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Filename extension is not .cpp.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>81</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 81 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>3 Q  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Filename contains upper case letters.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>82</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 82 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>196 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Access specifier missing (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>107 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Type mismatch in ternary expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>197 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Access specifiers in invalid order.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>83</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 83 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>177 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Identifier not declared on new line.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>291 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>First parameter not on same line as function.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>492 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Parameter not declared on new line.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>84</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 84 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>11 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No brackets to loop body (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>12 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No brackets to then/else (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>85</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 85 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>301 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>} not aligned vertically below {.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>86</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 86 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>188 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ or } not on line by itself.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>87</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 87 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>309 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>* or &amp; not attached to type in declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>88</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 88 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>184 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Spaces round -&gt; or [] operators.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>185 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Space between unary operator and operand.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>315 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Blank before/after . operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>89</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 89 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>112 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Typedef name redeclared.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>374 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Name conflict with typedef.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>90</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 90 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>325 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inconsistent use of tag.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>91</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 91 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>58 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Null statement found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>92</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 92 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>68 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#undef used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>86 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Attempt to define reserved word.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>156 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of 'defined' keyword in macro body.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>93</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 93 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>218 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Name is used in standard libraries.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>94</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 94 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>209 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Preprocessor command indented.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>97</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 97 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>198 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of privacy statement in struct.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>100</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 100 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>202 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class data is not explicitly private.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>103</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 103 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>46 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Member function may be declared const.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>109</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 109 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>319 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Constructor has insufficient initialisers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>112</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 112 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>393 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Single parameter constructor not 'explicit'.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>115</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 115 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>319 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Constructor has insufficient initialisers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>116</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 116 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>206 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class initialiser out of order.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>117</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Rule 117 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>233 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No copy constructor for class with pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>234 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No assignment operator for class with pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>469 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No copy constructor for complex destructor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>470 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No assignment operator for complex destrtor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>118</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='4'><Data ss:Type='String'>Rule 118 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>232 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No destructor defined for class.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>233 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No copy constructor for class with pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>234 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No assignment operator for class with pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>236 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>New used in class without assignment op.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>239 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>New used in class without copy constructor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>119</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 119 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>319 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Constructor has insufficient initialisers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>121</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 121 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>254 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operator = doesn't return reference to *this.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>123</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 123 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>303 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Virtual class members need virtual destructor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>127</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 127 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>254 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operator = doesn't return reference to *this.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>128</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 128 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>52 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Member(s) not assigned in = operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>130</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 130 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>253 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Opposite type operator missing.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>133</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 133 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>283 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Multiple direct inheritance found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>135</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 135 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>357 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Base class is mixed virtual and non virtual.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>137</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 137 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>418 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class Derivation is not public.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>138</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 138 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>285 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class definition not needed in file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>139</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 139 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>418 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class Derivation is not public.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>140</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 140 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>262 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non virtual function redefined.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>146</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 146 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>364 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inherited default parameter redefined.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>151</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 151 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>391 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Public constructor in abstract class.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>153</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 153 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>202 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class data is not explicitly private.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>154</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 154 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>392 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class data accessible thru non const member.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>155</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 155 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>392 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class data accessible thru non const member.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>156</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 156 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>311 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non local declaration not in a namespace.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>362 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>main program in a namespace.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>157</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 157 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>294 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Namespace nested more than *** deep.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>176</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 176 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>395 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Public base use of STL library member.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>200</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 200 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>202</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 202 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>100 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#include filename is non conformant.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>296 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function declared at block scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>203</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 203 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>41 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Ellipsis used in procedure parameter list.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>204</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 204 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>286 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Functions defined in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>287 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variable definition in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>205</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 205 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>18 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than *** parameters in procedure.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>206</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 206 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>42 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Local pointer returned in function result.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>71 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer assignment to wider scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>564 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Reference assignment to wider scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>208</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 208 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>7 C  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure has more than one exit point.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>209</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 209 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>36 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function has no return statement.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>66 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function with empty return expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>2 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function does not return a value on all paths.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>212</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 212 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>215 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Struct or class called by value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>218</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 218 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>396 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Possible ambiguous numeric/pointer overloads.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>219</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 219 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>6 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Recursion in procedure calls found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 U  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inter-file recursion found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>222</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 222 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>297 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inline member has more than *** source lines.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>353 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inline member has more than *** statements.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>224</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 224 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>420 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Virtual function should not be inline.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>225</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 225 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>266 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Constructor defined within class declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>230</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 230 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>24 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure definition has no associated prototype.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>231</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 231 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>102 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function and prototype return inconsistent (MR).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>103 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function and prototype param inconsistent (MR).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>232</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 232 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>326 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Declaration is missing type.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>233</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 233 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>36 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Prototype and definition name mismatch.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>37 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure parameter has a type but no identifier.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>234</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 234 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>63 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Empty parameter list to procedure/function.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>235</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 235 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>99 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function use is not a call.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>236</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 236 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>311 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non local declaration not in a namespace.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>237</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 237 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>207 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of old style /* comments in C++.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>238</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 238 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>302 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Comment possibly contains code.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>246</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 246 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>119 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Nested comment found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>247</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 247 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>69 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#pragma used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>248</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='4'><Data ss:Type='String'>Rule 248 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure name reused.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>92 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Duplicate use of a name in an enumeration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>128 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Parameter has same name as global variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>129 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Parameter has same name as type or tag.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>131 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Name reused in inner scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>249</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 249 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>25 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Scope of variable could be reduced.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>250</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 250 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>27 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variable should be declared static.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>251</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 251 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>27 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variable should be declared static.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>461 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Identifier with ambiguous linkage.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>252</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 252 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>172 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variable declared multiply.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>253</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 253 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>26 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variable should be defined once in only one file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>255</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 255 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>84 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Register variable declared.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>464 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of auto specifier.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>256</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 256 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>167 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class variable declared in class definition.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>257</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 257 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>69 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>UR anomaly, variable used before assignment.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>259</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 259 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>105 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Initialisation brace { } fault.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>260</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 260 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>85 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Incomplete initialisation of enumerator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>262</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 262 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>345 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Bit operator with floating point operand.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>265</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 265 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>422 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than one synonym in typedef.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>266</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 266 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>390 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Typedef array declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>267</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 267 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>329 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operation not appropriate to plain char.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>432 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inappropriate type - should be plain char.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>433 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Type conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>268</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 268 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>310 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Array parameter found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>459 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Array passed as actual parameter.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>270</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 270 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>83 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Octal number found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>176 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non standard escape sequence in source.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>376 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of octal escape sequence.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>271</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 271 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>267 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Hexadecimal number with lower case char.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>272</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 272 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>201 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of numeric literal in expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>273</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 273 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>157 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Modification of string literal.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>275</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 275 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>450 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Wide string and string concatenated.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>276</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 276 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>178 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Declaration statement not on new line.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>277</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 277 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>419 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Deprecated class initialisation.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>279</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 279 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>168 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Call by value parameter not const.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>282</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 282 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>74 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Union declared.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>283</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 283 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>72 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Signed bit field less than 2 bits wide.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>73 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Bit field not signed or unsigned int.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>74 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Union declared.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>284</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 284 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>328 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non bit field member in bitfield struct.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>285</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 285 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>138 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Anonymous bit field used in structure.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='5'><Data ss:Type='String'>286</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='5'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='5'><Data ss:Type='String'>Rule 286 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>22 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function has global variable side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>35 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression has side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>67 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Void function has global variable side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 Q  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Call has execution order dependant side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>406 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of ++ or -- on RHS of &amp;&amp; or || operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>408 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Volatile variable accessed on RHS of &amp;&amp; or ||.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>287</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 287 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>49 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Logical conjunctions need brackets.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>288</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 288 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>211 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Overloaded &amp;&amp;, || or comma.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>291</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 291 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>132 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Assignment operator in boolean expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>292</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 292 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>96 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of mixed mode arithmetic.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>107 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Type mismatch in ternary expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>434 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Signed/unsigned conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>293</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 293 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>304 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Arithmetic performed on unsigned values.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>294</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 294 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>51 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Shifting value too far.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>403 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Negative (or potentially negative) shift.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>295</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 295 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>50 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of shift operator on signed type.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>296</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 296 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>52 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Unsigned expression negated.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>297</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 297 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>120 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of bit operator on signed type.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>298</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 298 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>334 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No cast when ~ or &lt;&lt; applied to small types.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>299</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 299 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>114 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression is not Boolean.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>300</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 300 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>54 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Sizeof operator with side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>301</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 301 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>373 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of integer division.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>302</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 302 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>434 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Signed/unsigned conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>303</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 303 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>53 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of comma operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>304</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 304 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>30 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Deprecated usage of ++ or -- operators found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>305</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 305 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>389 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Bool value incremented/decremented.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>306</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 306 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>139 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Construct leads to infeasible code.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>307</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 307 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>114 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression is not Boolean.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>311</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 311 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>43 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Divide by 0 found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>313</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 313 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>80 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer indirection exceeds 2 levels.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>356 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer to pointer declared.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>314</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 314 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>80 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer indirection exceeds 2 levels.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>315</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 315 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>70 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Logical comparison of pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>87 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of pointer arithmetic.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>436 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Declaration does not specify an array.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>316</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 316 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>71 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer assignment to wider scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>564 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Reference assignment to wider scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>317</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 317 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>45 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer not checked for null before use.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>318</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 318 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>348 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of the NULL macro.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>319</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 319 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>299 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer to function declared without typedef.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>321</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 321 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>393 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Single parameter constructor not 'explicit'.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>394 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Conversion function found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>322</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 322 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>448 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Base class pointer cast to derived class.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>324</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 324 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>449 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Derived class pointer cast to virtual base.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='10'><Data ss:Type='String'>325</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='10'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='10'><Data ss:Type='String'>Rule 325 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>96 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of mixed mode arithmetic.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>101 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function return type inconsistent.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>107 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Type mismatch in ternary expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>434 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Signed/unsigned conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>435 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Float/integer conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>445 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Narrower float conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>446 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Narrower int conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>451 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No cast for widening complex float expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>452 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No cast for widening complex int expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>456 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Implicit float widening for function return.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>457 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Implicit int widening for function return.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>327</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 327 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>97 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of redundant cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='5'><Data ss:Type='String'>328</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='5'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='5'><Data ss:Type='String'>Rule 328 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>94 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Casting operation on a pointer.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>95 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Casting operation to a pointer.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>203 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast on a constant value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>344 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast on volatile value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>439 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast from pointer to integral type.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>440 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast from integral type to pointer.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>329</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 329 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>439 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast from pointer to integral type.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>331</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 331 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>95 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Casting operation to a pointer.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>440 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast from integral type to pointer.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>332</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 332 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>435 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Float/integer conversion without cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>333</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 333 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>306 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of C type cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>334</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 334 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>344 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast on volatile value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>335</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 335 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>203 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast on a constant value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>336</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 336 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>411 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Inappropriate value assigned to enum.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>337</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 337 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 J  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Unreachable Code found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>338</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 338 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>57 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Statement with no side effect.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>339</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 339 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>111 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Label is not part of switch statement (MR).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>340</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 340 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>13 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>goto detected.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>341</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 341 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>32 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of continue statement.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>342</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 342 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>31 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of break statement in loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>343</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 343 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>245 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Case statement in nested block.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>344</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 344 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>59 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Else alternative missing in if.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>345</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 345 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>62 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Switch case not terminated with break.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>346</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 346 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>48 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No default case in switch statement.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>347</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 347 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>121 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of boolean expression in switch.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>348</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Rule 348 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>61 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Switch contains default only.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>62 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Switch case not terminated with break.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>245 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Case statement in nested block.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>314 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Switch has only 1 case and default.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>349</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 349 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>39 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Unsuitable type for loop variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>350</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 350 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>269 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Empty increment exprsn in for loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>351</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 351 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>270 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>For loop initialisation is not simple.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>271 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>For loop incrementation is not simple.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>352</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Checking</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 352 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>269 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Empty increment exprsn in for loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>353</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 353 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>40 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Loop index is not declared locally.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>354</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 354 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>55 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Modification of loop counter in loop body.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>356</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Rule 356 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>7 C  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure has more than one exit point.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>39 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than one entry to a loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>40 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than one exit from a loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>122 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of abort, exit, etc.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>357</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 357 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>278 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Switch has missing or extra cases.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>358</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 358 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>56 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Equality comparison of floating point.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>360</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 360 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>114 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression is not Boolean.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>362</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='4'><Data ss:Type='String'>Rule 362 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>35 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression has side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 Q  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Call has execution order dependant side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>9 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Assignment operation in expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>31 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of break statement in loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>134 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Volatile variable in complex expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>363</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 363 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>49 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Logical conjunctions need brackets.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>361 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression needs brackets.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>364</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 364 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>106 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Volatile declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>365</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Optional</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Rule 365 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>332 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Widening cast on complex integer expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>442 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Signed integral type cast to unsigned.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>443 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Unsigned integral type cast to signed.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>444 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Integral type cast to non-integral.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>366</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 366 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>33 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of ternary operator found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>367</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 367 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>123 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of underlying enum representation value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>368</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 368 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>372</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 372 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>376</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 376 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>423 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operator new and no operator delete.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>424 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operator new[] and no operator delete[].</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>377</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 377 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>421 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>New or delete not explicitly static.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>382</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 382 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>453 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Throw found in destructor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>383</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 383 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>454 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Throw type is not a class type.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>384</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 384 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>455 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Catch is not by reference.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>393</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 393 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>90 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Basic type declaration used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>398</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Rule 398 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>96 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of mixed mode arithmetic.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>107 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Type mismatch in ternary expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>361 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression needs brackets.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>400</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Rule 400 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>87 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of pointer arithmetic.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>436 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Declaration does not specify an array.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>402</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 402 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>293 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non ANSI/ISO construct used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>403</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 403 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>293 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non ANSI/ISO construct used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>411</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Rule 411 of LMTCP</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>336 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>#if expansion contains define operator.</Data></Cell>
+   </Row>
+  </Table>
+    <WorksheetOptions xmlns='urn:schemas-microsoft-com:office:excel'>
+     <PageSetup>
+      <Layout x:Orientation='Landscape' x:CenterHorizontal='1'/>
+      <Header x:Margin='0.19685039370078741'
+       x:Data='&amp;CVersion 9.4.4 Copyright &copy; 2014 LDRA Ltd.&#10;Copies of this document are not to be made or distributed.'/>
+      <Footer x:Margin='0.19685039370078741'
+       x:Data='&amp;CLDRA Ltd. reserves the right to change any specifications contained within this document without prior notice.&#10;The document was deemed correct at time of distribution.'/>
+      <PageMargins x:Bottom='0.78740157480314965' x:Left='0.59055118110236227'
+       x:Right='0.59055118110236227' x:Top='0.78740157480314965'/>
+     </PageSetup>
+     <FitToPage/>
+     <Print>
+      <FitHeight>0</FitHeight>
+      <ValidPrinterInfo/>
+      <PaperSizeIndex>9</PaperSizeIndex>
+      <Scale>91</Scale>
+      <HorizontalResolution>600</HorizontalResolution>
+      <VerticalResolution>600</VerticalResolution>
+     </Print>
+    </WorksheetOptions>
+ </Worksheet>
+</Workbook>

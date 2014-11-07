@@ -1,0 +1,1360 @@
+<?xml version='1.0'?>
+<?mso-application progid='Excel.Sheet'?>
+<Workbook xmlns='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:o='urn:schemas-microsoft-com:office:office'
+ xmlns:x='urn:schemas-microsoft-com:office:excel'
+ xmlns:ss='urn:schemas-microsoft-com:office:spreadsheet'
+ xmlns:html='http://www.w3.org/TR/REC-html40'>
+ <DocumentProperties xmlns='urn:schemas-microsoft-com:office:office'>
+  <LastAuthor>LDRA Standards Wiki</LastAuthor>
+  <Created>2014-04-25T08:31:23Z</Created>
+  <LastSaved>2014-04-25T08:31:23Z</LastSaved>
+  <Version>12.0</Version>
+ </DocumentProperties>
+ <Styles>
+  <Style ss:ID='TableDefault'>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+    <Border ss:Position='Left' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+    <Border ss:Position='Right' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+    <Border ss:Position='Top' ss:LineStyle='None' ss:Weight='1' ss:Color='#B2B2B2'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='Default' ss:Name='Normal'>
+   <Alignment ss:Vertical='Top'/>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+   </Borders>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID='Title' ss:Name='Title' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='1'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='16' ss:Bold='1' ss:Color='#000000'/>
+   <Interior ss:Color='#FFCC99' ss:Pattern='Solid'/>
+   <Borders>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='Note' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='1'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+   <Interior ss:Color='#CCFFFF' ss:Pattern='Solid'/>
+   <Borders>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='2' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='Heading' ss:Name='Column Headings' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='1'/>
+   <Interior ss:Color='#C0C0C0' ss:Pattern='Solid'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='SummaryClass' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='SummaryValue' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='SummaryTotal' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Interior ss:Color='#C0C0C0' ss:Pattern='Solid'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Bold='1' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='ComplianceID' ss:Name='Model Rule Column' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='ComplianceClassification' ss:Name='Classification Column' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='ComplianceLDRA' ss:Name='LDRA Standard Column' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center' ss:WrapText='0'/>
+   <Font ss:FontName='Arial' x:Family='Swiss' ss:Size='11' ss:Color='#000000'/>
+  </Style>
+  <Style ss:ID='RuleDefault' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Center'/>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='RuleDefaultWrapped' ss:Parent='Default'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Left' ss:WrapText='1'/>
+   <Borders>
+    <Border ss:Position='Bottom' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Left' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Right' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+    <Border ss:Position='Top' ss:LineStyle='Continuous' ss:Weight='1' ss:Color='#000000'/>
+   </Borders>
+  </Style>
+  <Style ss:ID='RuleEnhancedCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#88FF88' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleEnhancedCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#88FF88' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleEnhancedCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#88FF88' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleFullCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#CCFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleFullCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#CCFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleFullCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#CCFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePartialCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#FFFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePartialCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#FFFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePartialCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#FFFFCC' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePendingCoverage' ss:Parent='RuleDefault'>
+   <Interior ss:Color='#CCCCFF' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePendingCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+   <Interior ss:Color='#CCCCFF' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RulePendingCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+   <Interior ss:Color='#CCCCFF' ss:Pattern='Solid'/>
+  </Style>
+  <Style ss:ID='RuleManualCoverage' ss:Parent='RuleDefault'>
+  </Style>
+  <Style ss:ID='RuleManualCoverageRight' ss:Parent='RuleDefault'>
+   <Alignment ss:Vertical='Center' ss:Horizontal='Right'/>
+  </Style>
+  <Style ss:ID='RuleManualCoverageWrapped' ss:Parent='RuleDefaultWrapped'>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name='Summary'>
+  <Table ss:StyleID='TableDefault'>
+   <Column ss:Index='1' ss:Width='75'/>
+   <Column ss:Index='2' ss:Width='75'/>
+   <Column ss:Index='3' ss:Width='75'/>
+   <Column ss:Index='4' ss:Width='75'/>
+   <Column ss:Index='5' ss:Width='75'/>
+   <Column ss:Index='6' ss:Width='75'/>
+   <Column ss:Index='7' ss:Width='37.5'/>
+   <Row ss:Height='20'>
+    <Cell ss:StyleID='Title' ss:MergeAcross='6'><Data ss:Type='String'>FSB582-C++ Standards Model Summary for C++</Data></Cell>
+   </Row>
+   <Row ss:Index='3' ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='Note' ss:MergeAcross='6'><Data ss:Type='String'>The LDRA tool suite&reg; is developed and certified to BS EN ISO 9001:2000.</Data></Cell>
+   </Row>
+   <Row ss:Index='5' ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='Note' ss:MergeAcross='6' ss:MergeDown='1'><Data ss:Type='String'>This information is applicable to version 9.4.4 of the LDRA tool suite&reg;.&#10;It is correct as of 25th April 2014.</Data></Cell>
+   </Row>
+   <Row ss:Index='8' ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='Note' ss:MergeAcross='6' ss:MergeDown='6'><Data ss:Type='String'>Compliance is measured against&#10;"C++ Coding Standard: Flight Software Branch - Code 582 Version 1.0"&#10;2003&#10;Copyright &copy; NASA&#10;&#10;Further information is available at http://aetd.gsfc.nasa.gov/code580</Data></Cell>
+   </Row>
+   <Row ss:Index='16'>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Classification</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Enhanced&#10;Enforcement</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Fully&#10;Implemented</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Partially&#10;Implemented</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Not yet&#10;Implemented</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Not statically&#10;Checkable</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Total</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID='SummaryClass'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleEnhancedCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage'><Data ss:Type='Number'>33</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage'><Data ss:Type='Number'>8</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage'><Data ss:Type='Number'>11</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage'><Data ss:Type='Number'>4</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>56</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID='SummaryClass'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleEnhancedCoverage'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage'><Data ss:Type='Number'>31</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage'><Data ss:Type='Number'>8</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage'><Data ss:Type='Number'>9</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage'><Data ss:Type='Number'>7</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>55</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='String'>Total</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'></Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>64</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>16</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>20</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>11</Data></Cell>
+    <Cell ss:StyleID='SummaryTotal'><Data ss:Type='Number'>111</Data></Cell>
+   </Row>
+  </Table>
+    <WorksheetOptions xmlns='urn:schemas-microsoft-com:office:excel'>
+     <PageSetup>
+      <Layout x:Orientation='Landscape' x:CenterHorizontal='1'/>
+      <Header x:Margin='0.19685039370078741'
+       x:Data='&amp;CVersion 9.4.4 Copyright &copy; 2014 LDRA Ltd.&#10;Copies of this document are not to be made or distributed.'/>
+      <Footer x:Margin='0.19685039370078741'
+       x:Data='&amp;CLDRA Ltd. reserves the right to change any specifications contained within this document without prior notice.&#10;The document was deemed correct at time of distribution.'/>
+      <PageMargins x:Bottom='0.78740157480314965' x:Left='0.59055118110236227'
+       x:Right='0.59055118110236227' x:Top='0.78740157480314965'/>
+     </PageSetup>
+     <FitToPage/>
+     <Print>
+      <FitHeight>0</FitHeight>
+      <ValidPrinterInfo/>
+      <PaperSizeIndex>9</PaperSizeIndex>
+      <Scale>91</Scale>
+      <HorizontalResolution>600</HorizontalResolution>
+      <VerticalResolution>600</VerticalResolution>
+     </Print>
+    </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name='Compliance'>
+  <Names>
+   <NamedRange ss:Name='Print_Titles' ss:RefersTo='=Compliance!R1:R3'/>
+  </Names>
+  <Table ss:StyleID='TableDefault'>
+   <Column ss:Index='1' ss:StyleID='ComplianceID'/>
+   <Column ss:Index='2' ss:StyleID='ComplianceClassification' ss:Width='95'/>
+   <Column ss:Index='3' ss:Width='250'/>
+   <Column ss:Index='4' ss:StyleID='ComplianceLDRA' ss:Width='55'/>
+   <Column ss:Index='5' ss:Width='250'/>
+   <Row ss:AutoRowHeight='1'>
+    <Cell ss:StyleID='Title' ss:MergeAcross='4'><Data ss:Type='String'>FSB582-C++ Standards Model Compliance for C++</Data></Cell>
+   </Row>
+   <Row ss:Index='3'>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Rule</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Classification</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>Rule Description</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>LDRA&#10;Standard</Data></Cell>
+    <Cell ss:StyleID='Heading'><Data ss:Type='String'>LDRA Standard Description</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='4'><Data ss:Type='String'>1.1</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='4'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='4'><Data ss:Type='String'>Compiler options shall be selected such that non-conformances to the ISO/IEC 14882 standard are elevated to errors.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>145 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>#if has invalid expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>404 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Array initialisation has too many items.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>481 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Array with no bounds in struct.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>580 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Macro redefinition without using #undef.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>615 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Conditional operator has incompatible types.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.2</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A given software unit shall only reference data applicable to its unit. If a unit references data from multiple units, then a redesign may be in order.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Explicit constants, (i.e., &quot;hard coded&quot; numbers) should not be used, except to establish identifiers to represent them (0 and 1 may be exceptions).</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>201 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of numeric literal in expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='1'><Data ss:Type='String'>1.4</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='1'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Use of preprocessor directives or macros should be minimized in C++.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>79 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Macro contains unacceptable items.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>340 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Use of function like macro.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.5</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Only one object should be declared per declaration.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>579 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than one variable per declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.6</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Variables shall not be declared within loops.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.7</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>iostream should not be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>130 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file is not permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.8</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>asserts shall not be included in delivered code</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>130 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file is not permitted.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.9</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Auto-generated code should not be modified.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>1.10</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Types should be typedef'd instead of relying on the default action of the compiler.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>90 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Basic type declaration used.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>495 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Typedef name has no size indication.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>1.11</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>A const shall never be converted to a non-const.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>203 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast on a constant value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>344 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Cast on volatile value.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='3'><Data ss:Type='String'>1.12</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='3'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Type casting should not be used</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>240 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Use of dynamic_cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>241 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Use of reinterpret_cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>242 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Use of const_cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>306 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Use of C type cast.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>1.13</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>static declarations inside methods should be used sparingly.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>37 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function has persistent local side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>101 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function has static member variable side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>102 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Void function has static member variable side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>1.14</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The C++ constructs true and false shall be used for Boolean values</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>1.15</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>throw/catch should not be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>280 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Catch keyword found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>281 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Throw keyword found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>1.17</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>throw/catch shall not be used in Interrupt Service Routines (ISRs).</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>280 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Catch keyword found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>281 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Throw keyword found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>2.1</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Objects should be dynamically allocated only once at initialization, immediately following boot-up.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>2.2</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Memory shall be de-allocated in the same scope in which it was allocated.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>2.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>malloc and free shall not be used</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>44 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of banned function or variable.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>2.4</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Variables or objects created with new shall be deleted with delete.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>2.5</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Array delete shall be used for array objects.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>485 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Array deletion without [].</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>2.6</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A pointer shall never be used after it has been deleted.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>3.1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>File extensions should be *.cpp and *.h or *.hpp.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>288 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Header file is not .h.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>300 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Filename extension is not .cpp.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>3.2</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Base filename should indicate what class is defined therein.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>289 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Header file name does not include class name.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>290 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>File name does not contain defined class name.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>3.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Each file should define or implement one class.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>258 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than one class in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>3.4</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The grouping of methods, within each section (public, private, protected), should be consistent throughout all classes for a project.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>3.5</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>File length, including white space and comments, should not exceed 1000 lines.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>4 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Procedure exceeds *** reformatted lines.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>3.6</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Header files shall be protected with an #ifndef read-once latch.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>243 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Included file not protected with #define.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>3.7</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Each header file shall #include the files it needs to compile. #includes shall be limited to what the header needs.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>3.8</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Header files shall not generate object code.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>286 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Functions defined in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>287 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Variable definition in header file.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>3.9</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Quotes should be used to include files in the project source tree.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>568 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>#include &quot;filename&quot; uses standard library name.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A class should be declared with a maximum of one of each of the following sections, in the order public, protected, private.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>197 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Access specifiers in invalid order.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='8'><Data ss:Type='String'>4.2</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='8'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='8'><Data ss:Type='String'>Certain methods of a class should be implemented.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>233 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No copy constructor for class with pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>234 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No assignment operator for class with pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>235 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No destructor for class with pointers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>260 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No default constructor declared for class.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>303 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Virtual class members need virtual destructor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>469 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No copy constructor for complex destructor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>470 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No assignment operator for complex destrtor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>532 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No copy ctor for templated copy ctor.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>533 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>No assgnmt optor for templated assgmnt op.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Public data members shall never be used; all data members should be private.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>202 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Class data is not explicitly private.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.4</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>friend classes shall never be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>213 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of friend class.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.5</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Multiple inheritance shall never be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>205 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of multiple inheritance.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='1'><Data ss:Type='String'>4.6</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='1'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>The use of global variables and functions should be avoided.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>10 D  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Globals used inside procedure.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>78 D  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Global variable should be declared const.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.7</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Classes should be used instead of structures.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.8</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A class's declaration should make clear the logical usage of the class.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.9</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Upon creation, an object created from a class shall be in a valid state, ready to be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>319 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Constructor has insufficient initialisers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>4.10</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>User-defined types shall be passed by reference.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='6'><Data ss:Type='String'>4.11</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='6'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='6'><Data ss:Type='String'>Code shall never return a reference or pointer to a local variable.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>42 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Local pointer returned in function result.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>77 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Local structure returned in function result.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>71 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Pointer assignment to wider scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>503 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function returns local resources.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>519 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Return of reference parameter.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>564 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Reference assignment to wider scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>565 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Assignment to wider scope.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>5.1</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Inline functions shall only be used for access methods and limited to three (3) lines or less.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>297 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Inline member has more than *** source lines.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>5.2</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Inline methods definitions shall be placed in the implementation (body) file.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>162 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Method defined within class declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>498 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of inline keyword.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>6.1</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The return type of a method shall be provided explicitly.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>36 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Function has no return statement.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>6.2</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Methods that accept no parameters should have an explicit parameter list of void.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>63 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Empty parameter list to procedure/function.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>6.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Class methods should use const wherever possible.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>46 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Member function may be declared const.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>6.4</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The virtual keyword shall be used to identify a modified inherited method.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>214 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Member not declared virtual.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>6.5</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The formal arguments of methods shall have names, and the same names should be used in both the method declaration and the method definition.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>37 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Procedure parameter has a type but no identifier.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>6.6</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>When declaring methods, the leading parenthesis and the first argument (if any) should be written on the same line as the method name.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>291 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>First parameter not on same line as function.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>6.7</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Method length, including white space and comments, should not exceed 100 lines.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>256 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure exceeds *** source lines of code.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>7.1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Constructors should initialize each data member in the class to a valid default value.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>319 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Constructor has insufficient initialisers.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>7.2</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Members should appear in an initialization list in the order in which they are declared, one per line and equally indented.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>206 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Class initialiser out of order.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>7.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Constructors and Destructors shall never be inline.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>162 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Method defined within class declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>266 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Constructor defined within class declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>7.4</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>delete should be called on all pointer members in a destructor.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>7.5</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Objects created with new should, when possible, be delete'd in the reverse order.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='1'><Data ss:Type='String'>8.1</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Overloaded Operators shall not change the meaning of C++ operators.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>211 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Overloaded &amp;&amp;, || or comma.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>508 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Operator &amp; overloaded.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>8.2</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>When an operator has an opposite both shall be defined.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>253 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Opposite type operator missing.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>8.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>If the operator &quot;=&quot; is overloaded, it shall return a reference to *this.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>254 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Operator = doesn't return reference to *this.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>8.4</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>If the operator &quot;=&quot;is overloaded, all data members shall be assigned.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>52 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Member(s) not assigned in = operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>8.5</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>If the operator &quot;=&quot;is overloaded, it shall include an assignment to self.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>9.1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>The flow control primitives if, else, while, for, and do should be followed by a block. If an empty block is used, a comment indicating that the block is intentionally left blank should be used to indicate that the code is complete.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>5 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Empty then clause.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>8 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Empty else clause.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>11 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No brackets to loop body (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>12 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No brackets to then/else (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.2</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The switch statement should be used instead of long if---else if--- chains whenever tests for equality of scalar expressions are being made.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='7'><Data ss:Type='String'>9.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='7'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='7'><Data ss:Type='String'>The use of the loop constructs do, while, and for shall follow the recommendations of Kernighan and Ritchie .</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>38 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>More than one control variable for loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>55 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Modification of loop counter in loop body.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>66 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Non boolean control variable modified in loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>75 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Attempt to open file pointer more than once.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>271 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>For loop incrementation is not simple.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>510 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Loop counter increment and operator defect.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>537 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Extra loop control variable changed.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>542 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Extra loop control variable is not bool.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>9.4</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>Nesting levels greater than six (6) deep should not be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>10 C  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Loop depth greater than ***.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>370 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>If nest depth greater than ***.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.5</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The ternary conditional operator ( ?: ) shall not be nested.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.6</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Only one exit point ( return ) should be used in a single method.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>7 C  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Procedure has more than one exit point.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.7</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The code following a case label shall be terminated by a break statement.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>62 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Switch case not terminated with break.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.8</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A switch statement shall always contain a default case.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>48 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No default case in switch statement.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.9</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>breaks shall only be used in switch statements</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>31 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of break statement in loop.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.10</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>goto shall never be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>13 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>goto detected.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.11</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>unsigned shall be used only for variables that cannot have negative values.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>476 S  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Array index not unsigned.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.12</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Inclusive lower limits and exclusive upper limits shall be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.13</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The continue statement shall never be used.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>32 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of continue statement.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.14</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Logical operators shall not be used on non-Boolean values.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>114 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression is not Boolean.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.15</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Parentheses shall be used to clarify the order of evaluation for operators in expressions.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>361 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression needs brackets.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.16</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Parentheses shall be used on the operand of &lt;&lt; and &gt;&gt; IO operators.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='7'><Data ss:Type='String'>9.17</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='7'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='7'><Data ss:Type='String'>Side effects within expressions should be used sparingly.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>22 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Function has global variable side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>35 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression has side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>72 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Potential side effect problem in expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>74 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Potential side effect from repeated function call.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 Q  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Call has execution order dependant side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>9 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Assignment operation in expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>30 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Deprecated usage of ++ or -- operators found.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>134 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Volatile variable in complex expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>9.18</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>The layout style of an if---else if-- chain should be as specified.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>188 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ or } not on line by itself.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>190 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ ... } contents not indented by *** spaces.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>301 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>} not aligned vertically below {.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>9.19</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='1'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='1'><Data ss:Type='String'>An if---else if--- chain shall always end with an else clause.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>59 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Else alternative missing in if.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>477 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Empty else clause following else if.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>9.21</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>|| and &amp;&amp; should not be used with right-hand operands having side effects.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>35 D  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Expression has side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>1 Q  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Call has execution order dependant side effects.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>406 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Use of ++ or -- on RHS of &amp;&amp; or || operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>408 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Volatile variable accessed on RHS of &amp;&amp; or ||.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>9.22</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Whenever || and &amp;&amp; are mixed in the same expression, parentheses should be used for clarity.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>49 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Logical conjunctions need brackets.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>10.1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Styles for brackets and indenting shall be consistent throughout the project.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>188 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ or } not on line by itself.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>190 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ ... } contents not indented by *** spaces.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>301 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>} not aligned vertically below {.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>10.2</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>The format of a switch statement should be as specified.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>48 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No default case in switch statement.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>322 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Default is not last case of switch.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>428 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No {} for switch (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>10.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Braces delineating blocks shall be in one of the specified forms.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>188 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ or } not on line by itself.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>190 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ ... } contents not indented by *** spaces.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>301 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>} not aligned vertically below {.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.4</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>All code should be indented a minimum of three spaces for each indentation level</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>190 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ ... } contents not indented by *** spaces.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.5</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Statements at the same logical nesting level should be at the same level of indentation.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>190 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>{ ... } contents not indented by *** spaces.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.6</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Tabular indentation shall not be used</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>187 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Tab character in source.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>10.7</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='2'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='2'><Data ss:Type='String'>Each line should contain only one statement.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>178 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Declaration statement not on new line.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>183 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No newline after semi colon.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>259 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Statement not on new line (added by Testbed).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.8</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Blank lines should be used between blocks of code that are functionally.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.9</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A minimum of two blank lines should separate individual functions.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>386 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Less than *** blank lines separating procs.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.11</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A minimum of one blank line should separate the declarations and the code in a method.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>10.12</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='4'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='4'><Data ss:Type='String'>Blank spaces should be used anywhere where spacing improves readability.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>181 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No space between if, while, for and expresn.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>182 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No space after semi colon in for expression.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>186 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Space missing before or after binary operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>371 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No space after comma in parameter list.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>504 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Space required between &gt; and &gt;.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>10.13</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='3'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Spaces should not be used around '.' or '-&gt;' , or between unary operators and operands</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>184 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Spaces round -&gt; or [] operators.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>185 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Space between unary operator and operand.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>315 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Blank before/after . operator.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>372 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>* or &amp; not attached to name in declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.14</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Source lines shall not exceed 120 characters in length.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>189 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Input line exceeds limit.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>10.15</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Groups of data assignments should be aligned.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.1</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>All code shall be appropriately commented.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.2</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A block comment with the appropriate configuration management tags should be included at the top of all files.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.3</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Code that has been &quot;commented out&quot; shall be removed.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>302 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>Comment possibly contains code.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.4</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>All class header files shall contain a prolog.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.5</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Full English sentences or intelligible phrases shall be used for comments.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.6</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>The purpose of code blocks should be explained with separate comments indented at the same level as the code.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.7</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Comments should be included as &quot;paragraph headers&quot; to a block of code rather than to comment every line.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.8</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A comment should follow the declaration of a variable whenever it clarifies its usage.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>472 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No comment after declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.9</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Statement and variable comments should line up.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.10</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Each global variable shall have a comment explaining its usage.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>472 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>No comment after declaration.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.11</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Anything obvious should not be commented.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleManualCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RuleManualCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.12</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>No comment should be followed by program code on the same line.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>11.13</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverage' ss:MergeDown='0'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>A space shall be inserted between the text of a comment and the delimiters //, /*, and */.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePendingCoverage'><Data ss:Type='String'></Data></Cell>
+    <Cell ss:StyleID='RulePendingCoverageWrapped'><Data ss:Type='String'></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>12.1</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverage' ss:MergeDown='0'><Data ss:Type='String'>Discretionary</Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped' ss:MergeDown='0'><Data ss:Type='String'>Variable names should never begin with an underscore.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RuleFullCoverageRight'><Data ss:Type='String'>219 S  </Data></Cell>
+    <Cell ss:StyleID='RuleFullCoverageWrapped'><Data ss:Type='String'>User name starts with underscore.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='3'><Data ss:Type='String'>12.2</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverage' ss:MergeDown='3'><Data ss:Type='String'>Mandatory</Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped' ss:MergeDown='3'><Data ss:Type='String'>Class names must identify the type of object they represent.</Data></Cell>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>1 H  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Global Variable does not conform to style g_&lt;name&gt;.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>2 H  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Class Member does not conform to style m_&lt;name&gt;.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>4 H  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Class Name does not conform to style C&lt;name&gt;.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight='1'>
+    <Cell ss:Index='4' ss:StyleID='RulePartialCoverageRight'><Data ss:Type='String'>7 H  </Data></Cell>
+    <Cell ss:StyleID='RulePartialCoverageWrapped'><Data ss:Type='String'>Enum Name does not conform to style E&lt;name&gt;.</Data></Cell>
+   </Row>
+  </Table>
+    <WorksheetOptions xmlns='urn:schemas-microsoft-com:office:excel'>
+     <PageSetup>
+      <Layout x:Orientation='Landscape' x:CenterHorizontal='1'/>
+      <Header x:Margin='0.19685039370078741'
+       x:Data='&amp;CVersion 9.4.4 Copyright &copy; 2014 LDRA Ltd.&#10;Copies of this document are not to be made or distributed.'/>
+      <Footer x:Margin='0.19685039370078741'
+       x:Data='&amp;CLDRA Ltd. reserves the right to change any specifications contained within this document without prior notice.&#10;The document was deemed correct at time of distribution.'/>
+      <PageMargins x:Bottom='0.78740157480314965' x:Left='0.59055118110236227'
+       x:Right='0.59055118110236227' x:Top='0.78740157480314965'/>
+     </PageSetup>
+     <FitToPage/>
+     <Print>
+      <FitHeight>0</FitHeight>
+      <ValidPrinterInfo/>
+      <PaperSizeIndex>9</PaperSizeIndex>
+      <Scale>91</Scale>
+      <HorizontalResolution>600</HorizontalResolution>
+      <VerticalResolution>600</VerticalResolution>
+     </Print>
+    </WorksheetOptions>
+ </Worksheet>
+</Workbook>

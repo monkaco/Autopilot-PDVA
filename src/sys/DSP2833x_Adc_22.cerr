@@ -1,0 +1,48 @@
+
+Phase : Main Static Analysis - Stat
+System : AutoP
+Source : F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\sys\DSP2833x_Adc.c
+GLH File : C:\LDRA_Workarea\AutoP_tbwrkfls\AutoP.glh
+Executable : C:\LDRA_Toolsuite\c\cstat.exe
+Message produced on: Fri Nov 07 2014 at 10:24:45
+
+
+
+ The message below may have been generated as a result
+ of incorrect LDRA Testbed Analysis Scope settings.
+ Check that your code compiles and as part of this 
+ process, document the compiler preprocessor settings.
+ These settings then need to be reflected in the LDRA 
+ Testbed data file SYSPPVAR.DAT. See Macro Expansion in 
+ the User Manual for further details.
+
+
+      2 NUMBER OF ENTRIES 
+     14      0     94 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\sys\DSP2833x_Device.h
+    120      0     91 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\sys\DSP2833x_Adc.h
+    525 NUMBER OF LINES
+
+
+      2 FILES HAVE BEEN OPENED FOR INCLUSION. THEY ARE:
+
+           
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\sys\DSP2833x_Device.h
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\sys\DSP2833x_Adc.h
+
+ The total line number is:      383
+ The local line number is:      264 in the file under test: F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\sys\DSP2833x_Adc.h
+ *******************************************************************************
+ ******                   SYNTACTIC ERROR NO     145                      ******
+ ******                       STATIC ANALYSIS                             ******
+ ******             CHECK THAT PROGRAM BEING ANALYSED COMPILES            ******
+ ******              THEN CONTACT TESTBED MAINTENANCE EITHER              ******
+ ******                            LOCALLY, OR                            ******
+ ******                        AT L. D. R. A.  LTD.                       ******
+ ******                       TEL. NO. (0151) 649 9300                    ******
+ ******                       FAX. NO. (0151) 649 9666                    ******
+ ******                        email: support@ldra.com                    ******
+ ******                QUOTING THE FOLLOWING ERROR MESSAGE.               ******
+ *******************************************************************************
+
+
+ INVALID BLOCKLEVEL - BLKLVL 

@@ -1,0 +1,1028 @@
+     1F/*
+     2FC TESTBED VERSION  : 9.4.4                                                                                               
+     3FFILE UNDER TEST  : "F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\ekf_update.c"         
+     4FDATE OF ANALYSIS : Fri Nov 07 10:50:00 2014                          
+     5F*/
+     6F//############################################################################
+     7F//
+     8F// File: EKF_Update.c
+     9F// Version: 0.1
+    10F//
+    11F// Description: Implementation EKF update functions.
+    12F//
+    13F//############################################################################
+    14F// Author: Rogério Lima
+    15F// Release Date: July 2012
+    16F//############################################################################
+    17F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h */
+    18F//############################################################################
+    19F//
+    20F// File:         dsp_sensorhead_types.h
+    21F// Version:      0.1
+    22F//
+    23F// Description: Structure and variable definitions.
+    24F//
+    25F//############################################################################
+    26F// Author: Rogério Lima
+    27F// Release Date: July 2012
+    28F//############################################################################
+    29F#ifndef DSP_SENSORHEAD_TYPES_H
+    30F#define DSP_SENSORHEAD_TYPES_H
+    31F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h */
+    32F//############################################################################
+    33F//
+    34F// File:         dsp_types.h
+    35F// Version:      0.1
+    36F//
+    37F// Description: Structure and variable definitions.
+    38F//
+    39F//############################################################################
+    40F// Author: Rogério Lima
+    41F// Release Date: July 2012
+    42F//############################################################################
+    43F#ifndef DSP_TYPES_H
+    44F#define DSP_TYPES_H
+    45F/* These definitions might not be 8-bit wide */
+    46F
+    47Ftypedef
+    48Fsigned char
+    49F  int8_t ;
+    50F
+    51Ftypedef
+    52Funsigned char
+    53F  uint8_t ;
+    54F  /* 7.18.1.1 Exact-width integer types */
+    55F
+    56Ftypedef
+    57Fshort
+    58F  int16_t ;
+    59F
+    60Ftypedef
+    61Funsigned short
+    62F  uint16_t ;
+    63F
+    64Ftypedef
+    65Flong
+    66F  int32_t ;
+    67F
+    68Ftypedef
+    69Funsigned long
+    70F  uint32_t ;
+    71F       /* DSP_TYPES_H */
+    72F 
+    73F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h*/
+    74F/*   CLOSE_FILE Include File */
+    75F 
+    76F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h */
+    77F//############################################################################
+    78F//
+    79F// File:         EKF_Quat.h
+    80F// Version:      0.1
+    81F//
+    82F// Description: Preprocessor definitions and function declarations for quater-
+    83F//       nion calculations.
+    84F//
+    85F//############################################################################
+    86F// Author: Rogério Lima
+    87F// Release Date: July 2012
+    88F//############################################################################
+    89F#ifndef __EKF_quat_h
+    90F#define __EKF_quat_h
+    91F
+    92Ftypedef
+    93Fstruct _quat
+    94F{
+    95F  float a ,
+    96F  b ,
+    97F  c ,
+    98F  d ;
+    99F} quat ;
+   100F
+   101Fint16_t
+   102T  quat_mult (
+   103F  quat * src1 ,
+   104F  quat * src2 ,
+   105F  quat * dest ) ;
+   106F
+   107Fint16_t
+   108T  quat_conj (
+   109F  quat * src ,
+   110F  quat * dest ) ;
+   111F
+   112Fint16_t
+   113T  quat_norm (
+   114F  quat * src ) ;
+   115F
+   116Fint16_t
+   117T  quat_add (
+   118F  quat * src1 ,
+   119F  quat * src2 ,
+   120F  quat * dest ) ;
+   121F
+   122Fint16_t
+   123T  quat_subtract (
+   124F  quat * src1 ,
+   125F  quat * src2 ,
+   126F  quat * dest ) ;
+   127F
+   128Fint16_t
+   129T  quat_scalar_mult (
+   130F  quat * qsrc ,
+   131F  float scalar ,
+   132F  quat * dest ) ;
+   133F 
+   134F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h*/
+   135F/*   CLOSE_FILE Include File */
+   136F 
+   137F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h */
+   138F//############################################################################
+   139F//
+   140F// File: dsp_matrix.h
+   141F// Version: 0.1
+   142F//
+   143F// Description: Preprocessor definitions and function declarations for matrix
+   144F// calculations.
+   145F//
+   146F//############################################################################
+   147F// Author: Rogério Lima
+   148F// Release Date: July 2012
+   149F//############################################################################
+   150F#ifndef DSP_MATRIX_H
+   151F#define DSP_MATRIX_H
+   152F#define MATRIX_MAX_ROWS 12
+   153F#define MATRIX_MAX_COLUMNS 12
+   154F
+   155Ftypedef
+   156Fstruct _fMatrix
+   157F{
+   158F  int rows ;
+   159F  int columns ;
+   160F  float data [ 12 ] [ 12 ] ;
+   161F} fMatrix ;
+   162F// Matrix operations
+   163F
+   164Fint
+   165T  mat_add (
+   166F  fMatrix * src1 ,
+   167F  fMatrix * src2 ,
+   168F  fMatrix * dest ) ;
+   169F
+   170Fint
+   171T  mat_mult (
+   172F  fMatrix * src1 ,
+   173F  fMatrix * src2 ,
+   174F  fMatrix * dest ) ;
+   175F
+   176Fint
+   177T  mat_scalar_mult (
+   178F  float scalar ,
+   179F  fMatrix * src ,
+   180F  fMatrix * dest ) ;
+   181F
+   182Fint
+   183T  mat_determinant (
+   184F  fMatrix * src ,
+   185F  float * det ) ;
+   186F
+   187Fint
+   188T  mat_transpose (
+   189F  fMatrix * src ,
+   190F  fMatrix * dest ) ;
+   191F
+   192Fint
+   193T  mat_create_identity (
+   194F  fMatrix * dest ,
+   195F  int rows ,
+   196F  int columns ) ;
+   197F
+   198Fint
+   199T  mat_zero (
+   200F  fMatrix * dest ,
+   201F  int rows ,
+   202F  int columns ) ;
+   203F
+   204Fint
+   205T  mat_copy (
+   206F  fMatrix * src ,
+   207F  fMatrix * dest ) ;
+   208F//int mat_print( fMatrix* matrix );
+   209F//void hexPrint16( short byte );
+   210F 
+   211F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h*/
+   212F/*   CLOSE_FILE Include File */
+   213F 
+   214F#define SUCCESS ( 1 == 1 )
+   215F#define FAIL ( 0 == 1 )
+   216F#define MAG_UPDATE 0
+   217F#define ACCEL_UPDATE 1
+   218F         // Original values
+   219F#define ACCEL_VARIANCE 223.59E-4f
+   220F#define GYRO_VARIANCE 68.81E-5f
+   221F#define GYRO_BIAS_VARIANCE 201.93E-3f
+   222F#define MAGNETO_VARIANCE 48.12E-5f
+   223F#define GPS_VARIANCE 1.6E-3f
+   224F#define QUATERNION_NORM_VARIANCE 1.0E-9f
+   225F#define ACCEL_SCALE_FACTOR 0.03830859375f
+   226F#define GYRO_SCALE_FACTOR_DEG 0.06956521739f
+   227F#define GYRO_SCALE_FACTOR_RAD 0.00121414208f
+   228F#define MAG_SCALE_FACTOR 0.00151515151f
+   229F#define RAD2DEG 57.2957795130f
+   230F#define DEG2RAD 0.01745329251f
+   231F#define KM2M 0.27777777778f
+   232F//#define       ABS_PRESSURE_SCALE_FACTOR // -> Transfer function
+   233F//#define       DIFF_PRESSURE_SCALE_FACTOR // -> Transfer function
+   234F/* Structure for holding raw sensor data */
+   235F
+   236Ftypedef
+   237Fstruct sensor_data_raw
+   238F{
+   239F  int16_t gyro_x ;
+   240F  int16_t gyro_y ;
+   241F  int16_t gyro_z ;
+   242F  int16_t new_gyro_data ;
+   243F  int16_t accel_x ;
+   244F  int16_t accel_y ;
+   245F  int16_t accel_z ;
+   246F        // Flag specifies whether there is new accel data in the sensor data structure
+   247F  int16_t new_accel_data ;
+   248F  int16_t mag_x ;
+   249F  int16_t mag_y ;
+   250F  int16_t mag_z ;
+   251F        // Flag specifies whether there is new magnetometer data in the sensor data structure
+   252F  int16_t new_mag_data ;
+   253F        // Rate gyro temperature measurement
+   254F  int16_t gyro_temperature ;
+   255F  int32_t abs_pressure ;
+   256F  int16_t new_abs_pressure_data ;
+   257F  int16_t diff_pressure ;
+   258F  int16_t new_diff_pressure_data ;
+   259F} sensor_data_raw_t ;
+   260F/* Structure for holding scaled sensor data */
+   261F
+   262Ftypedef
+   263F  struct
+   264F  {
+   265F    float gyro_x ;
+   266F    float gyro_y ;
+   267F    float gyro_z ;
+   268F    float accel_x ;
+   269F    float accel_y ;
+   270F    float accel_z ;
+   271F    float mag_x ;
+   272F    float mag_y ;
+   273F    float mag_z ;
+   274F    float gyro_temperature ;
+   275F    float abs_pressure ;
+   276F    float baro_altitude ;
+   277F    float diff_pressure ;
+   278F    float airspeed ;
+   279F        /* GPS data */
+   280F        /* Latitude */
+   281F    int16_t gps_lat_deg ;
+   282F    uint32_t gps_lat_min ;
+   283F    uint8_t gps_lat_sector ;
+   284F        /* Longitude */
+   285F    int16_t gps_lon_deg ;
+   286F    uint32_t gps_lon_min ;
+   287F    uint8_t gps_lon_sector ;
+   288F        /* Altitude */
+   289F    int32_t gps_alt ;
+   290F        /* Speed */
+   291F    int32_t gps_speed ;
+   292F    int32_t gps_course ;
+   293F        /* Time */
+   294F    uint16_t gps_hour ;
+   295F    uint16_t gps_min ;
+   296F    float gps_sec ;
+   297F        // Status
+   298F    uint16_t gps_position_fix_status ;
+   299F    uint16_t gps_no_sv ;
+   300F    float gps_hdop ;
+   301F    uint16_t gps_new_message ;
+   302F  } sensor_data_scaled_t ;
+   303F// Structure for storing AHRS states and other data related to state computation
+   304F// This structure is, in a way, redundant because all this data is also stored in the
+   305F// UM6_config or UM6_data structures. However, in the config and data strucutres, the
+   306F// data is packaged as UInt32 entries into an array for convenience with communication.
+   307F// To use the data as floats, special formatting is required. This structure provides
+   308F// a place to store that data in the expected format, which makes accessing it easier.
+   309F
+   310Ftypedef
+   311F  struct
+   312F  {
+   313F        /* Attitude states */
+   314F    float psi ;
+   315F    float theta ;
+   316F    float phi ;
+   317F        /* Angle rate states */
+   318F    float psi_dot ;
+   319F    float theta_dot ;
+   320F    float phi_dot ;
+   321F        /* Quaternion states "qib" = Quaternion from Inertial to Body */
+   322F    quat qib ;
+   323F    quat quat_debug ;
+   324F        /* Gyro biases */
+   325F    float bias_p ;
+   326F    float bias_q ;
+   327F    float bias_r ;
+   328F        /* Accelerometer biases */
+   329F    float bias_accel_x ;
+   330F    float bias_accel_y ;
+   331F    float bias_accel_z ;
+   332F        /* Magnetometer biases */
+   333F    float bias_mag_x ;
+   334F    float bias_mag_y ;
+   335F    float bias_mag_z ;
+   336F        /* State Transition Matrix (jacobian of system matrix 'f') */
+   337F    fMatrix jac_f ;
+   338F        /* Linearized measurement equation (jacobian of output equation 'h') */
+   339F    fMatrix jac_h ;
+   340F        /* Measurement noise matrix */
+   341F    fMatrix R ;
+   342F        /* Auxiliary construction measurement matrix for phi and theta angles. */
+   343F    fMatrix R_phi_theta ;
+   344F        /* Auxiliary construction measurement matrix for psi angle. */
+   345F    fMatrix R_psi ;
+   346F        /* Process noise matrix */
+   347F    fMatrix Q ;
+   348F        /* Accelerometer alignment matrix */
+   349F    fMatrix accel_align_mat ;
+   350F        /* Gyro alignment matrix */
+   351F    fMatrix gyro_align_mat ;
+   352F        /* Magnetometer calibration matrix */
+   353F    fMatrix mag_align_mat ;
+   354F        // Error covariance matrix
+   355F    fMatrix P ;
+   356F        /* Magnetic field reference vector */
+   357F    float mag_ref_x ;
+   358F    float mag_ref_y ;
+   359F    float mag_ref_z ;
+   360F        /* Accelerometer reference vector */
+   361F    float accel_ref_x ;
+   362F    float accel_ref_y ;
+   363F    float accel_ref_z ;
+   364F        /* Accelerometer variance */
+   365F    float accel_var ;
+   366F        /* Gyrometer variance */
+   367F    float gyro_var ;
+   368F        /* Gyro bias variance */
+   369F    float gyro_bias_var ;
+   370F        /* Magnetometer variance */
+   371F    float mag_var ;
+   372F        /* GPS velocity variance */
+   373F    float gps_var ;
+   374F    float U ;
+   375F    float V ;
+   376F    float W ;
+   377F    float U_ant ;
+   378F    float V_ant ;
+   379F    float W_ant ;
+   380F    float U_dot ;
+   381F    float V_dot ;
+   382F    float W_dot ;
+   383F    float temperature ;
+   384F        // Time sampling
+   385F    float Ts ;    // In seconds
+   386F    float debug_misc [ 5 ] ;
+   387F        // GPS stuffs
+   388F    float GPS_north ;    // In meters
+   389F    float GPS_east ;
+   390F    float GPS_h ;
+   391F    float GPS_h_ant ;
+   392F    float GPS_speed ;    // In m/s
+   393F    float GPS_speed_ant ;    // past speed
+   394F    float GPS_heading ;    // In m/s
+   395F    float GPS_Ts ;
+   396F    float GPS_lat_home ;
+   397F    float GPS_lon_home ;
+   398F    float GPS_alt_home ;
+   399F  } ahrs_states_t ;
+   400F// Structure for holding raw sensor data
+   401F
+   402Ftypedef
+   403F  struct
+   404F  {
+   405F        // input
+   406F    float xk [ 9 ] ;
+   407F    float xk_1 [ 9 ] ;
+   408F    float xk_2 [ 9 ] ;
+   409F        // output
+   410F    float yk [ 9 ] ;
+   411F    float yk_1 [ 9 ] ;
+   412F    float yk_2 [ 9 ] ;
+   413F    float a [ 5 ] ; // denominator coefficient
+   414F    float b [ 5 ] ; // numerator coefficient
+   415F  } digital_filter_data_t ;
+   416F
+   417Fvoid
+   418T  compute_euler_angles (
+   419F  ahrs_states_t * estimated_states ) ;
+   420F
+   421Fvoid
+   422T  unroll_states (
+   423F  ahrs_states_t * states ) ;
+   424F 
+   425F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h*/
+   426F/*   CLOSE_FILE Include File */
+   427F 
+   428F/* LDRA REMOVE #include "dsp_matrix.h" */
+   429F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_ekf.h */
+   430F//############################################################################
+   431F//
+   432F// File: EKF_Funcs.h
+   433F// Version: 0.1
+   434F//
+   435F// Description: Preprocessor definitions and function declarations for EKF
+   436F// calculations.
+   437F//
+   438F//############################################################################
+   439F// Author: Rogério Lima
+   440F// Release Date: July 2012
+   441F//############################################################################
+   442F#ifndef DSP_EKF_H
+   443F#define DSP_EKF_H
+   444F/* Function prototypes */
+   445F
+   446Fvoid
+   447T  ekf_init (
+   448F  ahrs_states_t * estimated_states ) ;
+   449F  /* EKF prediction functions */
+   450F
+   451Fvoid
+   452T  ekf_prediction (
+   453F  ahrs_states_t * estimated_states ,
+   454F  sensor_data_scaled_t * scaled_data ) ;
+   455F
+   456Fvoid
+   457T  ekf_stm (
+   458F  ahrs_states_t * estimated_states ,
+   459F  fMatrix * stm ,
+   460F  sensor_data_scaled_t * scaled_data ) ;
+   461F
+   462Fvoid
+   463T  ekf_apriori_covariance (
+   464F  ahrs_states_t * estimated_states ,
+   465F  fMatrix * F ) ;
+   466F
+   467Fvoid
+   468T  ekf_apriori_estimate (
+   469F  ahrs_states_t * estimated_states ,
+   470F  sensor_data_scaled_t * scaled_data ) ;
+   471F  /* EKF correction functions */
+   472F
+   473Fvoid
+   474T  ekf_correction (
+   475F  ahrs_states_t * estimated_states ,
+   476F  sensor_data_scaled_t * scaled_data ) ;
+   477F
+   478Fvoid
+   479T  ekf_h_matrix (
+   480F  ahrs_states_t * estimated_states ,
+   481F  fMatrix * H ) ;
+   482F  /* General functions */
+   483F
+   484Fvoid
+   485T  ekf_estimate_states (
+   486F  ahrs_states_t * states ,
+   487F  sensor_data_scaled_t * scaled_data ) ;
+   488F// General functions
+   489F//void EKF_Init( ahrs_states_t* estimated_states );
+   490F//void EKF_InitFromSensors( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   491F//void EKF_EstimateStates( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   492F//void EKF_Predict( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   493F//void EKF_Update( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   494F//void EKF_Correction( fMatrix* C, float sensor_data, float sensor_hat, float sensor_covariance, ahrs_states_t* estimated_states, int sensor_type );
+   495F/* Digital filtering prototype functions */
+   496F
+   497Fvoid
+   498T  lpf_butterworth_init (
+   499F  digital_filter_data_t * filtered_dat ) ;
+   500F
+   501Fvoid
+   502T  lpf_butterworth (
+   503F  sensor_data_scaled_t * input_scaled_data ,
+   504F  digital_filter_data_t * filtered_dat ) ;
+   505F 
+   506F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_ekf.h*/
+   507F/*   CLOSE_FILE Include File */
+   508F 
+   509F#include <math.h>
+   510F
+   511Fuint8_t
+   512F  NewGpsMessage = 1U ;
+   513F
+   514Fvoid
+   515T  ekf_correction (
+   516F  ahrs_states_t * estimated_states ,
+   517F  sensor_data_scaled_t * scaled_data )
+   518F  {
+   519F    fMatrix Mxyz ,
+   520F      MxyzTranspose ;
+   521F    fMatrix H ,
+   522F      h ,
+   523F      PhT ,
+   524F      sigma2_phi_theta ,
+   525F      M_phi_theta ,
+   526F      M_phi_thetaTranspose ;
+   527F    fMatrix M_H12 ,
+   528F      M_H12Transpose ,
+   529F      M_psi ,
+   530F      M_psiTranspose ,
+   531F      sigma2_psi ;
+   532F    fMatrix temp11 ,
+   533F      temp71 ,
+   534F      temp77 ,
+   535F      temp77_ ,
+   536F      temp2_12 ,
+   537F      temp23 ,
+   538F      sum ;
+   539F    fMatrix temp12 ,
+   540F      temp13 ;
+   541F    fMatrix y ,
+   542F      h_meas ,
+   543F      h_meas_aux ,
+   544F      error ,
+   545F      K ;
+   546F    float
+   547F      q0 ,
+   548F      q1 ,
+   549F      q2 ,
+   550F      q3 ,
+   551F      scalar ,
+   552F      H1 ,
+   553F      H2 ,
+   554F      temp ;
+   555F    float
+   556F      phi_ ,
+   557F      the_ ,
+   558F      psi_ ,
+   559F      cos_phi ,
+   560F      sin_phi ,
+   561F      cos_the ,
+   562F      sin_the ;
+   563F    float
+   564F      Ax ,
+   565F      Ay ,
+   566F      Az ,
+   567F      Wx ,
+   568F      Wy ,
+   569F      Wz ,
+   570F      bWx ,
+   571F      bWy ,
+   572F      bWz ,
+   573F      gx ,
+   574F      gy ,
+   575F      gz ;
+   576F    float
+   577F      Hx ,
+   578F      Hy ,
+   579F      Hz ,
+   580F      U ,
+   581F      V ,
+   582F      W ,
+   583F      U_dot ,
+   584F      V_dot ,
+   585F      W_dot ;
+   586F    float
+   587F      phi_apriori ,
+   588F      theta_apriori ;
+   589F    float
+   590F      cos_phi_apriori ,
+   591F      sin_phi_apriori ,
+   592F      cos_theta_apriori ,
+   593F      sin_theta_apriori ;
+   594F    int
+   595F      k ;
+   596T    H.rows = 7U ;
+   597T    H.columns = 7U ;
+   598T    h.rows = 1U ;
+   599T    h.columns = 7U ;
+   600T    PhT.rows = 7U ;
+   601T    PhT.columns = 1U ;
+   602T    sigma2_phi_theta.rows = 2U ;
+   603T    sigma2_phi_theta.columns = 2U ;
+   604T    sigma2_psi.rows = 1U ;
+   605T    sigma2_psi.columns = 1U ;
+   606T    y.rows = 4U ;
+   607T    y.columns = 1U ;
+   608T    h_meas.rows = 4U ;
+   609T    h_meas.columns = 1U ;
+   610T    h_meas_aux.rows = 4U ;
+   611T    h_meas_aux.columns = 1 ;
+   612T    error.rows = 4U ;
+   613T    error.columns = 1U ;
+   614T    Mxyz.rows = 3U ;
+   615T    Mxyz.columns = 12U ;
+   616T    MxyzTranspose.rows = 12U ;
+   617T    MxyzTranspose.columns = 3U ;
+   618T    M_phi_theta.rows = 2U ;
+   619T    M_phi_theta.columns = 3U ;
+   620T    M_phi_thetaTranspose.rows = 3U ;
+   621T    M_phi_thetaTranspose.columns = 2U ;
+   622T    M_psi.rows = 1U ;
+   623T    M_psi.columns = 2U ;
+   624T    M_psiTranspose.rows = 2U ;
+   625T    M_psiTranspose.columns = 1U ;
+   626T    M_H12.rows = 2U ;
+   627T    M_H12.columns = 3U ;
+   628T    M_H12Transpose.rows = 3 ;
+   629T    M_H12Transpose.columns = 2 ;
+   630T    sum.rows = 7 ;
+   631T    sum.columns = 1 ;
+   632T    K.rows = 7 ;
+   633T    K.columns = 1 ;
+   634T    temp11.rows = 1 ;
+   635T    temp11.columns = 1 ;                 //temp3
+   636T    temp12.rows = 1 ;
+   637T    temp12.columns = 2 ;
+   638T    temp13.rows = 1 ;
+   639T    temp13.columns = 3 ;
+   640T    temp23.rows = 2 ;
+   641T    temp23.columns = 3 ;                 // temp6
+   642T    temp2_12.rows = 2 ;
+   643T    temp2_12.columns = 12 ;                   // temp5
+   644T    temp71.rows = 7 ;
+   645T    temp71.columns = 1 ;                 // temp1
+   646T    temp77.rows = 7 ;
+   647T    temp77.columns = 7 ;                 // temp4
+   648T    temp77_.rows = 7 ;
+   649T    temp77_.columns = 7 ;                  // temp4_
+   650F    // quaternion variables
+   651T    q0 = estimated_states -> qib.a ;
+   652T    q1 = estimated_states -> qib.b ;
+   653T    q2 = estimated_states -> qib.c ;
+   654T    q3 = estimated_states -> qib.d ;
+   655F    // Accelerometer variables
+   656T    Ax = scaled_data -> accel_x ;
+   657T    Ay = scaled_data -> accel_y ;
+   658T    Az = scaled_data -> accel_z ;
+   659F    // Gyrometer variables
+   660T    Wx = scaled_data -> gyro_x ;
+   661T    Wy = scaled_data -> gyro_y ;
+   662T    Wz = scaled_data -> gyro_z ;
+   663T    bWx = estimated_states -> bias_p ;
+   664T    bWy = estimated_states -> bias_q ;
+   665T    bWz = estimated_states -> bias_r ;
+   666F    // force gyro bias to zero
+   667F    //bWx = 0;
+   668F    //bWy = 0;
+   669F    //bWz = 0;
+   670F    // Magnetometer variables
+   671T    Hx = scaled_data -> mag_x ;
+   672T    Hy = scaled_data -> mag_y ;
+   673T    Hz = scaled_data -> mag_z ;
+   674F    // GPS Variables
+   675F    // Velocitiy
+   676T    U = estimated_states -> U ;
+   677T    V = estimated_states -> V ;
+   678T    W = estimated_states -> W ;
+   679F    // Acceleration
+   680T    U_dot = estimated_states -> U_dot ;
+   681T    V_dot = estimated_states -> V_dot ;
+   682T    W_dot = estimated_states -> W_dot ;
+   683F        // Initializes some matrix
+   684T    mat_zero ( & h , h.rows , h.columns ) ;
+   685T    mat_zero ( & temp11 , temp11.rows , temp11.columns ) ;
+   686T    mat_zero ( & Mxyz , Mxyz.rows , Mxyz.columns ) ;
+   687F    // Gravity acceleration components
+   688T    gx = Ax - ( U_dot + ( W * ( Wy - bWy ) - V * ( Wz - bWz ) ) ) ;
+   689T    gy = Ay - ( V_dot + ( U * ( Wz - bWz ) - W * ( Wx - bWx ) ) ) ;
+   690T    gz = Az - ( W_dot + ( V * ( Wx - bWx ) - U * ( Wy - bWy ) ) ) ;
+   691F    // "a priori" estimated attitude angles
+   692T    phi_apriori = 0.01745329251f * estimated_states -> phi ;
+   693T    theta_apriori = 0.01745329251f * estimated_states -> theta ;
+   694T    sin_phi_apriori = sin ( phi_apriori ) ;
+   695T    cos_phi_apriori = cos ( phi_apriori ) ;
+   696T    sin_theta_apriori = sin ( theta_apriori ) ;
+   697T    cos_theta_apriori = cos ( theta_apriori ) ;
+   698T    phi_ = atan2 ( gy , gz ) ;
+   699T    cos_phi = cos ( phi_ ) ;
+   700T    the_ = atan2 ( - gx * cos_phi , gz ) ;
+   701F    // H1 and H2 calculations
+   702T    H1 = Hx * cos_theta_apriori + Hy * sin_phi_apriori * sin_theta_apriori + Hz * cos_phi_apriori * sin_theta_apriori ;
+   703T    H2 = Hy * cos_phi_apriori - Hz * sin_phi_apriori ;
+   704T    psi_ = atan2 ( H1 , H2 ) ;// [heading from magnetometer]
+   705F    //psi_ = estimated_states->GPS_heading; // [heading from GPS]
+   706T    sin_phi = sin ( phi_ ) ;
+   707T    cos_phi = cos ( phi_ ) ;
+   708T    sin_the = sin ( the_ ) ;
+   709T    cos_the = cos ( the_ ) ;
+   710F    // **********************************************************************************
+   711F    // Phi and Theta variances
+   712F    // Matrix Mxyz - Declarar esta matriz na estrutura AHRS_state para reduzir cálculos
+   713T    Mxyz.data [ 0 ] [ 0 ] = 1.0f ;
+   714T    Mxyz.data [ 0 ] [ 3 ] = - 1.0f ;
+   715T    Mxyz.data [ 0 ] [ 7 ] = Wz ;
+   716T    Mxyz.data [ 0 ] [ 8 ] = - Wy ;
+   717T    Mxyz.data [ 0 ] [ 10 ] = - W ;
+   718T    Mxyz.data [ 0 ] [ 11 ] = V ;
+   719T    Mxyz.data [ 1 ] [ 1 ] = 1.0f ;
+   720T    Mxyz.data [ 1 ] [ 4 ] = - 1.0f ;
+   721T    Mxyz.data [ 1 ] [ 6 ] = - Wz ;
+   722T    Mxyz.data [ 1 ] [ 8 ] = Wx ;
+   723T    Mxyz.data [ 1 ] [ 9 ] = W ;
+   724T    Mxyz.data [ 1 ] [ 11 ] = - U ;
+   725T    Mxyz.data [ 2 ] [ 2 ] = 1.0f ;
+   726T    Mxyz.data [ 2 ] [ 5 ] = - 1.0f ;
+   727T    Mxyz.data [ 2 ] [ 6 ] = Wy ;
+   728T    Mxyz.data [ 2 ] [ 7 ] = - Wx ;
+   729T    Mxyz.data [ 2 ] [ 9 ] = - V ;
+   730T    Mxyz.data [ 2 ] [ 10 ] = U ;
+   731F    // Mxyz'
+   732T    mat_transpose ( & Mxyz , & MxyzTranspose ) ;
+   733F    // Matrix M_phi_theta
+   734F    // Matrix M_phi_theta
+   735T    M_phi_theta.data [ 0 ] [ 0 ] = 0.0f ;
+   736T    M_phi_theta.data [ 0 ] [ 1 ] = gz /
+   737T    ( gy * gy + gz * gz ) ;
+   738T    M_phi_theta.data [ 0 ] [ 2 ] = - gy /
+   739T    ( gy * gy + gz * gz ) ;
+   740T    M_phi_theta.data [ 1 ] [ 0 ] = - gz * cos_phi /
+   741T    ( gx * gx * cos_phi * cos_phi + gz * gz ) ;
+   742T    M_phi_theta.data [ 1 ] [ 1 ] = gx * gz * gz * sin_phi /
+   743T    (
+   744T    ( gy * gy + gz * gz ) * ( gx * gx * cos_phi * cos_phi + gz * gz ) ) ;
+   745T    M_phi_theta.data [ 1 ] [ 2 ] = (
+   746T    ( gy * gy + gz * gz ) * gx * cos_phi - gx * gy * gz * sin_phi ) /
+   747T    (
+   748T    ( gy * gy + gz * gz ) * ( gx * gx * cos_phi * cos_phi + gz * gz ) ) ;
+   749F    // M_phi_theta'
+   750T    mat_transpose ( & M_phi_theta , & M_phi_thetaTranspose ) ;
+   751F    // Roll (phi) and pitch (theta) variances
+   752F    // sigma2_phi_theta = M_phi_theta * Mxyz * R_phi_theta * Mxyz' * M_phi_theta'
+   753F    // temp5(2,12) = M_phi_theta(2,3)*Mxyz(3,12)
+   754T    mat_mult ( & M_phi_theta , & Mxyz , & temp2_12 ) ;
+   755F    // temp5(2,12) = temp5(2,12)*R_phi_theta(12,12)
+   756T    mat_mult ( & temp2_12 , & estimated_states -> R_phi_theta , & temp2_12 ) ;
+   757F    // temp6(2,3) = temp5(2,12)*MxyzTranspose(12,3)
+   758T    mat_mult ( & temp2_12 , & MxyzTranspose , & temp23 ) ;
+   759F    // sigma2_phi_theta(2,2) = temp6(2,3)*MxyzTranspose(12,3)
+   760T    mat_mult ( & temp23 , & M_phi_thetaTranspose , & sigma2_phi_theta ) ;
+   761T    estimated_states -> R.data [ 0 ] [ 0 ] = sigma2_phi_theta.data [ 0 ] [ 0 ] ;
+   762F                                                                  // sigma_theta^2
+   763T    estimated_states -> R.data [ 1 ] [ 1 ] = sigma2_phi_theta.data [ 1 ] [ 1 ] ;
+   764F                                                                  // sigma_phi^2
+   765F    // 444 flops
+   766F    // **********************************************************************************
+   767F    // **********************************************************************************
+   768F    // Psi variance
+   769F    // Matrix Mxyz - Declarar esta matriz na estrutura AHRS_state para reduzir cálculos
+   770T    M_H12.data [ 0 ] [ 0 ] = cos_the ;
+   771T    M_H12.data [ 0 ] [ 1 ] = sin_the * sin_phi ;
+   772T    M_H12.data [ 0 ] [ 2 ] = cos_phi * sin_the ;
+   773T    M_H12.data [ 1 ] [ 0 ] = 0.0 ;
+   774T    M_H12.data [ 1 ] [ 1 ] = cos_phi ;
+   775T    M_H12.data [ 1 ] [ 2 ] = - sin_phi ;
+   776F    // Mxyz'
+   777T    mat_transpose ( & M_H12 , & M_H12Transpose ) ;
+   778F    // Matrix M_psi
+   779T    M_psi.data [ 0 ] [ 0 ] = - H2 /
+   780T    ( H1 * H1 + H2 * H2 ) ;
+   781T    M_psi.data [ 0 ] [ 1 ] = H1 /
+   782T    ( H1 * H1 + H2 * H2 ) ;
+   783F    // M_psi'
+   784T    mat_transpose ( & M_psi , & M_psiTranspose ) ;
+   785F    // Heading (psi) variance
+   786F    // sigma2_psi = M_psi * M_H12 * R_psi * M_H12' * M_psi'
+   787F    // temp13(1,3) = M_psi(1,2) * M_H12(2,3)
+   788T    mat_mult ( & M_psi , & M_H12 , & temp13 ) ;
+   789F    // temp13(1,3) = temp13(1,3) * R_psi(3,3)
+   790T    mat_mult ( & temp13 , & estimated_states -> R_psi , & temp13 ) ;
+   791F    // temp12(1,2) = temp13(1,3) * M_H12Transpose(3,2)
+   792T    mat_mult ( & temp13 , & M_H12Transpose , & temp12 ) ;
+   793F    // sigma2_psi(1,1) = temp12(1,2) * M_psiTranspose(2,1)
+   794T    mat_mult ( & temp12 , & M_psiTranspose , & sigma2_psi ) ;
+   795T    estimated_states -> R.data [ 2 ] [ 2 ] = sigma2_psi.data [ 0 ] [ 0 ] ;
+   796F                                                            // sigma_psi^2
+   797T    estimated_states -> R.data [ 3 ] [ 3 ] = 1.0E-9f ;
+   798F                                                               // sigma_psi^2
+   799F    // xxx flops
+   800F    // **********************************************************************************
+   801F    // y: measurement vector
+   802T    y.data [ 0 ] [ 0 ] = phi_ ;
+   803T    y.data [ 1 ] [ 0 ] = the_ ;
+   804T    y.data [ 2 ] [ 0 ] = psi_ ;
+   805T    y.data [ 3 ] [ 0 ] = 1.0F ;
+   806F    // Forced normalization
+   807T    quat_norm ( & estimated_states -> qib ) ;
+   808F    // quaternion variables
+   809T    q0 = estimated_states -> qib.a ;
+   810T    q1 = estimated_states -> qib.b ;
+   811T    q2 = estimated_states -> qib.c ;
+   812T    q3 = estimated_states -> qib.d ;
+   813F    // h_meas: output equation measurement
+   814T    h_meas.data [ 0 ] [ 0 ] = atan2 (
+   815T    ( q0 * q1 * 2.0 + q2 * q3 * 2.0 ) , ( q0 * q0 - q1 * q1 - q2 * q2 + q3 * q3 ) ) ;
+   816T    h_meas.data [ 1 ] [ 0 ] = asin ( q0 * q2 * 2.0 - q1 * q3 * 2.0 ) ;
+   817T    h_meas.data [ 2 ] [ 0 ] = atan2 (
+   818T    ( q0 * q3 * 2.0 + q1 * q2 * 2.0 ) , ( q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3 ) ) ;
+   819T    h_meas.data [ 3 ] [ 0 ] = q0 * q0 + q1 * q1 + q2 * q2 + q3 * q3 ;
+   820F/* Used when heading comes from GPS
+   821F    // h_meas: output equation measurement
+   822F    temp = atan2((q0*q3*2.0+q1*q2*2.0), (q0*q0+q1*q1-q2*q2-q3*q3));
+   823F 
+   824F    h_meas.data[0][0] = atan2((q0*q1*2.0+q2*q3*2.0), (q0*q0-q1*q1-q2*q2+q3*q3));
+   825F    h_meas.data[1][0] = asin(q0*q2*2.0-q1*q3*2.0);
+   826F    if (temp < -0.01) // converts heading range from: -180..+180 -> 0..360
+   827F        h_meas.data[2][0] = 6.283185307179 + temp;
+   828F    else
+   829F        h_meas.data[2][0] = temp;
+   830F    h_meas.data[3][0] = q0*q0+q1*q1+q2*q2+q3*q3;
+   831F*/
+   832F    // Computes linearized measurement equation
+   833T    H_Matrix ( estimated_states , & H ) ;
+   834F    // Computes Kalman gain and Process covariance serially
+   835F    // Initializes the sum vector
+   836T    mat_zero ( & sum , sum.rows , sum.columns ) ;
+   837F    //mat_zero( &error, error.rows, error.columns );
+   838T    for
+   839T      (
+   840T      k = 0
+   841T      ;
+   842T      k < 4
+   843T      ;
+   844T      k ++
+   845T      )
+   846T      {
+   847F        // h = H(k,:)
+   848T        h.data [ 0 ] [ 0 ] = H.data [ k ] [ 0 ] ;
+   849T        h.data [ 0 ] [ 1 ] = H.data [ k ] [ 1 ] ;
+   850T        h.data [ 0 ] [ 2 ] = H.data [ k ] [ 2 ] ;
+   851T        h.data [ 0 ] [ 3 ] = H.data [ k ] [ 3 ] ;
+   852T        h.data [ 0 ] [ 4 ] = H.data [ k ] [ 4 ] ;
+   853T        h.data [ 0 ] [ 5 ] = H.data [ k ] [ 5 ] ;
+   854T        h.data [ 0 ] [ 6 ] = H.data [ k ] [ 6 ] ;
+   855F        // *** PhT ***
+   856F        // temp1 = hT
+   857T        mat_transpose ( & h , & temp71 ) ;
+   858F        // PhT = P*hT = P*temp1
+   859T        mat_mult ( & estimated_states -> P , & temp71 , & PhT ) ;
+   860F        // *** h*PhT ***
+   861F        // temp3 = h*PhT
+   862T        mat_mult ( & h , & PhT , & temp11 ) ;
+   863F        // *** h*PhT + R(k,k) ***
+   864T        scalar = temp11.data [ 0 ] [ 0 ] + estimated_states -> R.data [ k ] [ k ] ;
+   865F        // *** K = PhT/( h*PhT + R(k,k) ) ***
+   866F        // temp1 = K
+   867F        //mat_scalar_mult( 1.0/scalar, &PhT, &temp71 );
+   868T        mat_scalar_mult ( 1.0 /
+   869T        scalar , & PhT , & K ) ;
+   870F        // *** K*PhT' ***
+   871F        // PhT2 = PhT' = temp17
+   872F// mat_transpose( &PhT, &temp17 );
+   873F        // K*PhT' = temp1*temp2 = temp4
+   874F        //mat_mult( &temp71, &temp17, &temp77 );
+   875T        mat_mult ( & K , & h , & temp77 ) ;
+   876F        // K*h*P = K*temp77 = temp77
+   877T        mat_mult ( & temp77 , & estimated_states -> P , & temp77 ) ;
+   878F        // *** -K*PhT' ***
+   879T        mat_scalar_mult ( - 1.0 , & temp77 , & temp77_ ) ;
+   880F        // *** P = P_ - K*PhT' ***
+   881T        mat_add ( & estimated_states -> P , & temp77_ , & estimated_states -> P ) ;
+   882F        // Updated error covariance matrix
+   883F        //mat_copy( &temp4, &estimated_states.P);
+   884F        // error(k) = y(k) - h_meas(k)
+   885T        mat_scalar_mult ( - 1.0 , & h_meas , & h_meas_aux ) ;
+   886T        mat_add ( & y , & h_meas_aux , & error ) ;
+   887F        // K = temp1
+   888F        // K*error(k) = K*( y(k) - h_meas(k) )
+   889T        temp11.data [ 0 ] [ 0 ] = error.data [ k ] [ 0 ] ;
+   890F        // temp3 = error(k)
+   891F        //mat_mult( &temp71, &temp11, &temp71 );
+   892T        mat_mult ( & K , & temp11 , & temp71 ) ;
+   893F        // temp1 = K*error
+   894T        mat_add ( & sum , & temp71 , & sum ) ;
+   895F        // sum = sum + K*( y(k) - h_meas(k) )
+   896F        // debug
+   897T        estimated_states -> debug_misc [ k ] = error.data [ k ] [ 0 ] ;
+   898T      }
+   899T    estimated_states -> qib.a = estimated_states -> qib.a + sum.data [ 0 ] [ 0 ] ;
+   900T    estimated_states -> qib.b = estimated_states -> qib.b + sum.data [ 1 ] [ 0 ] ;
+   901T    estimated_states -> qib.c = estimated_states -> qib.c + sum.data [ 2 ] [ 0 ] ;
+   902T    estimated_states -> qib.d = estimated_states -> qib.d + sum.data [ 3 ] [ 0 ] ;
+   903T    estimated_states -> bias_p = sum.data [ 4 ] [ 0 ] ;
+   904T    estimated_states -> bias_q = sum.data [ 5 ] [ 0 ] ;
+   905T    estimated_states -> bias_r = sum.data [ 6 ] [ 0 ] ;
+   906F    // Symmetrize Error Covariance Matrix
+   907F    // *** Psym = (P + P')/2 ***
+   908F    // temp77 = P'
+   909T    mat_transpose ( & estimated_states -> P , & temp77 ) ;
+   910F    // temp77_ = (P + P')/2;
+   911T    mat_add ( & estimated_states -> P , & temp77 , & temp77_ ) ;
+   912T    mat_scalar_mult ( 0.5F , & temp77_ , & estimated_states -> P ) ;
+   913F    // Quaternion normalization
+   914T    quat_norm ( & estimated_states -> qib ) ;
+   915T
+   916T    compute_euler_angles (
+   917T    estimated_states ) ;
+   918T  }
+   919F
+   920Fvoid
+   921T  ekf_h_matrix (
+   922F  ahrs_states_t * estimated_states ,
+   923F  fMatrix * H )
+   924F  {
+   925F    float
+   926F      q0 ,
+   927F      q1 ,
+   928F      q2 ,
+   929F      q3 ,
+   930F      aux1 ,
+   931F      aux2 ,
+   932F      aux3 ,
+   933F      aux4 ,
+   934F      aux5 ,
+   935F      p_aux1 ,
+   936F      p_aux2 ,
+   937F      p_aux3 ;
+   938F    // quaternion variables
+   939T    q0 = estimated_states -> qib.a ;
+   940T    q1 = estimated_states -> qib.b ;
+   941T    q2 = estimated_states -> qib.c ;
+   942T    q3 = estimated_states -> qib.d ;
+   943F    // temp variables to speedup the code
+   944T    aux1 = q0 * q0 - q1 * q1 - q2 * q2 + q3 * q3 ;
+   945T    aux2 = q0 * q1 * 2.0 + q2 * q3 * 2.0 ;
+   946T    aux3 = q0 * q2 * 2.0 - q1 * q3 * 2.0 ;
+   947T    aux4 = q0 * q0 + q1 * q1 - q2 * q2 - q3 * q3 ;
+   948T    aux5 = q0 * q3 * 2.0 + q1 * q2 * 2.0 ;
+   949F    // Verificar estas equações. O 1o. parêntese que se abre nas linhas 245 e 247 foi colocado sem certeza.
+   950T    p_aux1 = ( aux2 /
+   951T    ( aux1 * aux1 ) * 2.0 ) /
+   952T    (
+   953T    ( aux2 * aux2 ) /
+   954T    ( aux1 * aux1 ) + 1.0 ) ;
+   955T    p_aux2 = 1.0 /
+   956T    sqrt ( - ( aux3 * aux3 ) + 1.0 ) ;
+   957T    p_aux3 = ( aux5 /
+   958T    ( aux4 * aux4 ) * 2.0 ) /
+   959T    (
+   960T    ( aux5 * aux5 ) /
+   961T    ( aux4 * aux4 ) + 1.0 ) ;
+   962T    H -> data [ 0 ] [ 0 ] = ( q1 * 2.0 ) /
+   963T    ( aux1 ) - q0 * p_aux1 ;
+   964T    H -> data [ 0 ] [ 1 ] = ( q0 * 2.0 ) /
+   965T    ( aux1 ) + q1 * p_aux1 ;
+   966T    H -> data [ 0 ] [ 2 ] = ( q3 * 2.0 ) /
+   967T    ( aux1 ) + q2 * p_aux1 ;
+   968T    H -> data [ 0 ] [ 3 ] = ( q2 * 2.0 ) /
+   969T    ( aux1 ) - q3 * p_aux1 ;
+   970T    H -> data [ 0 ] [ 4 ] = 0.0 ;
+   971T    H -> data [ 0 ] [ 5 ] = 0.0 ;
+   972T    H -> data [ 0 ] [ 6 ] = 0.0 ;
+   973T    H -> data [ 1 ] [ 0 ] = q2 * p_aux2 * 2.0 ;
+   974T    H -> data [ 1 ] [ 1 ] = q3 * p_aux2 * ( - 2.0 ) ;
+   975T    H -> data [ 1 ] [ 2 ] = q0 * p_aux2 * 2.0 ;
+   976T    H -> data [ 1 ] [ 3 ] = q1 * p_aux2 * ( - 2.0 ) ;
+   977T    H -> data [ 1 ] [ 4 ] = 0.0 ;
+   978T    H -> data [ 1 ] [ 5 ] = 0.0 ;
+   979T    H -> data [ 1 ] [ 6 ] = 0.0 ;
+   980T    H -> data [ 2 ] [ 0 ] = ( q3 * 2.0 ) /
+   981T    ( aux4 ) - q0 * p_aux3 ;
+   982T    H -> data [ 2 ] [ 1 ] = ( q2 * 2.0 ) /
+   983T    ( aux4 ) - q1 * p_aux3 ;
+   984T    H -> data [ 2 ] [ 2 ] = ( q1 * 2.0 ) /
+   985T    ( aux4 ) + q2 * p_aux3 ;
+   986T    H -> data [ 2 ] [ 3 ] = ( q0 * 2.0 ) /
+   987T    ( aux4 ) + q3 * p_aux3 ;
+   988T    H -> data [ 2 ] [ 4 ] = 0.0 ;
+   989T    H -> data [ 2 ] [ 5 ] = 0.0 ;
+   990T    H -> data [ 2 ] [ 6 ] = 0.0 ;
+   991T    H -> data [ 3 ] [ 0 ] = q0 * 2.0 ;
+   992T    H -> data [ 3 ] [ 1 ] = q1 * 2.0 ;
+   993T    H -> data [ 3 ] [ 2 ] = q2 * 2.0 ;
+   994T    H -> data [ 3 ] [ 3 ] = q3 * 2.0 ;
+   995T    H -> data [ 3 ] [ 4 ] = 0.0 ;
+   996T    H -> data [ 3 ] [ 5 ] = 0.0 ;
+   997T    H -> data [ 3 ] [ 6 ] = 0.0 ;
+   998T  }
+   999F//void Psi_Variance(ahrs_states_t* estimated_states, fMatrix* R){}
+  1000F/*******************************************************************************
+  1001F* Function Name : compute_euler_angles
+  1002F* Input : AHRS_states* states
+  1003F* Output : None
+  1004F* Return : None
+  1005F* Description : Converts quaternion attitude estimate to euler angles (yaw, pitch, roll)
+  1006F*******************************************************************************/
+  1007F
+  1008Fvoid
+  1009T  compute_euler_angles (
+  1010F  ahrs_states_t * estimated_states )
+  1011F  {
+  1012F    float
+  1013F      q0 ,
+  1014F      q1 ,
+  1015F      q2 ,
+  1016F      q3 ;
+  1017T    q0 = estimated_states -> qib.a ;
+  1018T    q1 = estimated_states -> qib.b ;
+  1019T    q2 = estimated_states -> qib.c ;
+  1020T    q3 = estimated_states -> qib.d ;
+  1021T    estimated_states -> phi = atan2 ( 2 * ( q0 * q1 + q2 * q3 ) , q3 * q3 - q2 * q2 - q1 * q1 + q0 * q0 ) * 180 /
+  1022T    3.14159 ;
+  1023T    estimated_states -> theta = - asin ( 2 * ( q1 * q3 - q0 * q2 ) ) * 180 /
+  1024T    3.14159 ;
+  1025T    estimated_states -> psi = atan2 ( 2 * ( q0 * q3 + q1 * q2 ) , q1 * q1 + q0 * q0 - q3 * q3 - q2 * q2 ) * 180 /
+  1026T    3.14159 ;
+  1027T  }
+  1028F 

@@ -1,0 +1,414 @@
+                                                                                                                       .
+ 
+                               ************************************************************
+                               ******                                                ******
+                               ******   LDRA Testbed (R) System Integration Report   ******
+                               ******                                                ******
+                               ******                 System : AutoP                 ******
+                               ******                                                ******
+                               ************************************************************
+
+
+      Report Production
+      -----------------
+         * C/C++ LDRA Testbed Version: 9.4.4
+         * Report Produced On:  Fri Nov 07 2014 at 16:31:25
+
+      Report Configuration
+      --------------------
+         * Line Numbers refer to: Source File
+
+
+ --------------------------------------------------------------------------------
+
+      Contents
+      --------
+      Table of Source Files in System
+      System Wide Procedure Call Analysis
+
+
+ --------------------------------------------------------------------------------
+
+ Source Files in System
+ ----------------------
+      ========================================================================
+      NAME                                              LAST MODIFICATION DATE
+      ========================================================================
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_conversions.c
+                                                        Fri Oct 03 20:38:54 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_ekf.c
+                                                        Sat Oct 11 23:38:12 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_gps.c
+                                                        Sat Oct 11 23:28:09 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_i2c.c
+                                                        Thu Nov 06 00:12:32 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_i2c_adxl345.c
+                                                        Wed Nov 05 23:32:32 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_i2c_bmp085.c
+                                                        Thu Nov 06 00:05:58 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_i2c_hmc5883.c
+                                                        Wed Nov 05 23:55:54 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_i2c_hsc.c
+                                                        Wed Nov 05 23:56:18 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_i2c_itg3200.c
+                                                        Wed Nov 05 23:56:50 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_isr.c
+                                                        Thu Nov 06 18:19:28 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_matrix.c
+                                                        Sun Oct 05 23:15:33 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_quat.c
+                                                        Sun Oct 05 22:03:01 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\main.c
+                                                        Thu Nov 06 17:53:29 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\ekf_predict.c
+                                                        Sat Oct 11 22:57:50 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\ekf_update.c
+                                                        Sat Oct 11 23:03:20 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_system.c
+                                                        Sat Oct 11 19:04:29 2014
+      F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_comm.c
+                                                        Fri Oct 24 20:40:05 2014
+
+
+
+ --------------------------------------------------------------------------------
+
+                                         ***************************************
+                                         *                                     *
+                                         *  Inter-file Procedure Call Summary  *
+                                         *                                     *
+                                         ***************************************
+
+ 
+                File                Proc                 Call status
+                ----                ----                 -----------
+                DSP_I2C             i2cBatchWrite        CALLED
+                DSP_I2C             i2cBatchRead         CALLED
+                DSP_I2C             i2c_get_data         CALLED
+                DSP_I2C             i2c_init_sensors     CALLED
+                EKF_PREDICT         ekf_prediction       CALLED
+                EKF_PREDICT         ekf_stm              UNCALLED
+                EKF_PREDICT         ekf_apriori_covariance
+                                                         UNCALLED
+                EKF_PREDICT         ekf_apriori_estimate UNCALLED
+                EKF_UPDATE          ekf_correction       CALLED
+                EKF_UPDATE          ekf_h_matrix         UNCALLED
+                EKF_UPDATE          compute_euler_angles CALLED
+                MAIN                main                 CALLED
+                MAIN                escalonador          UNCALLED
+                MAIN                toggle_led           UNCALLED
+                DSP_COMM            scia_init            CALLED
+                DSP_COMM            spia_init            CALLED
+                DSP_COMM            i2ca_init            CALLED
+                DSP_SYSTEM          gpio_select          CALLED
+                DSP_SYSTEM          setup_epwm1a         CALLED
+                DSP_QUAT            quat_mult            UNCALLED
+                DSP_QUAT            quat_conj            UNCALLED
+                DSP_QUAT            quat_norm            CALLED
+                DSP_QUAT            quat_subtract        UNCALLED
+                DSP_QUAT            quat_add             UNCALLED
+                DSP_QUAT            quat_scalar_mult     UNCALLED
+                DSP_MATRIX          mat_add              CALLED
+                DSP_MATRIX          mat_mult             CALLED
+                DSP_MATRIX          mat_scalar_mult      CALLED
+                DSP_MATRIX          mat_determinant      UNCALLED
+                DSP_MATRIX          mat_transpose        CALLED
+                DSP_MATRIX          mat_create_identity  CALLED
+                DSP_MATRIX          mat_zero             CALLED
+                DSP_MATRIX          mat_copy             UNCALLED
+                DSP_ISR             SCIA_TX_isr          UNCALLED
+                DSP_ISR             SCIA_RX_isr          UNCALLED
+                DSP_ISR             SPI_TxFifoIsr        UNCALLED
+                DSP_ISR             SPI_RxFifoIsr        UNCALLED
+                DSP_ISR             spi_cs_isr           UNCALLED
+                DSP_ISR             timing_isr           UNCALLED
+                DSP_ISR             ePWM1A_compare_isr   UNCALLED
+                DSP_ISR             cpu_timer0_isr       UNCALLED
+                DSP_ISR             cpu_timer1_isr       UNCALLED
+                *** No procedures have explicitly been called from this file
+ 
+                DSP_I2C_ITG3200     itg_init             CALLED
+                DSP_I2C_ITG3200     itg_get_data         CALLED
+                DSP_I2C_HSC         hsc_init             UNCALLED
+                DSP_I2C_HSC         hsc_get_data         CALLED
+                DSP_I2C_HMC5883     hmc_init             CALLED
+                DSP_I2C_HMC5883     hmc_get_data         CALLED
+                DSP_I2C_BMP085      bmp_init             CALLED
+                DSP_I2C_BMP085      bmp_ut_request       UNCALLED
+                DSP_I2C_BMP085      bmp_up_request       CALLED
+                DSP_I2C_BMP085      bmp_temp_get_data    UNCALLED
+                DSP_I2C_BMP085      bmp_pressure_get_data
+                                                         CALLED
+                DSP_I2C_ADXL345     adxl_init            CALLED
+                DSP_I2C_ADXL345     adxl_self_test       UNCALLED
+                DSP_I2C_ADXL345     adxl_get_data        CALLED
+                DSP_GPS             Process_GPS          UNCALLED
+                DSP_GPS             Init_GPS             UNCALLED
+                DSP_GPS             get_line             UNCALLED
+                DSP_GPS             translate_msg        UNCALLED
+                DSP_GPS             get_NMEA_type        UNCALLED
+                DSP_GPS             translate_GGA        UNCALLED
+                DSP_GPS             translate_VTG        UNCALLED
+                DSP_GPS             translate_GLL        UNCALLED
+                DSP_GPS             translate_GSV        UNCALLED
+                DSP_GPS             translate_RMC        UNCALLED
+                DSP_GPS             translate_ZDA        UNCALLED
+                DSP_GPS             translate_GSA        UNCALLED
+                DSP_GPS             print_serial_gps     UNCALLED
+                DSP_GPS             strcpy_len           UNCALLED
+                DSP_GPS             CvtStF               UNCALLED
+                DSP_GPS             str_split            UNCALLED
+                *** No procedures have explicitly been called from this file
+ 
+                DSP_EKF             ekf_init             CALLED
+                DSP_EKF             lpf_butterworth_init UNCALLED
+                DSP_EKF             lpf_butterworth      UNCALLED
+                DSP_EKF             ekf_estimate_states  CALLED
+                DSP_CONVERSIONS     apply_sensors_scale_factor
+                                                         CALLED
+ 
+
+
+ --------------------------------------------------------------------------------
+
+                                      ***********************************************
+                                      *                                             *
+                                      *  Inter-File and Unresolved Procedure Calls  *
+                                      *                                             *
+                                      ***********************************************
+
+
+      ============================================================================================
+                                           IN                              START       CALLED FROM
+                                           FILE                            LINE        LINE       
+      ============================================================================================
+      Procs Called From dsp_conversions.c:
+      ------------------------------------
+      
+      <No Calls>
+
+      Procs Called From dsp_ekf.c:
+      ----------------------------
+      
+      ekf_correction                       ekf_update.c                    21          239
+      ekf_prediction                       ekf_predict.c                   19          238
+      mat_zero                             dsp_matrix.c                    265         129
+      mat_zero                                                             265         115
+      mat_zero                                                             265         91
+      mat_zero                                                             265         90
+      mat_create_identity                                                  230         83
+
+      Procs Called From dsp_gps.c:
+      ----------------------------
+      
+      <No Calls>
+
+      Procs Called From dsp_i2c.c:
+      ----------------------------
+      
+      DSP28x_usDelay                       <Unresolved>                                225
+      hmc_init                             dsp_i2c_hmc5883.c               58          223
+      DSP28x_usDelay                       <Unresolved>                                222
+      adxl_init                            dsp_i2c_adxl345.c               51          220
+      DSP28x_usDelay                       <Unresolved>                                219
+      itg_init                             dsp_i2c_itg3200.c               46          217
+      DSP28x_usDelay                       <Unresolved>                                216
+      bmp_init                             dsp_i2c_bmp085.c                48          214
+      DSP28x_usDelay                       <Unresolved>                                213
+      bmp_pressure_get_data                dsp_i2c_bmp085.c                169         195
+      DSP28x_usDelay                       <Unresolved>                                191
+      hsc_get_data                         dsp_i2c_hsc.c                   74          190
+      DSP28x_usDelay                       <Unresolved>                                184
+      hmc_get_data                         dsp_i2c_hmc5883.c               100         183
+      DSP28x_usDelay                       <Unresolved>                                177
+      adxl_get_data                        dsp_i2c_adxl345.c               257         176
+      DSP28x_usDelay                       <Unresolved>                                169
+      itg_get_data                         dsp_i2c_itg3200.c               86          168
+      DSP28x_usDelay                       <Unresolved>                                166
+      bmp_up_request                       dsp_i2c_bmp085.c                105         165
+
+      Procs Called From dsp_i2c_adxl345.c:
+      ------------------------------------
+      
+      i2cBatchRead                         dsp_i2c.c                       121         261
+      i2cBatchRead                                                         121         191
+      DSP28x_usDelay                       <Unresolved>                                185
+      i2cBatchWrite                        dsp_i2c.c                       84          184
+      DSP28x_usDelay                       <Unresolved>                                178
+      i2cBatchWrite                        dsp_i2c.c                       84          177
+      i2cBatchRead                                                         121         163
+      DSP28x_usDelay                       <Unresolved>                                157
+      i2cBatchWrite                        dsp_i2c.c                       84          156
+      DSP28x_usDelay                       <Unresolved>                                149
+      i2cBatchWrite                        dsp_i2c.c                       84          148
+      DSP28x_usDelay                       <Unresolved>                                142
+      i2cBatchWrite                        dsp_i2c.c                       84          141
+      DSP28x_usDelay                       <Unresolved>                                135
+      i2cBatchWrite                        dsp_i2c.c                       84          134
+      DSP28x_usDelay                       <Unresolved>                                128
+      i2cBatchWrite                        dsp_i2c.c                       84          127
+      DSP28x_usDelay                       <Unresolved>                                88
+      i2cBatchWrite                        dsp_i2c.c                       84          87
+      DSP28x_usDelay                       <Unresolved>                                81
+      i2cBatchWrite                        dsp_i2c.c                       84          80
+      i2cBatchWrite                                                        84          74
+      DSP28x_usDelay                       <Unresolved>                                66
+      i2cBatchWrite                        dsp_i2c.c                       84          65
+      DSP28x_usDelay                       <Unresolved>                                58
+      i2cBatchWrite                        dsp_i2c.c                       84          57
+
+      Procs Called From dsp_i2c_bmp085.c:
+      -----------------------------------
+      
+      i2cBatchRead                         dsp_i2c.c                       121         183
+      i2cBatchRead                                                         121         144
+      i2cBatchWrite                                                        84          124
+      i2cBatchWrite                                                        84          91
+      i2cBatchRead                                                         121         52
+
+      Procs Called From dsp_i2c_hmc5883.c:
+      ------------------------------------
+      
+      i2cBatchRead                         dsp_i2c.c                       121         105
+      DSP28x_usDelay                       <Unresolved>                                83
+      i2cBatchWrite                        dsp_i2c.c                       84          82
+      DSP28x_usDelay                       <Unresolved>                                75
+      i2cBatchWrite                        dsp_i2c.c                       84          74
+      DSP28x_usDelay                       <Unresolved>                                67
+      i2cBatchWrite                        dsp_i2c.c                       84          66
+
+      Procs Called From dsp_i2c_hsc.c:
+      --------------------------------
+      
+      <No Calls>
+
+      Procs Called From dsp_i2c_itg3200.c:
+      ------------------------------------
+      
+      i2cBatchRead                         dsp_i2c.c                       121         90
+      DSP28x_usDelay                       <Unresolved>                                72
+      i2cBatchWrite                        dsp_i2c.c                       84          71
+      DSP28x_usDelay                       <Unresolved>                                66
+      DSP28x_usDelay                                                                   61
+      i2cBatchWrite                        dsp_i2c.c                       84          56
+
+      Procs Called From dsp_isr.c:
+      ----------------------------
+      
+      <No Calls>
+
+      Procs Called From dsp_matrix.c:
+      -------------------------------
+      
+      <No Calls>
+
+      Procs Called From dsp_quat.c:
+      -----------------------------
+      
+      <No Calls>
+
+      Procs Called From main.c:
+      -------------------------
+      
+      ekf_estimate_states                  dsp_ekf.c                       236         249
+      apply_sensors_scale_factor           dsp_conversions.c               17          247
+      i2c_get_data                         dsp_i2c.c                       161         245
+      ekf_init                             dsp_ekf.c                       25          201
+      i2c_init_sensors                     dsp_i2c.c                       210         198
+      DSP28x_usDelay                       <Unresolved>                                195
+      EnableInterrupts                                                                 189
+      ConfigCpuTimer                                                                   136
+      ConfigCpuTimer                                                                   135
+      i2ca_init                            dsp_comm.c                      164         133
+      spia_init                                                            100         132
+      scia_init                                                            59          131
+      setup_epwm1a                         dsp_system.c                    119         130
+      InitCpuTimers                        <Unresolved>                                129
+      InitPieVectTable                                                                 112
+      InitPieCtrl                                                                      110
+      gpio_select                          dsp_system.c                    51          107
+      InitFlash                            <Unresolved>                                104
+      InitSysCtrl                                                                      96
+
+      Procs Called From ekf_predict.c:
+      --------------------------------
+      
+      mat_add                              dsp_matrix.c                    31          179
+      mat_mult                                                             80          177
+      mat_mult                                                             80          176
+      mat_transpose                                                        185         175
+      mat_mult                                                             80          173
+      mat_mult                                                             80          172
+      mat_transpose                                                        185         171
+      mat_zero                                                             265         145
+      mat_zero                                                             265         76
+      quat_norm                            dsp_quat.c                      80          35
+      compute_euler_angles                 ekf_update.c                    426         33
+
+      Procs Called From ekf_update.c:
+      -------------------------------
+      
+      quat_norm                            dsp_quat.c                      80          355
+      mat_scalar_mult                      dsp_matrix.c                    135         352
+      mat_add                                                              31          351
+      mat_transpose                                                        185         349
+      mat_add                                                              31          330
+      mat_mult                                                             80          328
+      mat_add                                                              31          322
+      mat_scalar_mult                                                      135         321
+      mat_add                                                              31          315
+      mat_scalar_mult                                                      135         312
+      mat_mult                                                             80          309
+      mat_mult                                                             80          306
+      mat_scalar_mult                                                      135         299
+      mat_mult                                                             80          291
+      mat_mult                                                             80          287
+      mat_transpose                                                        185         285
+      mat_zero                                                             265         269
+      H_Matrix                             <Unresolved>                                264
+      quat_norm                            dsp_quat.c                      80          237
+      mat_mult                             dsp_matrix.c                    80          221
+      mat_mult                                                             80          218
+      mat_mult                                                             80          215
+      mat_mult                                                             80          212
+      mat_transpose                                                        185         207
+      mat_transpose                                                        185         201
+      mat_mult                                                             80          182
+      mat_mult                                                             80          179
+      mat_mult                                                             80          176
+      mat_mult                                                             80          173
+      mat_transpose                                                        185         168
+      mat_transpose                                                        185         157
+      mat_zero                                                             265         104
+      mat_zero                                                             265         103
+      mat_zero                                                             265         102
+
+      Procs Called From dsp_system.c:
+      -------------------------------
+      
+      <No Calls>
+
+      Procs Called From dsp_comm.c:
+      -----------------------------
+      
+      <No Calls>
+
+
+
+
+ --------------------------------------------------------------------------------
+
+ DYNAMIC ANALYSIS IS NOT AVAILABLE FOR ANY FILES
+
+
+ --------------------------------------------------------------------------------
+
+                              ===========================================================
+                              *                                                         *
+                              *            End of System Integration Report             *
+                              *                                                         *
+                              *  Copyright (C) 2014 Liverpool Data Research Associates  *
+                              *                                                         *
+                              ===========================================================
+
+

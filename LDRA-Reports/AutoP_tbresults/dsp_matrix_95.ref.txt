@@ -1,0 +1,697 @@
+     1F/*
+     2FC TESTBED VERSION  : 9.4.4                                                                                               
+     3FFILE UNDER TEST  : "F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_matrix.c"         
+     4FDATE OF ANALYSIS : Fri Nov 07 10:50:23 2014                          
+     5F*/
+     6F 
+     7F//############################################################################
+     8F//
+     9F// File: EKF_Predict.c
+    10F// Version: 0.1
+    11F//
+    12F// Description: Implementation of matrices operation functions.
+    13F//
+    14F//############################################################################
+    15F// Author: Rogério Lima
+    16F// Release Date: July 2012
+    17F//############################################################################
+    18F#include <math.h>
+    19F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h */
+    20F//############################################################################
+    21F//
+    22F// File: dsp_matrix.h
+    23F// Version: 0.1
+    24F//
+    25F// Description: Preprocessor definitions and function declarations for matrix
+    26F// calculations.
+    27F//
+    28F//############################################################################
+    29F// Author: Rogério Lima
+    30F// Release Date: July 2012
+    31F//############################################################################
+    32F#ifndef DSP_MATRIX_H
+    33F#define DSP_MATRIX_H
+    34F#define MATRIX_MAX_ROWS 12
+    35F#define MATRIX_MAX_COLUMNS 12
+    36F
+    37Ftypedef
+    38Fstruct _fMatrix
+    39F{
+    40F  int rows ;
+    41F  int columns ;
+    42F  float data [ 12 ] [ 12 ] ;
+    43F} fMatrix ;
+    44F// Matrix operations
+    45F
+    46Fint
+    47T  mat_add (
+    48F  fMatrix * src1 ,
+    49F  fMatrix * src2 ,
+    50F  fMatrix * dest ) ;
+    51F
+    52Fint
+    53T  mat_mult (
+    54F  fMatrix * src1 ,
+    55F  fMatrix * src2 ,
+    56F  fMatrix * dest ) ;
+    57F
+    58Fint
+    59T  mat_scalar_mult (
+    60F  float scalar ,
+    61F  fMatrix * src ,
+    62F  fMatrix * dest ) ;
+    63F
+    64Fint
+    65T  mat_determinant (
+    66F  fMatrix * src ,
+    67F  float * det ) ;
+    68F
+    69Fint
+    70T  mat_transpose (
+    71F  fMatrix * src ,
+    72F  fMatrix * dest ) ;
+    73F
+    74Fint
+    75T  mat_create_identity (
+    76F  fMatrix * dest ,
+    77F  int rows ,
+    78F  int columns ) ;
+    79F
+    80Fint
+    81T  mat_zero (
+    82F  fMatrix * dest ,
+    83F  int rows ,
+    84F  int columns ) ;
+    85F
+    86Fint
+    87T  mat_copy (
+    88F  fMatrix * src ,
+    89F  fMatrix * dest ) ;
+    90F//int mat_print( fMatrix* matrix );
+    91F//void hexPrint16( short byte );
+    92F 
+    93F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h*/
+    94F/*   CLOSE_FILE Include File */
+    95F 
+    96F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\Application_IO_Functions.h */
+    97F//#ifndef APPLICATION_IO_FUNCTION_H
+    98F//#define APPLICATION_IO_FUNCTION_H
+    99F//
+   100F//void SCIA_TX(char* vec, int qtd);
+   101F//void SCIA_TX_String(char *str);
+   102F////char SCIA_Read_Byte();
+   103F//char sciBatchWrite( unsigned char* txBuffer, unsigned char bytesToWrite );
+   104F//
+   105F//#ifdef ___SPI_8BITS
+   106F//void SPI_TX(char* vec, int qtd);
+   107F//#endif
+   108F//#ifdef ___SPI_16BITS
+   109F//void SPI_TX(Uint16* vec, int qtd);
+   110F//#endif
+   111F//void SPI_TX_String(char *str);
+   112F//
+   113F//#endif // APPLICATION_IO_FUNCTION_H
+   114F/*   CLOSE_FILE Include File */
+   115F/*******************************************************************************
+   116F* Function Name : mat_add( fMatrix* src1, fMatrix* src2, fMatrix* dest )
+   117F* Input : fMatrix* src1, fMatrix* src2, fMatrix* dest
+   118F* Output : fMatrix* dest
+   119F* Return : 0 if failed, 1 if success
+   120F* Description :
+   121FPerforms the operation
+   122F dest = src1 + src2
+   123Fsrc1 and src1 must be of the same dimension. All three input matrices must
+   124Fhave memory allocated before calling this function.
+   125F*******************************************************************************/
+   126F
+   127Fint
+   128T  mat_add (
+   129F  fMatrix * src1 ,
+   130F  fMatrix * src2 ,
+   131F  fMatrix * dest )
+   132F  {
+   133F    int
+   134F      i ,
+   135F      j ;
+   136F    fMatrix
+   137F      result ;
+   138F     // Make sure that rows and columns on all relevant matrices match
+   139T    if
+   140T      (
+   141T      (
+   142T      src1 -> rows != src2 -> rows
+   143T      )
+   144T      ||
+   145T      ( src1 -> columns != src2 -> columns
+   146T      )
+   147T      )
+   148T      {
+   149T        return
+   150T        0 ;
+   151T      }
+   152T    result.rows = src1 -> rows ;
+   153T    result.columns = src1 -> columns ;
+   154F     // Compute sum
+   155T    for
+   156T      (
+   157T      i = 0
+   158T      ;
+   159T      i < src1 -> rows
+   160T      ;
+   161T      i ++
+   162T      )
+   163T      {
+   164T        for
+   165T          (
+   166T          j = 0
+   167T          ;
+   168T          j < src1 -> columns
+   169T          ;
+   170T          j ++
+   171T          )
+   172T          {
+   173T            result.data [ i ] [ j ] = src1 -> data [ i ] [ j ] + src2 -> data [ i ] [ j ] ;
+   174T          }
+   175T      }
+   176F     // Copy to destination
+   177T    for
+   178T      (
+   179T      i = 0
+   180T      ;
+   181T      i < result.rows
+   182T      ;
+   183T      i ++
+   184T      )
+   185T      {
+   186T        for
+   187T          (
+   188T          j = 0
+   189T          ;
+   190T          j < result.columns
+   191T          ;
+   192T          j ++
+   193T          )
+   194T          {
+   195T            dest -> data [ i ] [ j ] = result.data [ i ] [ j ] ;
+   196T          }
+   197T      }
+   198T    dest -> rows = result.rows ;
+   199T    dest -> columns = result.columns ;
+   200T    return
+   201T    1 ;
+   202F  }
+   203F/*******************************************************************************
+   204F* Function Name : mat_mult( fMatrix* src1, fMatrix* src2, fMatrix* dest )
+   205F* Input : fMatrix* src1, fMatrix* src2, fMatrix* dest
+   206F* Output : fMatrix* dest
+   207F* Return : 0 if failed, 1 if success
+   208F* Description :
+   209FPerforms the operation
+   210F dest = src1*src2
+   211Fsrc1 and src1 must have compatible dimensions for matrix multiplication.
+   212F*******************************************************************************/
+   213F
+   214Fint
+   215T  mat_mult (
+   216F  fMatrix * src1 ,
+   217F  fMatrix * src2 ,
+   218F  fMatrix * dest )
+   219F  {
+   220F    int
+   221F      i ,
+   222F      j ,
+   223F      k ;
+   224F    fMatrix
+   225F      result ;
+   226F     // Make sure dimensions are consistent with matrix multiplation rules
+   227T    if
+   228T      (
+   229T      src1 -> columns != src2 -> rows
+   230T      )
+   231T      {
+   232T        return
+   233T        0 ;
+   234T      }
+   235T    result.rows = src1 -> rows ;
+   236T    result.columns = src2 -> columns ;
+   237F     // Compute matrix product
+   238T    for
+   239T      (
+   240T      i = 0
+   241T      ;
+   242T      i < src1 -> rows
+   243T      ;
+   244T      i ++
+   245T      )
+   246T      {
+   247T        for
+   248T          (
+   249T          j = 0
+   250T          ;
+   251T          j < src2 -> columns
+   252T          ;
+   253T          j ++
+   254T          )
+   255T          {
+   256F            float
+   257F              dot_product = 0 ;
+   258T            for
+   259T              (
+   260T              k = 0
+   261T              ;
+   262T              k < src1 -> columns
+   263T              ;
+   264T              k ++
+   265T              )
+   266T              {
+   267T                dot_product += src1 -> data [ i ] [ k ] * src2 -> data [ k ] [ j ] ;
+   268T              }
+   269T            result.data [ i ] [ j ] = dot_product ;
+   270T          }
+   271T      }
+   272F     // Copy to destination
+   273T    for
+   274T      (
+   275T      i = 0
+   276T      ;
+   277T      i < result.rows
+   278T      ;
+   279T      i ++
+   280T      )
+   281T      {
+   282T        for
+   283T          (
+   284T          j = 0
+   285T          ;
+   286T          j < result.columns
+   287T          ;
+   288T          j ++
+   289T          )
+   290T          {
+   291T            dest -> data [ i ] [ j ] = result.data [ i ] [ j ] ;
+   292T          }
+   293T      }
+   294T    dest -> rows = result.rows ;
+   295T    dest -> columns = result.columns ;
+   296T    return
+   297T    1 ;
+   298F  }
+   299F/*******************************************************************************
+   300F* Function Name : mat_scalar_mult( float scalar, fMatrix* src, fMatrix* dest )
+   301F* Input : float scalar, fMatrix* src, fMatrix* dest
+   302F* Output : fMatrix* dest
+   303F* Return : 0 if failed, 1 if success
+   304F* Description :
+   305FPerforms the operation
+   306F dest = scalar*src
+   307Fsrc and dest matrices must have memory allocated before calling this function.
+   308F*******************************************************************************/
+   309F
+   310Fint
+   311T  mat_scalar_mult (
+   312F  float scalar ,
+   313F  fMatrix * src ,
+   314F  fMatrix * dest )
+   315F  {
+   316F    int
+   317F      i ,
+   318F      j ;
+   319T    dest -> rows = src -> rows ;
+   320T    dest -> columns = src -> columns ;
+   321T    for
+   322T      (
+   323T      i = 0
+   324T      ;
+   325T      i < src -> rows
+   326T      ;
+   327T      i ++
+   328T      )
+   329T      {
+   330T        for
+   331T          (
+   332T          j = 0
+   333T          ;
+   334T          j < src -> columns
+   335T          ;
+   336T          j ++
+   337T          )
+   338T          {
+   339T            dest -> data [ i ] [ j ] = scalar * src -> data [ i ] [ j ] ;
+   340T          }
+   341T      }
+   342T    return
+   343T    1 ;
+   344F  }
+   345F/*******************************************************************************
+   346F* Function Name : mat_determinant( fMatrix* src, float* det )
+   347F* Input : fMatrix* src, fMatrix* dest
+   348F* Output : float* det
+   349F* Return : 0 if failed, 1 if success
+   350F* Description :
+   351FComputes the determinant of the specified matrix and returns it to the float
+   352Fpointed to be float* det
+   353Fsrc must have memory allocated before calling this function
+   354F*******************************************************************************/
+   355F
+   356Fint
+   357T  mat_determinant (
+   358F  fMatrix * src ,
+   359F  float * det )
+   360F  {
+   361F     // TODO: Implement this
+   362T    return
+   363T    0 ;
+   364F  }
+   365F/*******************************************************************************
+   366F* Function Name : mat_transpose( fMatrix* src, fMatrix* dest )
+   367F* Input : fMatrix* src, fMatrix* dest
+   368F* Output : fMatrix* dest
+   369F* Return : 0 if failed, 1 if success
+   370F* Description :
+   371FComputes the transpose of src and stores it in dest
+   372FThe dimensions of src and dest must be compatible with the matrix transpose operation
+   373Fsrc and dest must have memory allocated before calling this function.
+   374F*******************************************************************************/
+   375F
+   376Fint
+   377T  mat_transpose (
+   378F  fMatrix * src ,
+   379F  fMatrix * dest )
+   380F  {
+   381F    int
+   382F      i ,
+   383F      j ;
+   384F    fMatrix
+   385F      result ;
+   386T    result.rows = src -> columns ;
+   387T    result.columns = src -> rows ;
+   388F     // Compute transpose
+   389T    for
+   390T      (
+   391T      i = 0
+   392T      ;
+   393T      i < src -> rows
+   394T      ;
+   395T      i ++
+   396T      )
+   397T      {
+   398T        for
+   399T          (
+   400T          j = 0
+   401T          ;
+   402T          j < src -> columns
+   403T          ;
+   404T          j ++
+   405T          )
+   406T          {
+   407T            result.data [ j ] [ i ] = src -> data [ i ] [ j ] ;
+   408T          }
+   409T      }
+   410F     // Copy to destination
+   411T    for
+   412T      (
+   413T      i = 0
+   414T      ;
+   415T      i < result.rows
+   416T      ;
+   417T      i ++
+   418T      )
+   419T      {
+   420T        for
+   421T          (
+   422T          j = 0
+   423T          ;
+   424T          j < result.columns
+   425T          ;
+   426T          j ++
+   427T          )
+   428T          {
+   429T            dest -> data [ i ] [ j ] = result.data [ i ] [ j ] ;
+   430T          }
+   431T      }
+   432T    dest -> rows = result.rows ;
+   433T    dest -> columns = result.columns ;
+   434T    return
+   435T    1 ;
+   436F  }
+   437F/*******************************************************************************
+   438F* Function Name : mat_create_identity( fMatrix* dest )
+   439F* Input : fMatrix* dest
+   440F* Output : fMatrix* dest
+   441F* Return : 0 if failed, 1 if success
+   442F* Description :
+   443FCreates an identity matrix and stores it in 'dest'
+   444Fdest must have memory allocated before calling this function.
+   445F*******************************************************************************/
+   446F
+   447Fint
+   448T  mat_create_identity (
+   449F  fMatrix * dest ,
+   450F  int rows ,
+   451F  int columns )
+   452F  {
+   453F    int
+   454F      i ,
+   455F      j ;
+   456T    dest -> rows = rows ;
+   457T    dest -> columns = columns ;
+   458T    for
+   459T      (
+   460T      i = 0
+   461T      ;
+   462T      i < rows
+   463T      ;
+   464T      i ++
+   465T      )
+   466T      {
+   467T        for
+   468T          (
+   469T          j = 0
+   470T          ;
+   471T          j < columns
+   472T          ;
+   473T          j ++
+   474T          )
+   475T          {
+   476T            dest -> data [ i ] [ j ] = 0 ;
+   477T            if
+   478T              (
+   479T              i == j
+   480T              )
+   481T              {
+   482T                dest -> data [ i ] [ j ] = 1 ;
+   483T              }
+   484T          }
+   485T      }
+   486T    return
+   487T    0 ;
+   488F  }
+   489F/*******************************************************************************
+   490F* Function Name : mat_zero( fMatrix* dest )
+   491F* Input : fMatrix* dest
+   492F* Output : fMatrix* dest
+   493F* Return : 0 if failed, 1 if success
+   494F* Description :
+   495FFills the matrix 'dest' with zeroes
+   496Fdest must have memory allocated before calling this function.
+   497F*******************************************************************************/
+   498F
+   499Fint
+   500T  mat_zero (
+   501F  fMatrix * dest ,
+   502F  int rows ,
+   503F  int columns )
+   504F  {
+   505F    int
+   506F      i ,
+   507F      j ;
+   508T    dest -> rows = rows ;
+   509T    dest -> columns = columns ;
+   510T    for
+   511T      (
+   512T      i = 0
+   513T      ;
+   514T      i < dest -> rows
+   515T      ;
+   516T      i ++
+   517T      )
+   518T      {
+   519T        for
+   520T          (
+   521T          j = 0
+   522T          ;
+   523T          j < dest -> columns
+   524T          ;
+   525T          j ++
+   526T          )
+   527T          {
+   528T            dest -> data [ i ] [ j ] = 0 ;
+   529T          }
+   530T      }
+   531T    return
+   532T    1 ;
+   533F  }
+   534F/*******************************************************************************
+   535F* Function Name : mat_copy( fMatrix* src, fMatrix* dest )
+   536F* Input : fMatrix* src, fMatrix* dest
+   537F* Output : fMatrix* dest
+   538F* Return : 0 if failed, 1 if success
+   539F* Description :
+   540FCopies the matrix in 'src' to 'dest'. 'src' and 'dest' must be of the same
+   541Fdimension, and both must have memory allocated before calling this function.
+   542F*******************************************************************************/
+   543F
+   544Fint
+   545T  mat_copy (
+   546F  fMatrix * src ,
+   547F  fMatrix * dest )
+   548F  {
+   549F    int
+   550F      i ,
+   551F      j ;
+   552T    dest -> rows = src -> rows ;
+   553T    dest -> columns = src -> columns ;
+   554F     // Perform copy operation
+   555T    for
+   556T      (
+   557T      i = 0
+   558T      ;
+   559T      i < dest -> rows
+   560T      ;
+   561T      i ++
+   562T      )
+   563T      {
+   564T        for
+   565T          (
+   566T          j = 0
+   567T          ;
+   568T          j < dest -> columns
+   569T          ;
+   570T          j ++
+   571T          )
+   572T          {
+   573T            dest -> data [ i ] [ j ] = src -> data [ i ] [ j ] ;
+   574T          }
+   575T      }
+   576T    return
+   577T    1 ;
+   578F  }
+   579F/*
+   580Fint mat_print( fMatrix* matrix )
+   581F{
+   582F int i, j;
+   583F for( i = 0; i < matrix->rows; i++ )
+   584F {
+   585F for( j = 0; j < matrix->columns; j++ )
+   586F {
+   587F hexPrint16( (short)matrix->data[i][j] );
+   588F //DelayMs( 100 );
+   589F SCIA_TX_String("\t"); //USART1_transmit("\t",1);
+   590F //DelayMs( 10 );
+   591F }
+   592F SCIA_TX_String("\r\n"); //USART1_transmit("\r\n",2);
+   593F }
+   594F return;
+   595F}
+   596F*/
+   597F/*
+   598Fvoid hexPrint16( short byte )
+   599F{
+   600F unsigned char char_data[6];
+   601F unsigned char n0 = (byte & 0x0F);
+   602F unsigned char n1 = ((byte >> 4) & 0x0F);
+   603F unsigned char n2 = ((byte >> 8) & 0x0F);
+   604F unsigned char n3 = ((byte >> 12) & 0x0F);
+   605F 
+   606F if( n0 < 10 )
+   607F {
+   608F n0 += 48;
+   609F }
+   610F else
+   611F {
+   612F n0 += 55;
+   613F }
+   614F 
+   615F if( n1 < 10 )
+   616F {
+   617F n1 += 48;
+   618F }
+   619F else
+   620F {
+   621F n1 += 55;
+   622F }
+   623F 
+   624F if( n2 < 10 )
+   625F {
+   626F n2 += 48;
+   627F }
+   628F else
+   629F {
+   630F n2 += 55;
+   631F }
+   632F 
+   633F if( n3 < 10 )
+   634F {
+   635F n3 += 48;
+   636F }
+   637F else
+   638F {
+   639F n3 += 55;
+   640F }
+   641F char_data[0] = '0';
+   642F char_data[1] = 'x';
+   643F char_data[2] = n3;
+   644F char_data[3] = n2;
+   645F char_data[4] = n1;
+   646F char_data[5] = n0;
+   647F 
+   648F SCIA_TX_String(char_data); //USART1_transmit( char_data, 6 );
+   649F}
+   650F*/
+   651F/*
+   652Fvoid svd(double **A, double *S2, int n)
+   653F{
+   654F int i, j, k, EstColRank = n, RotCount = n, SweepCount = 0,
+   655F slimit = (n<120) ? 30 : n/4;
+   656F double eps = 1e-15, e2 = 10.0*n*eps*eps, tol = 0.1*eps, vt, p, x0,
+   657F y0, q, r, c0, s0, d1, d2;
+   658F for (i=0; i<n; i++) { for (j=0; j<n; j++) A[n+i][j] = 0.0; A[n+i][i] = 1.0; }
+   659F while (RotCount != 0 && SweepCount++ <= slimit) {
+   660F RotCount = EstColRank*(EstColRank-1)/2;
+   661F for (j=0; j<EstColRank-1; j++)
+   662F for (k=j+1; k<EstColRank; k++) {
+   663F p = q = r = 0.0;
+   664F for (i=0; i<n; i++) {
+   665F x0 = A[i][j]; y0 = A[i][k];
+   666F p += x0*y0; q += x0*x0; r += y0*y0;
+   667F }
+   668F S2[j] = q; S2[k] = r;
+   669F if (q >= r) {
+   670F if (q<=e2*S2[0] || fabs(p)<=tol*q)
+   671F RotCount--;
+   672F else {
+   673F p /= q; r = 1.0-r/q; vt = sqrt(4.0*p*p+r*r);
+   674F c0 = sqrt(0.5*(1.0+r/vt)); s0 = p/(vt*c0);
+   675F for (i=0; i<2*n; i++) {
+   676F d1 = A[i][j]; d2 = A[i][k];
+   677F A[i][j] = d1*c0+d2*s0; A[i][k] = -d1*s0+d2*c0;
+   678F }
+   679F }
+   680F } else {
+   681F p /= r; q = q/r-1.0; vt = sqrt(4.0*p*p+q*q);
+   682F s0 = sqrt(0.5*(1.0-q/vt));
+   683F if (p<0.0) s0 = -s0;
+   684F c0 = p/(vt*s0);
+   685F for (i=0; i<2*n; i++) {
+   686F d1 = A[i][j]; d2 = A[i][k];
+   687F A[i][j] = d1*c0+d2*s0; A[i][k] = -d1*s0+d2*c0;
+   688F }
+   689F }
+   690F }
+   691F while (EstColRank>2 && S2[EstColRank-1]<=S2[0]*tol+tol*tol) EstColRank--;
+   692F }
+   693F// if (SweepCount > slimit)
+   694F// printf("Warning: Reached maximum number of sweeps (%d) in SVD routine...\n",slimit);
+   695F}
+   696F*/
+   697F 

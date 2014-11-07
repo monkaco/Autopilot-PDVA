@@ -1,0 +1,80 @@
+<html><head>
+<title> Indexing results by.. </title>
+
+<SCRIPT LANGUAGE="Javascript" SRC="common.JS">
+// -->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="Javascript">
+// Declare 3 arrays of images. These contain firstly the normal
+// button images, then those images that appear when the mouse
+// hovers over a button and finally those images used to indicate
+// which button is currently selected.
+//
+normal   = new MakeArray(5);
+over     = new MakeArray(5);
+outlined = new MakeArray(5);
+
+
+normal[1].src  = "../images/normal/anal_index.gif";
+normal[2].src  = "../images/normal/stfindex.gif";
+normal[3].src  = "../images/normal/help.gif";
+
+over[1].src  = "../images/over/anal_index.gif";
+over[2].src  = "../images/over/stfindex.gif";
+over[3].src  = "../images/over/help.gif";
+
+outlined[1].src  = "../images/outlined/anal_index.gif";
+outlined[2].src  = "../images/outlined/stfindex.gif";
+outlined[3].src  = "../images/outlined/help.gif";
+
+// Variable 'highlighted' indicates which buttonin the
+// menu currently has an orange border highlight
+//
+var highlighted = 2;
+
+
+// Function to detect when a button is clicked and swap
+// button images accordingly
+//
+function msover(num){
+        if( highlighted != num ){
+            document.images[num - 1].src = over[num].src;
+        }
+}
+
+
+function msout(num){
+        if( highlighted != num ){
+            document.images[num - 1].src = normal[num].src;
+        }
+}
+
+
+function msclick(num){
+        document.images[highlighted - 1].src = normal[highlighted].src;
+        document.images[num - 1].src = outlined[num].src;
+        highlighted = num;
+}
+
+var HelpTarget="Help.txt"
+
+// -->
+</SCRIPT>
+<STYLE TYPE="text/css">
+ h3, h4 {font-family: lucida sans}
+</STYLE>
+</head><body background="../images/line_bg.gif" LINK="#DEDEEF" VLINK="#7777D7" ALINK="#FF9933" >
+
+<h3><CENTER> <FONT COLOR="#FF9933"> INDEX METHOD </FONT> </CENTER></h3>
+
+<CENTER> <A HREF = "javascript:self.location.href = parent.SetInd;" target="tFrame"  onmouseover="msover(1);"onclick="msclick(1);" onmouseout="msout(1);" > <IMG SRC="../images/normal/anal_index.gif" alt="Specific Report indexed by File" border=0 width="170" height="35"></A> </CENTER>
+<CENTER> <A HREF = "javascript:self.location.href = parent.CurrFileInd;" target="tFrame"  onmouseover="msover(2);"onclick="msclick(2);" onmouseout="msout(2);" > <IMG SRC="../images/outlined/stfindex.gif" alt="Results for specific file by Report type" border=0 width="170" height="23"></A> </CENTER>
+<CENTER> <A HREF = "../images/index_hlp.htm"; target="rFrame" onmouseover="msover(3);"onclick="msclick(3);" onmouseout="msout(3);" > <IMG SRC="../images/normal/help.gif" alt="Help" border=0 width="170" height="23"></A> </CENTER>
+<img src="../images/dot_clear.gif" width="1" height="10" alt=""><br>
+<img src="../images/dot_clear.gif" width="45" height="1" alt=""><A HREF="http://www.ldra.com" TARGET="parent.parent.rFrame"><img src="../images/sml_logo.gif" alt="LDRA Ltd"></A><br>
+<center>
+<img src="../images/dot_clear.gif" width="1" height="10" alt=""><br>
+
+</CENTER>
+</BODY> </HTML>

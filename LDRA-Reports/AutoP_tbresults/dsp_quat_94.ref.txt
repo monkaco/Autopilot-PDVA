@@ -1,0 +1,279 @@
+     1F/*
+     2FC TESTBED VERSION  : 9.4.4                                                                                               
+     3FFILE UNDER TEST  : "F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_quat.c"           
+     4FDATE OF ANALYSIS : Fri Nov 07 10:50:21 2014                          
+     5F*/
+     6F 
+     7F//############################################################################
+     8F//
+     9F// File: EKF_Predict.c
+    10F// Version: 0.1
+    11F//
+    12F// Description: Implementation of quaternions operation functions.
+    13F//
+    14F//############################################################################
+    15F// Author: Rogério Lima
+    16F// Release Date: July 2012
+    17F//############################################################################
+    18F#include <math.h>
+    19F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h */
+    20F//############################################################################
+    21F//
+    22F// File:         dsp_types.h
+    23F// Version:      0.1
+    24F//
+    25F// Description: Structure and variable definitions.
+    26F//
+    27F//############################################################################
+    28F// Author: Rogério Lima
+    29F// Release Date: July 2012
+    30F//############################################################################
+    31F#ifndef DSP_TYPES_H
+    32F#define DSP_TYPES_H
+    33F/* These definitions might not be 8-bit wide */
+    34F
+    35Ftypedef
+    36Fsigned char
+    37F  int8_t ;
+    38F
+    39Ftypedef
+    40Funsigned char
+    41F  uint8_t ;
+    42F  /* 7.18.1.1 Exact-width integer types */
+    43F
+    44Ftypedef
+    45Fshort
+    46F  int16_t ;
+    47F
+    48Ftypedef
+    49Funsigned short
+    50F  uint16_t ;
+    51F
+    52Ftypedef
+    53Flong
+    54F  int32_t ;
+    55F
+    56Ftypedef
+    57Funsigned long
+    58F  uint32_t ;
+    59F       /* DSP_TYPES_H */
+    60F 
+    61F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h*/
+    62F/*   CLOSE_FILE Include File */
+    63F 
+    64F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h */
+    65F//############################################################################
+    66F//
+    67F// File:         EKF_Quat.h
+    68F// Version:      0.1
+    69F//
+    70F// Description: Preprocessor definitions and function declarations for quater-
+    71F//       nion calculations.
+    72F//
+    73F//############################################################################
+    74F// Author: Rogério Lima
+    75F// Release Date: July 2012
+    76F//############################################################################
+    77F#ifndef __EKF_quat_h
+    78F#define __EKF_quat_h
+    79F
+    80Ftypedef
+    81Fstruct _quat
+    82F{
+    83F  float a ,
+    84F  b ,
+    85F  c ,
+    86F  d ;
+    87F} quat ;
+    88F
+    89Fint16_t
+    90T  quat_mult (
+    91F  quat * src1 ,
+    92F  quat * src2 ,
+    93F  quat * dest ) ;
+    94F
+    95Fint16_t
+    96T  quat_conj (
+    97F  quat * src ,
+    98F  quat * dest ) ;
+    99F
+   100Fint16_t
+   101T  quat_norm (
+   102F  quat * src ) ;
+   103F
+   104Fint16_t
+   105T  quat_add (
+   106F  quat * src1 ,
+   107F  quat * src2 ,
+   108F  quat * dest ) ;
+   109F
+   110Fint16_t
+   111T  quat_subtract (
+   112F  quat * src1 ,
+   113F  quat * src2 ,
+   114F  quat * dest ) ;
+   115F
+   116Fint16_t
+   117T  quat_scalar_mult (
+   118F  quat * qsrc ,
+   119F  float scalar ,
+   120F  quat * dest ) ;
+   121F 
+   122F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h*/
+   123F/*   CLOSE_FILE Include File */
+   124F 
+   125F/*******************************************************************************
+   126F* Function Name : quat_mult( quat* src1, quat* src2, quat* dest )
+   127F* Input : quat* src1, quat* src2
+   128F* Output : quat* dest
+   129F* Return : 0 if failed, 1 if success
+   130F* Description :
+   131FPerforms the quaternion operation dest = src1*src2
+   132F*******************************************************************************/
+   133F
+   134Fint16_t
+   135T  quat_mult (
+   136F  quat * src1 ,
+   137F  quat * src2 ,
+   138F  quat * dest )
+   139F  {
+   140F    float
+   141F      a1 ,
+   142F      b1 ,
+   143F      c1 ,
+   144F      d1 ;
+   145F    float
+   146F      a2 ,
+   147F      b2 ,
+   148F      c2 ,
+   149F      d2 ;
+   150T    a1 = src1 -> a ;
+   151T    b1 = src1 -> b ;
+   152T    c1 = src1 -> c ;
+   153T    d1 = src1 -> d ;
+   154T    a2 = src2 -> a ;
+   155T    b2 = src2 -> b ;
+   156T    c2 = src2 -> c ;
+   157T    d2 = src2 -> d ;
+   158T    dest -> a = ( a1 * a2 ) - ( b1 * b2 ) - ( c1 * c2 ) - ( d1 * d2 ) ;
+   159T    dest -> b = ( a1 * b2 ) + ( b1 * a2 ) + ( c1 * d2 ) - ( d1 * c2 ) ;
+   160T    dest -> c = ( a1 * c2 ) - ( b1 * d2 ) + ( c1 * a2 ) + ( d1 * b2 ) ;
+   161T    dest -> d = ( a1 * d2 ) + ( b1 * c2 ) - ( c1 * b2 ) + ( d1 * a2 ) ;
+   162T    return
+   163T    1 ;
+   164F  }
+   165F/*******************************************************************************
+   166F* Function Name : quat_conj( quat* src, quat* dest )
+   167F* Input : quat* src
+   168F* Output : quat* dest
+   169F* Return : 0 if failed, 1 if success
+   170F* Description :
+   171FComputes the quaternion conjugate of src and places it in dest
+   172F*******************************************************************************/
+   173F
+   174Fint16_t
+   175T  quat_conj (
+   176F  quat * src ,
+   177F  quat * dest )
+   178F  {
+   179T    dest -> a = src -> a ;
+   180T    dest -> b = - src -> b ;
+   181T    dest -> c = - src -> c ;
+   182T    dest -> d = - src -> d ;
+   183T    return
+   184T    1 ;
+   185F  }
+   186F/*******************************************************************************
+   187F* Function Name : quat_norm( quat* src )
+   188F* Input : quat* src
+   189F* Output : quat* dest
+   190F* Return : 0 if failed, 1 if success
+   191F* Description :
+   192FNormalizes the quaternion in src
+   193F*******************************************************************************/
+   194F
+   195Fint16_t
+   196T  quat_norm (
+   197F  quat * src )
+   198F  {
+   199F    float
+   200F      norm = src -> a * src -> a + src -> b * src -> b + src -> c * src -> c + src -> d * src -> d ;
+   201T    norm = sqrt ( norm ) ;
+   202T    src -> a = src -> a /
+   203T    norm ;
+   204T    src -> b = src -> b /
+   205T    norm ;
+   206T    src -> c = src -> c /
+   207T    norm ;
+   208T    src -> d = src -> d /
+   209T    norm ;
+   210T    return
+   211T    1 ;
+   212F  }
+   213F/*******************************************************************************
+   214F* Function Name : quat_subtract( quat* src1, quat* src2, quat* dest )
+   215F* Input : quat* src, quat* src2
+   216F* Output : quat* dest
+   217F* Return : 0 if failed, 1 if success
+   218F* Description :
+   219FPerforms the operation dest = src1 - src2
+   220F*******************************************************************************/
+   221F
+   222Fint16_t
+   223T  quat_subtract (
+   224F  quat * src1 ,
+   225F  quat * src2 ,
+   226F  quat * dest )
+   227F  {
+   228T    dest -> a = src1 -> a - src2 -> a ;
+   229T    dest -> b = src1 -> b - src2 -> b ;
+   230T    dest -> c = src1 -> c - src2 -> c ;
+   231T    dest -> d = src1 -> d - src2 -> d ;
+   232T    return
+   233T    1 ;
+   234F  }
+   235F/*******************************************************************************
+   236F* Function Name : quat_add( quat* src1, quat* src2, quat* dest )
+   237F* Input : quat* src, quat* src2
+   238F* Output : quat* dest
+   239F* Return : 0 if failed, 1 if success
+   240F* Description :
+   241FPerforms the operation dest = src1 + src2
+   242F*******************************************************************************/
+   243F
+   244Fint16_t
+   245T  quat_add (
+   246F  quat * src1 ,
+   247F  quat * src2 ,
+   248F  quat * dest )
+   249F  {
+   250T    dest -> a = src1 -> a + src2 -> a ;
+   251T    dest -> b = src1 -> b + src2 -> b ;
+   252T    dest -> c = src1 -> c + src2 -> c ;
+   253T    dest -> d = src1 -> d + src2 -> d ;
+   254T    return
+   255T    1 ;
+   256F  }
+   257F/*******************************************************************************
+   258F* Function Name : quat_scalar_mult( quat* qsrc, float scalar, quat* dest )
+   259F* Input : quat* src, float scalar
+   260F* Output : quat* dest
+   261F* Return : 0 if failed, 1 if success
+   262F* Description :
+   263FPerforms the operation dest = qsrc*scalar;
+   264F*******************************************************************************/
+   265F
+   266Fint16_t
+   267T  quat_scalar_mult (
+   268F  quat * qsrc ,
+   269F  float scalar ,
+   270F  quat * dest )
+   271F  {
+   272T    dest -> a = qsrc -> a * scalar ;
+   273T    dest -> b = qsrc -> b * scalar ;
+   274T    dest -> c = qsrc -> c * scalar ;
+   275T    dest -> d = qsrc -> d * scalar ;
+   276T    return
+   277T    1 ;
+   278F  }
+   279F 

@@ -1,0 +1,834 @@
+     1F/*
+     2FC TESTBED VERSION  : 9.4.4                                                                                               
+     3FFILE UNDER TEST  : "F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\ekf_predict.c"        
+     4FDATE OF ANALYSIS : Fri Nov 07 10:50:03 2014                          
+     5F*/
+     6F//############################################################################
+     7F//
+     8F// File: EKF_Predict.c
+     9F// Version: 0.1
+    10F//
+    11F// Description: Implementation of EKF prediction functions.
+    12F//
+    13F//############################################################################
+    14F// Author: Rogério Lima
+    15F// Release Date: July 2012
+    16F//############################################################################
+    17F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h */
+    18F//############################################################################
+    19F//
+    20F// File:         dsp_sensorhead_types.h
+    21F// Version:      0.1
+    22F//
+    23F// Description: Structure and variable definitions.
+    24F//
+    25F//############################################################################
+    26F// Author: Rogério Lima
+    27F// Release Date: July 2012
+    28F//############################################################################
+    29F#ifndef DSP_SENSORHEAD_TYPES_H
+    30F#define DSP_SENSORHEAD_TYPES_H
+    31F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h */
+    32F//############################################################################
+    33F//
+    34F// File:         dsp_types.h
+    35F// Version:      0.1
+    36F//
+    37F// Description: Structure and variable definitions.
+    38F//
+    39F//############################################################################
+    40F// Author: Rogério Lima
+    41F// Release Date: July 2012
+    42F//############################################################################
+    43F#ifndef DSP_TYPES_H
+    44F#define DSP_TYPES_H
+    45F/* These definitions might not be 8-bit wide */
+    46F
+    47Ftypedef
+    48Fsigned char
+    49F  int8_t ;
+    50F
+    51Ftypedef
+    52Funsigned char
+    53F  uint8_t ;
+    54F  /* 7.18.1.1 Exact-width integer types */
+    55F
+    56Ftypedef
+    57Fshort
+    58F  int16_t ;
+    59F
+    60Ftypedef
+    61Funsigned short
+    62F  uint16_t ;
+    63F
+    64Ftypedef
+    65Flong
+    66F  int32_t ;
+    67F
+    68Ftypedef
+    69Funsigned long
+    70F  uint32_t ;
+    71F       /* DSP_TYPES_H */
+    72F 
+    73F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h*/
+    74F/*   CLOSE_FILE Include File */
+    75F 
+    76F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h */
+    77F//############################################################################
+    78F//
+    79F// File:         EKF_Quat.h
+    80F// Version:      0.1
+    81F//
+    82F// Description: Preprocessor definitions and function declarations for quater-
+    83F//       nion calculations.
+    84F//
+    85F//############################################################################
+    86F// Author: Rogério Lima
+    87F// Release Date: July 2012
+    88F//############################################################################
+    89F#ifndef __EKF_quat_h
+    90F#define __EKF_quat_h
+    91F
+    92Ftypedef
+    93Fstruct _quat
+    94F{
+    95F  float a ,
+    96F  b ,
+    97F  c ,
+    98F  d ;
+    99F} quat ;
+   100F
+   101Fint16_t
+   102T  quat_mult (
+   103F  quat * src1 ,
+   104F  quat * src2 ,
+   105F  quat * dest ) ;
+   106F
+   107Fint16_t
+   108T  quat_conj (
+   109F  quat * src ,
+   110F  quat * dest ) ;
+   111F
+   112Fint16_t
+   113T  quat_norm (
+   114F  quat * src ) ;
+   115F
+   116Fint16_t
+   117T  quat_add (
+   118F  quat * src1 ,
+   119F  quat * src2 ,
+   120F  quat * dest ) ;
+   121F
+   122Fint16_t
+   123T  quat_subtract (
+   124F  quat * src1 ,
+   125F  quat * src2 ,
+   126F  quat * dest ) ;
+   127F
+   128Fint16_t
+   129T  quat_scalar_mult (
+   130F  quat * qsrc ,
+   131F  float scalar ,
+   132F  quat * dest ) ;
+   133F 
+   134F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h*/
+   135F/*   CLOSE_FILE Include File */
+   136F 
+   137F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h */
+   138F//############################################################################
+   139F//
+   140F// File: dsp_matrix.h
+   141F// Version: 0.1
+   142F//
+   143F// Description: Preprocessor definitions and function declarations for matrix
+   144F// calculations.
+   145F//
+   146F//############################################################################
+   147F// Author: Rogério Lima
+   148F// Release Date: July 2012
+   149F//############################################################################
+   150F#ifndef DSP_MATRIX_H
+   151F#define DSP_MATRIX_H
+   152F#define MATRIX_MAX_ROWS 12
+   153F#define MATRIX_MAX_COLUMNS 12
+   154F
+   155Ftypedef
+   156Fstruct _fMatrix
+   157F{
+   158F  int rows ;
+   159F  int columns ;
+   160F  float data [ 12 ] [ 12 ] ;
+   161F} fMatrix ;
+   162F// Matrix operations
+   163F
+   164Fint
+   165T  mat_add (
+   166F  fMatrix * src1 ,
+   167F  fMatrix * src2 ,
+   168F  fMatrix * dest ) ;
+   169F
+   170Fint
+   171T  mat_mult (
+   172F  fMatrix * src1 ,
+   173F  fMatrix * src2 ,
+   174F  fMatrix * dest ) ;
+   175F
+   176Fint
+   177T  mat_scalar_mult (
+   178F  float scalar ,
+   179F  fMatrix * src ,
+   180F  fMatrix * dest ) ;
+   181F
+   182Fint
+   183T  mat_determinant (
+   184F  fMatrix * src ,
+   185F  float * det ) ;
+   186F
+   187Fint
+   188T  mat_transpose (
+   189F  fMatrix * src ,
+   190F  fMatrix * dest ) ;
+   191F
+   192Fint
+   193T  mat_create_identity (
+   194F  fMatrix * dest ,
+   195F  int rows ,
+   196F  int columns ) ;
+   197F
+   198Fint
+   199T  mat_zero (
+   200F  fMatrix * dest ,
+   201F  int rows ,
+   202F  int columns ) ;
+   203F
+   204Fint
+   205T  mat_copy (
+   206F  fMatrix * src ,
+   207F  fMatrix * dest ) ;
+   208F//int mat_print( fMatrix* matrix );
+   209F//void hexPrint16( short byte );
+   210F 
+   211F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h*/
+   212F/*   CLOSE_FILE Include File */
+   213F 
+   214F#define SUCCESS ( 1 == 1 )
+   215F#define FAIL ( 0 == 1 )
+   216F#define MAG_UPDATE 0
+   217F#define ACCEL_UPDATE 1
+   218F         // Original values
+   219F#define ACCEL_VARIANCE 223.59E-4f
+   220F#define GYRO_VARIANCE 68.81E-5f
+   221F#define GYRO_BIAS_VARIANCE 201.93E-3f
+   222F#define MAGNETO_VARIANCE 48.12E-5f
+   223F#define GPS_VARIANCE 1.6E-3f
+   224F#define QUATERNION_NORM_VARIANCE 1.0E-9f
+   225F#define ACCEL_SCALE_FACTOR 0.03830859375f
+   226F#define GYRO_SCALE_FACTOR_DEG 0.06956521739f
+   227F#define GYRO_SCALE_FACTOR_RAD 0.00121414208f
+   228F#define MAG_SCALE_FACTOR 0.00151515151f
+   229F#define RAD2DEG 57.2957795130f
+   230F#define DEG2RAD 0.01745329251f
+   231F#define KM2M 0.27777777778f
+   232F//#define       ABS_PRESSURE_SCALE_FACTOR // -> Transfer function
+   233F//#define       DIFF_PRESSURE_SCALE_FACTOR // -> Transfer function
+   234F/* Structure for holding raw sensor data */
+   235F
+   236Ftypedef
+   237Fstruct sensor_data_raw
+   238F{
+   239F  int16_t gyro_x ;
+   240F  int16_t gyro_y ;
+   241F  int16_t gyro_z ;
+   242F  int16_t new_gyro_data ;
+   243F  int16_t accel_x ;
+   244F  int16_t accel_y ;
+   245F  int16_t accel_z ;
+   246F        // Flag specifies whether there is new accel data in the sensor data structure
+   247F  int16_t new_accel_data ;
+   248F  int16_t mag_x ;
+   249F  int16_t mag_y ;
+   250F  int16_t mag_z ;
+   251F        // Flag specifies whether there is new magnetometer data in the sensor data structure
+   252F  int16_t new_mag_data ;
+   253F        // Rate gyro temperature measurement
+   254F  int16_t gyro_temperature ;
+   255F  int32_t abs_pressure ;
+   256F  int16_t new_abs_pressure_data ;
+   257F  int16_t diff_pressure ;
+   258F  int16_t new_diff_pressure_data ;
+   259F} sensor_data_raw_t ;
+   260F/* Structure for holding scaled sensor data */
+   261F
+   262Ftypedef
+   263F  struct
+   264F  {
+   265F    float gyro_x ;
+   266F    float gyro_y ;
+   267F    float gyro_z ;
+   268F    float accel_x ;
+   269F    float accel_y ;
+   270F    float accel_z ;
+   271F    float mag_x ;
+   272F    float mag_y ;
+   273F    float mag_z ;
+   274F    float gyro_temperature ;
+   275F    float abs_pressure ;
+   276F    float baro_altitude ;
+   277F    float diff_pressure ;
+   278F    float airspeed ;
+   279F        /* GPS data */
+   280F        /* Latitude */
+   281F    int16_t gps_lat_deg ;
+   282F    uint32_t gps_lat_min ;
+   283F    uint8_t gps_lat_sector ;
+   284F        /* Longitude */
+   285F    int16_t gps_lon_deg ;
+   286F    uint32_t gps_lon_min ;
+   287F    uint8_t gps_lon_sector ;
+   288F        /* Altitude */
+   289F    int32_t gps_alt ;
+   290F        /* Speed */
+   291F    int32_t gps_speed ;
+   292F    int32_t gps_course ;
+   293F        /* Time */
+   294F    uint16_t gps_hour ;
+   295F    uint16_t gps_min ;
+   296F    float gps_sec ;
+   297F        // Status
+   298F    uint16_t gps_position_fix_status ;
+   299F    uint16_t gps_no_sv ;
+   300F    float gps_hdop ;
+   301F    uint16_t gps_new_message ;
+   302F  } sensor_data_scaled_t ;
+   303F// Structure for storing AHRS states and other data related to state computation
+   304F// This structure is, in a way, redundant because all this data is also stored in the
+   305F// UM6_config or UM6_data structures. However, in the config and data strucutres, the
+   306F// data is packaged as UInt32 entries into an array for convenience with communication.
+   307F// To use the data as floats, special formatting is required. This structure provides
+   308F// a place to store that data in the expected format, which makes accessing it easier.
+   309F
+   310Ftypedef
+   311F  struct
+   312F  {
+   313F        /* Attitude states */
+   314F    float psi ;
+   315F    float theta ;
+   316F    float phi ;
+   317F        /* Angle rate states */
+   318F    float psi_dot ;
+   319F    float theta_dot ;
+   320F    float phi_dot ;
+   321F        /* Quaternion states "qib" = Quaternion from Inertial to Body */
+   322F    quat qib ;
+   323F    quat quat_debug ;
+   324F        /* Gyro biases */
+   325F    float bias_p ;
+   326F    float bias_q ;
+   327F    float bias_r ;
+   328F        /* Accelerometer biases */
+   329F    float bias_accel_x ;
+   330F    float bias_accel_y ;
+   331F    float bias_accel_z ;
+   332F        /* Magnetometer biases */
+   333F    float bias_mag_x ;
+   334F    float bias_mag_y ;
+   335F    float bias_mag_z ;
+   336F        /* State Transition Matrix (jacobian of system matrix 'f') */
+   337F    fMatrix jac_f ;
+   338F        /* Linearized measurement equation (jacobian of output equation 'h') */
+   339F    fMatrix jac_h ;
+   340F        /* Measurement noise matrix */
+   341F    fMatrix R ;
+   342F        /* Auxiliary construction measurement matrix for phi and theta angles. */
+   343F    fMatrix R_phi_theta ;
+   344F        /* Auxiliary construction measurement matrix for psi angle. */
+   345F    fMatrix R_psi ;
+   346F        /* Process noise matrix */
+   347F    fMatrix Q ;
+   348F        /* Accelerometer alignment matrix */
+   349F    fMatrix accel_align_mat ;
+   350F        /* Gyro alignment matrix */
+   351F    fMatrix gyro_align_mat ;
+   352F        /* Magnetometer calibration matrix */
+   353F    fMatrix mag_align_mat ;
+   354F        // Error covariance matrix
+   355F    fMatrix P ;
+   356F        /* Magnetic field reference vector */
+   357F    float mag_ref_x ;
+   358F    float mag_ref_y ;
+   359F    float mag_ref_z ;
+   360F        /* Accelerometer reference vector */
+   361F    float accel_ref_x ;
+   362F    float accel_ref_y ;
+   363F    float accel_ref_z ;
+   364F        /* Accelerometer variance */
+   365F    float accel_var ;
+   366F        /* Gyrometer variance */
+   367F    float gyro_var ;
+   368F        /* Gyro bias variance */
+   369F    float gyro_bias_var ;
+   370F        /* Magnetometer variance */
+   371F    float mag_var ;
+   372F        /* GPS velocity variance */
+   373F    float gps_var ;
+   374F    float U ;
+   375F    float V ;
+   376F    float W ;
+   377F    float U_ant ;
+   378F    float V_ant ;
+   379F    float W_ant ;
+   380F    float U_dot ;
+   381F    float V_dot ;
+   382F    float W_dot ;
+   383F    float temperature ;
+   384F        // Time sampling
+   385F    float Ts ;    // In seconds
+   386F    float debug_misc [ 5 ] ;
+   387F        // GPS stuffs
+   388F    float GPS_north ;    // In meters
+   389F    float GPS_east ;
+   390F    float GPS_h ;
+   391F    float GPS_h_ant ;
+   392F    float GPS_speed ;    // In m/s
+   393F    float GPS_speed_ant ;    // past speed
+   394F    float GPS_heading ;    // In m/s
+   395F    float GPS_Ts ;
+   396F    float GPS_lat_home ;
+   397F    float GPS_lon_home ;
+   398F    float GPS_alt_home ;
+   399F  } ahrs_states_t ;
+   400F// Structure for holding raw sensor data
+   401F
+   402Ftypedef
+   403F  struct
+   404F  {
+   405F        // input
+   406F    float xk [ 9 ] ;
+   407F    float xk_1 [ 9 ] ;
+   408F    float xk_2 [ 9 ] ;
+   409F        // output
+   410F    float yk [ 9 ] ;
+   411F    float yk_1 [ 9 ] ;
+   412F    float yk_2 [ 9 ] ;
+   413F    float a [ 5 ] ; // denominator coefficient
+   414F    float b [ 5 ] ; // numerator coefficient
+   415F  } digital_filter_data_t ;
+   416F
+   417Fvoid
+   418T  compute_euler_angles (
+   419F  ahrs_states_t * estimated_states ) ;
+   420F
+   421Fvoid
+   422T  unroll_states (
+   423F  ahrs_states_t * states ) ;
+   424F 
+   425F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h*/
+   426F/*   CLOSE_FILE Include File */
+   427F 
+   428F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_ekf.h */
+   429F//############################################################################
+   430F//
+   431F// File: EKF_Funcs.h
+   432F// Version: 0.1
+   433F//
+   434F// Description: Preprocessor definitions and function declarations for EKF
+   435F// calculations.
+   436F//
+   437F//############################################################################
+   438F// Author: Rogério Lima
+   439F// Release Date: July 2012
+   440F//############################################################################
+   441F#ifndef DSP_EKF_H
+   442F#define DSP_EKF_H
+   443F/* Function prototypes */
+   444F
+   445Fvoid
+   446T  ekf_init (
+   447F  ahrs_states_t * estimated_states ) ;
+   448F  /* EKF prediction functions */
+   449F
+   450Fvoid
+   451T  ekf_prediction (
+   452F  ahrs_states_t * estimated_states ,
+   453F  sensor_data_scaled_t * scaled_data ) ;
+   454F
+   455Fvoid
+   456T  ekf_stm (
+   457F  ahrs_states_t * estimated_states ,
+   458F  fMatrix * stm ,
+   459F  sensor_data_scaled_t * scaled_data ) ;
+   460F
+   461Fvoid
+   462T  ekf_apriori_covariance (
+   463F  ahrs_states_t * estimated_states ,
+   464F  fMatrix * F ) ;
+   465F
+   466Fvoid
+   467T  ekf_apriori_estimate (
+   468F  ahrs_states_t * estimated_states ,
+   469F  sensor_data_scaled_t * scaled_data ) ;
+   470F  /* EKF correction functions */
+   471F
+   472Fvoid
+   473T  ekf_correction (
+   474F  ahrs_states_t * estimated_states ,
+   475F  sensor_data_scaled_t * scaled_data ) ;
+   476F
+   477Fvoid
+   478T  ekf_h_matrix (
+   479F  ahrs_states_t * estimated_states ,
+   480F  fMatrix * H ) ;
+   481F  /* General functions */
+   482F
+   483Fvoid
+   484T  ekf_estimate_states (
+   485F  ahrs_states_t * states ,
+   486F  sensor_data_scaled_t * scaled_data ) ;
+   487F// General functions
+   488F//void EKF_Init( ahrs_states_t* estimated_states );
+   489F//void EKF_InitFromSensors( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   490F//void EKF_EstimateStates( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   491F//void EKF_Predict( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   492F//void EKF_Update( ahrs_states_t* estimated_states, sensor_data_raw_t* sensor_data );
+   493F//void EKF_Correction( fMatrix* C, float sensor_data, float sensor_hat, float sensor_covariance, ahrs_states_t* estimated_states, int sensor_type );
+   494F/* Digital filtering prototype functions */
+   495F
+   496Fvoid
+   497T  lpf_butterworth_init (
+   498F  digital_filter_data_t * filtered_dat ) ;
+   499F
+   500Fvoid
+   501T  lpf_butterworth (
+   502F  sensor_data_scaled_t * input_scaled_data ,
+   503F  digital_filter_data_t * filtered_dat ) ;
+   504F 
+   505F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_ekf.h*/
+   506F/*   CLOSE_FILE Include File */
+   507F 
+   508F/* LDRA REMOVE #include "dsp_matrix.h" */
+   509F#include <math.h>
+   510F// EKF prediction step
+   511F
+   512Fvoid
+   513T  ekf_prediction (
+   514F  ahrs_states_t * estimated_states ,
+   515F  sensor_data_scaled_t * scaled_data )
+   516F  {
+   517F    fMatrix
+   518F      F ;
+   519F      /* Computes state transition matrix */
+   520T
+   521T    ekf_stm (
+   522T    estimated_states , & F , scaled_data ) ;
+   523F    // Computes a priori covariance matrix:
+   524F    // P[k]_ = F[k-1]*P[k-1]*F[k-1]' + L[k-1] *Q[k-1]*L[k-1]'
+   525T
+   526T    ekf_apriori_covariance (
+   527T    estimated_states , & F ) ;
+   528T
+   529T    ekf_apriori_estimate (
+   530T    estimated_states , scaled_data ) ;
+   531F    // Continuar daqui...
+   532T    compute_euler_angles ( estimated_states ) ;
+   533F    // Quaternion normalization
+   534T    quat_norm ( & estimated_states -> qib ) ;
+   535F    // debug
+   536T    estimated_states -> quat_debug.a = estimated_states -> qib.a ;
+   537T    estimated_states -> quat_debug.b = estimated_states -> qib.b ;
+   538T    estimated_states -> quat_debug.c = estimated_states -> qib.c ;
+   539T    estimated_states -> quat_debug.d = estimated_states -> qib.d ;
+   540F    // debug
+   541T  }
+   542F/*******************************************************************************
+   543F* Function Name : ekf_stm
+   544F* Input : AHRS_states* estimated_states
+   545F* Output : None
+   546F* Return : None
+   547F* Description : Computes the state transition matrix based on previous step
+   548F* states (quaternions, gyros and gyro biases).
+   549F*******************************************************************************/
+   550F
+   551Fvoid
+   552T  ekf_stm (
+   553F  ahrs_states_t * estimated_states ,
+   554F  fMatrix * stm ,
+   555F  sensor_data_scaled_t * scaled_data )
+   556F  {
+   557F    float
+   558F      q0 ,
+   559F      q1 ,
+   560F      q2 ,
+   561F      q3 ,
+   562F      p ,
+   563F      q ,
+   564F      r ,
+   565F      bp ,
+   566F      bq ,
+   567F      br ,
+   568F      t ;
+   569T    stm -> rows = 7U ;
+   570T    stm -> columns = 7U ;
+   571F    // quaternion variables
+   572T    q0 = estimated_states -> qib.a ;
+   573T    q1 = estimated_states -> qib.b ;
+   574T    q2 = estimated_states -> qib.c ;
+   575T    q3 = estimated_states -> qib.d ;
+   576F    // angular rates [rad/s]
+   577T    p = scaled_data -> gyro_x ;
+   578T    q = scaled_data -> gyro_y ;
+   579T    r = scaled_data -> gyro_z ;
+   580F    // gyro bias [rad/s]
+   581T    bp = estimated_states -> bias_p ;
+   582T    bq = estimated_states -> bias_q ;
+   583T    br = estimated_states -> bias_r ;
+   584F    // time sampling [s]
+   585T    t = estimated_states -> Ts ;
+   586T    mat_zero ( stm , stm -> rows , stm -> columns ) ;
+   587T    stm -> data [ 0 ] [ 0 ] = 1.0F ;
+   588T    stm -> data [ 0 ] [ 1 ] = t * ( bp * ( 1.0F /
+   589T    4.0F ) - ( p * ( 1.0F /
+   590T    2.0F ) ) ) ;
+   591T    stm -> data [ 0 ] [ 2 ] = t * ( bq * ( 1.0F /
+   592T    4.0F ) - ( q * ( 1.0F /
+   593T    2.0F ) ) ) ;
+   594T    stm -> data [ 0 ] [ 3 ] = t * ( br * ( 1.0F /
+   595T    4.0F ) - ( r * ( 1.0F /
+   596T    2.0F ) ) ) ;
+   597T    stm -> data [ 0 ] [ 4 ] = q1 * t * ( 1.0F /
+   598T    4.0F ) ;
+   599T    stm -> data [ 0 ] [ 5 ] = q2 * t * ( 1.0F /
+   600T    4.0F ) ;
+   601T    stm -> data [ 0 ] [ 6 ] = q3 * t * ( 1.0F /
+   602T    4.0F ) ;
+   603T    stm -> data [ 1 ] [ 0 ] = - t * ( bp * ( 1.0F /
+   604T    4.0F ) - ( p * ( 1.0F /
+   605T    2.0F ) ) ) ;
+   606T    stm -> data [ 1 ] [ 1 ] = 1.0F ;
+   607T    stm -> data [ 1 ] [ 2 ] = - t * ( br * ( 1.0F /
+   608T    4.0F ) - ( r * ( 1.0F /
+   609T    2.0F ) ) ) ;
+   610T    stm -> data [ 1 ] [ 3 ] = t * ( bq * ( 1.0 /
+   611T    4.0 ) - ( q * ( 1.0F /
+   612T    2.0F ) ) ) ;
+   613T    stm -> data [ 1 ] [ 4 ] = q0 * t * ( - 1.0F /
+   614T    4.0F ) ;
+   615T    stm -> data [ 1 ] [ 5 ] = q3 * t * ( 1.0F /
+   616T    4.0F ) ;
+   617T    stm -> data [ 1 ] [ 6 ] = q2 * t * ( - 1.0F /
+   618T    4.0F ) ;
+   619T    stm -> data [ 2 ] [ 0 ] = - t * ( bq * ( 1.0F /
+   620T    4.0F ) - ( q * ( 1.0F /
+   621T    2.0F ) ) ) ;
+   622T    stm -> data [ 2 ] [ 1 ] = t * ( br * ( 1.0F /
+   623T    4.0F ) - ( r * ( 1.0F /
+   624T    2.0F ) ) ) ;
+   625T    stm -> data [ 2 ] [ 2 ] = 1.0F ;
+   626T    stm -> data [ 2 ] [ 3 ] = - t * ( bp * ( 1.0F /
+   627T    4.0F ) - ( p * ( 1.0F /
+   628T    2.0F ) ) ) ;
+   629T    stm -> data [ 2 ] [ 4 ] = q3 * t * ( - 1.0F /
+   630T    4.0F ) ;
+   631T    stm -> data [ 2 ] [ 5 ] = q0 * t * ( - 1.0F /
+   632T    4.0F ) ;
+   633T    stm -> data [ 2 ] [ 6 ] = q1 * t * ( 1.0F /
+   634T    4.0F ) ;
+   635T    stm -> data [ 3 ] [ 0 ] = - t * ( br * ( 1.0F /
+   636T    4.0F ) - ( r * ( 1.0F /
+   637T    2.0F ) ) ) ;
+   638T    stm -> data [ 3 ] [ 1 ] = - t * ( bq * ( 1.0F /
+   639T    4.0F ) - ( q * ( 1.0F /
+   640T    2.0F ) ) ) ;
+   641T    stm -> data [ 3 ] [ 2 ] = t * ( bp * ( 1.0 /
+   642T    4.0 ) - p * ( 1.0 /
+   643T    2.0 ) ) ;
+   644T    stm -> data [ 3 ] [ 3 ] = 1.0F ;
+   645T    stm -> data [ 3 ] [ 4 ] = q2 * t * ( 1.0F /
+   646T    4.0F ) ;
+   647T    stm -> data [ 3 ] [ 5 ] = q1 * t * ( - 1.0F /
+   648T    4.0F ) ;
+   649T    stm -> data [ 3 ] [ 6 ] = q0 * t * ( - 1.0F /
+   650T    4.0F ) ;
+   651F// // Fill some matrix entries with zeroes
+   652F// for( i = 4U; i < 7U ; i++ )
+   653F// for( j = 0U; j < 7U; j++ )
+   654F// stm->data[i][j] = 0.0;
+   655F// // ************************************************
+   656T    stm -> data [ 4 ] [ 4 ] = 1.0F ;
+   657T    stm -> data [ 5 ] [ 5 ] = 1.0F ;
+   658T    stm -> data [ 6 ] [ 6 ] = 1.0F ;
+   659T  }
+   660F/*******************************************************************************
+   661F* Function Name : apriori_Covariance
+   662F* Input : AHRS_states* estimated_states, fMatrix* F
+   663F* Output : None
+   664F* Return : None
+   665F* Description : Computes the state transition matrix based on previous step
+   666F* states (quaternions, gyros and gyro biases).
+   667F*******************************************************************************/
+   668F
+   669Fvoid
+   670T  ekf_apriori_covariance (
+   671F  ahrs_states_t * estimated_states ,
+   672F  fMatrix * F )
+   673F  {
+   674F    fMatrix
+   675F      L ;
+   676F    fMatrix
+   677F      Ltranspose ;
+   678F    fMatrix
+   679F      Ftranspose ;
+   680F    fMatrix
+   681F      FPF ;
+   682F    fMatrix
+   683F      LQL ;
+   684F    float
+   685F      q0 ;
+   686F    float
+   687F      q1 ;
+   688F    float
+   689F      q2 ;
+   690F    float
+   691F      q3 ;
+   692T    Ftranspose.rows = 7U ;
+   693T    Ftranspose.columns = 7U ;
+   694T    L.rows = 7U ;
+   695T    L.columns = 6U ;
+   696T    FPF.rows = 7U ;
+   697T    FPF.columns = 7U ;
+   698T    Ltranspose.rows = 6U ;
+   699T    Ltranspose.columns = 7U ;
+   700T    LQL.rows = 7U ;
+   701T    LQL.columns = 7U ;
+   702F    // Initializes the sum vector
+   703T    mat_zero ( & L , L.rows , L.columns ) ;
+   704F    // quaternion variables
+   705T    q0 = estimated_states -> qib.a ;
+   706T    q1 = estimated_states -> qib.b ;
+   707T    q2 = estimated_states -> qib.c ;
+   708T    q3 = estimated_states -> qib.d ;
+   709T    L.data [ 0 ] [ 0 ] = q1 * ( - 1.0F /
+   710T    2.0F ) ;
+   711T    L.data [ 0 ] [ 1 ] = q2 * ( - 1.0F /
+   712T    2.0F ) ;
+   713T    L.data [ 0 ] [ 2 ] = q3 * ( - 1.0F /
+   714T    2.0F ) ;
+   715T    L.data [ 1 ] [ 0 ] = q0 * ( 1.0F /
+   716T    2.0F ) ;
+   717T    L.data [ 1 ] [ 1 ] = q3 * ( - 1.0F /
+   718T    2.0F ) ;
+   719T    L.data [ 1 ] [ 2 ] = q2 * ( 1.0F /
+   720T    2.0F ) ;
+   721T    L.data [ 2 ] [ 0 ] = q3 * ( 1.0F /
+   722T    2.0F ) ;
+   723T    L.data [ 2 ] [ 1 ] = q0 * ( 1.0F /
+   724T    2.0F ) ;
+   725T    L.data [ 2 ] [ 2 ] = q1 * ( - 1.0F /
+   726T    2.0F ) ;
+   727T    L.data [ 3 ] [ 0 ] = q2 * ( - 1.0F /
+   728T    2.0F ) ;
+   729T    L.data [ 3 ] [ 1 ] = q1 * ( 1.0F /
+   730T    2.0F ) ;
+   731T    L.data [ 3 ] [ 2 ] = q0 * ( 1.0F /
+   732T    2.0F ) ;
+   733T    L.data [ 4 ] [ 3 ] = 1.0F ;
+   734T    L.data [ 5 ] [ 4 ] = 1.0F ;
+   735T    L.data [ 6 ] [ 5 ] = 1.0F ;
+   736F    // Compute "a priori" error covariance matrix
+   737F    // FPF'
+   738T    mat_transpose ( F , & Ftranspose ) ;
+   739T    mat_mult ( F , & estimated_states -> P , F ) ;
+   740T    mat_mult ( F , & Ftranspose , & FPF ) ;
+   741F    // LQL'
+   742T    mat_transpose ( & L , & Ltranspose ) ;
+   743T    mat_mult ( & L , & estimated_states -> Q , F ) ;
+   744T    mat_mult ( F , & Ltranspose , & LQL ) ;
+   745F    // P = FPF' + LQL'
+   746T    mat_add ( & FPF , & LQL , & estimated_states -> P ) ;
+   747T  }
+   748F/*******************************************************************************
+   749F* Function Name : apriori_Estimate
+   750F* Input : AHRS_states* estimated_states, fMatrix* F
+   751F* Output : None
+   752F* Return : None
+   753F* Description : Computes the state transition matrix based on previous step
+   754F* states (quaternions, gyros and gyro biases).
+   755F*******************************************************************************/
+   756F
+   757Fvoid
+   758T  ekf_apriori_estimate (
+   759F  ahrs_states_t * estimated_states ,
+   760F  sensor_data_scaled_t * scaled_data )
+   761F  {
+   762F    float
+   763F      q0 ,
+   764F      q1 ,
+   765F      q2 ,
+   766F      q3 ,
+   767F      p ,
+   768F      q ,
+   769F      r ,
+   770F      bp ,
+   771F      bq ,
+   772F      br ,
+   773F      t ;
+   774F    // quaternion variables
+   775T    q0 = estimated_states -> qib.a ;
+   776T    q1 = estimated_states -> qib.b ;
+   777T    q2 = estimated_states -> qib.c ;
+   778T    q3 = estimated_states -> qib.d ;
+   779F    // angular rates [rad/s]
+   780T    p = scaled_data -> gyro_x ;
+   781T    q = scaled_data -> gyro_y ;
+   782T    r = scaled_data -> gyro_z ;
+   783F    // gyro bias [rad/s]
+   784T    bp = estimated_states -> bias_p ;
+   785T    bq = estimated_states -> bias_q ;
+   786T    br = estimated_states -> bias_r ;
+   787F    // time sampling [s]
+   788T    t = estimated_states -> Ts ;
+   789F    //mat_zero( stm, stm->rows, stm->columns );
+   790T    estimated_states -> qib.a = q0 + q1 * t * bp * ( 1.0 /
+   791T    4.0 ) + q2 * t * bq * ( 1.0 /
+   792T    4.0 ) + q3 * t * br * ( 1.0 /
+   793T    4.0 ) + t * q1 * ( bp * ( 1.0 /
+   794T    4.0 ) - p * ( 1.0 /
+   795T    2.0 ) ) + t * q2 * ( bq * ( 1.0 /
+   796T    4.0 ) - q * ( 1.0 /
+   797T    2.0 ) ) + t * q3 * ( br * ( 1.0 /
+   798T    4.0 ) - r * ( 1.0 /
+   799T    2.0 ) ) ;
+   800T    estimated_states -> qib.b = q1 - q0 * t * bp * ( 1.0 /
+   801T    4.0 ) - q2 * t * br * ( 1.0 /
+   802T    4.0 ) + q3 * t * bq * ( 1.0 /
+   803T    4.0 ) - t * q0 * ( bp * ( 1.0 /
+   804T    4.0 ) - p * ( 1.0 /
+   805T    2.0 ) ) + t * q3 * ( bq * ( 1.0 /
+   806T    4.0 ) - q * ( 1.0 /
+   807T    2.0 ) ) - t * q2 * ( br * ( 1.0 /
+   808T    4.0 ) - r * ( 1.0 /
+   809T    2.0 ) ) ;
+   810T    estimated_states -> qib.c = q2 - q0 * t * bq * ( 1.0 /
+   811T    4.0 ) + q1 * t * br * ( 1.0 /
+   812T    4.0 ) - q3 * t * bp * ( 1.0 /
+   813T    4.0 ) - t * q3 * ( bp * ( 1.0 /
+   814T    4.0 ) - p * ( 1.0 /
+   815T    2.0 ) ) - t * q0 * ( bq * ( 1.0 /
+   816T    4.0 ) - q * ( 1.0 /
+   817T    2.0 ) ) + t * q1 * ( br * ( 1.0 /
+   818T    4.0 ) - r * ( 1.0 /
+   819T    2.0 ) ) ;
+   820T    estimated_states -> qib.d = q3 - q0 * t * br * ( 1.0 /
+   821T    4.0 ) - q1 * t * bq * ( 1.0 /
+   822T    4.0 ) + q2 * t * bp * ( 1.0 /
+   823T    4.0 ) + t * q2 * ( bp * ( 1.0 /
+   824T    4.0 ) - p * ( 1.0 /
+   825T    2.0 ) ) - t * q1 * ( bq * ( 1.0 /
+   826T    4.0 ) - q * ( 1.0 /
+   827T    2.0 ) ) - t * q0 * ( br * ( 1.0 /
+   828T    4.0 ) - r * ( 1.0 /
+   829T    2.0 ) ) ;
+   830T    estimated_states -> bias_p = bp ;
+   831T    estimated_states -> bias_q = bq ;
+   832T    estimated_states -> bias_r = br ;
+   833T  }
+   834F 

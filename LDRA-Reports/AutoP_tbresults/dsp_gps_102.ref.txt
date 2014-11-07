@@ -1,0 +1,1444 @@
+     1F/*
+     2FC TESTBED VERSION  : 9.4.4                                                                                               
+     3FFILE UNDER TEST  : "F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_gps.c"            
+     4FDATE OF ANALYSIS : Fri Nov 07 10:51:51 2014                          
+     5F*/
+     6F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h */
+     7F//############################################################################
+     8F//
+     9F// File:         dsp_types.h
+    10F// Version:      0.1
+    11F//
+    12F// Description: Structure and variable definitions.
+    13F//
+    14F//############################################################################
+    15F// Author: Rogério Lima
+    16F// Release Date: July 2012
+    17F//############################################################################
+    18F#ifndef DSP_TYPES_H
+    19F#define DSP_TYPES_H
+    20F/* These definitions might not be 8-bit wide */
+    21F
+    22Ftypedef
+    23Fsigned char
+    24F  int8_t ;
+    25F
+    26Ftypedef
+    27Funsigned char
+    28F  uint8_t ;
+    29F  /* 7.18.1.1 Exact-width integer types */
+    30F
+    31Ftypedef
+    32Fshort
+    33F  int16_t ;
+    34F
+    35Ftypedef
+    36Funsigned short
+    37F  uint16_t ;
+    38F
+    39Ftypedef
+    40Flong
+    41F  int32_t ;
+    42F
+    43Ftypedef
+    44Funsigned long
+    45F  uint32_t ;
+    46F       /* DSP_TYPES_H */
+    47F 
+    48F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h*/
+    49F/*   CLOSE_FILE Include File */
+    50F 
+    51F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h */
+    52F//############################################################################
+    53F//
+    54F// File:         dsp_sensorhead_types.h
+    55F// Version:      0.1
+    56F//
+    57F// Description: Structure and variable definitions.
+    58F//
+    59F//############################################################################
+    60F// Author: Rogério Lima
+    61F// Release Date: July 2012
+    62F//############################################################################
+    63F#ifndef DSP_SENSORHEAD_TYPES_H
+    64F#define DSP_SENSORHEAD_TYPES_H
+    65F/* LDRA REMOVE #include "dsp_types.h" */
+    66F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h */
+    67F//############################################################################
+    68F//
+    69F// File:         EKF_Quat.h
+    70F// Version:      0.1
+    71F//
+    72F// Description: Preprocessor definitions and function declarations for quater-
+    73F//       nion calculations.
+    74F//
+    75F//############################################################################
+    76F// Author: Rogério Lima
+    77F// Release Date: July 2012
+    78F//############################################################################
+    79F#ifndef __EKF_quat_h
+    80F#define __EKF_quat_h
+    81F
+    82Ftypedef
+    83Fstruct _quat
+    84F{
+    85F  float a ,
+    86F  b ,
+    87F  c ,
+    88F  d ;
+    89F} quat ;
+    90F
+    91Fint16_t
+    92T  quat_mult (
+    93F  quat * src1 ,
+    94F  quat * src2 ,
+    95F  quat * dest ) ;
+    96F
+    97Fint16_t
+    98T  quat_conj (
+    99F  quat * src ,
+   100F  quat * dest ) ;
+   101F
+   102Fint16_t
+   103T  quat_norm (
+   104F  quat * src ) ;
+   105F
+   106Fint16_t
+   107T  quat_add (
+   108F  quat * src1 ,
+   109F  quat * src2 ,
+   110F  quat * dest ) ;
+   111F
+   112Fint16_t
+   113T  quat_subtract (
+   114F  quat * src1 ,
+   115F  quat * src2 ,
+   116F  quat * dest ) ;
+   117F
+   118Fint16_t
+   119T  quat_scalar_mult (
+   120F  quat * qsrc ,
+   121F  float scalar ,
+   122F  quat * dest ) ;
+   123F 
+   124F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h*/
+   125F/*   CLOSE_FILE Include File */
+   126F 
+   127F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h */
+   128F//############################################################################
+   129F//
+   130F// File: dsp_matrix.h
+   131F// Version: 0.1
+   132F//
+   133F// Description: Preprocessor definitions and function declarations for matrix
+   134F// calculations.
+   135F//
+   136F//############################################################################
+   137F// Author: Rogério Lima
+   138F// Release Date: July 2012
+   139F//############################################################################
+   140F#ifndef DSP_MATRIX_H
+   141F#define DSP_MATRIX_H
+   142F#define MATRIX_MAX_ROWS 12
+   143F#define MATRIX_MAX_COLUMNS 12
+   144F
+   145Ftypedef
+   146Fstruct _fMatrix
+   147F{
+   148F  int rows ;
+   149F  int columns ;
+   150F  float data [ 12 ] [ 12 ] ;
+   151F} fMatrix ;
+   152F// Matrix operations
+   153F
+   154Fint
+   155T  mat_add (
+   156F  fMatrix * src1 ,
+   157F  fMatrix * src2 ,
+   158F  fMatrix * dest ) ;
+   159F
+   160Fint
+   161T  mat_mult (
+   162F  fMatrix * src1 ,
+   163F  fMatrix * src2 ,
+   164F  fMatrix * dest ) ;
+   165F
+   166Fint
+   167T  mat_scalar_mult (
+   168F  float scalar ,
+   169F  fMatrix * src ,
+   170F  fMatrix * dest ) ;
+   171F
+   172Fint
+   173T  mat_determinant (
+   174F  fMatrix * src ,
+   175F  float * det ) ;
+   176F
+   177Fint
+   178T  mat_transpose (
+   179F  fMatrix * src ,
+   180F  fMatrix * dest ) ;
+   181F
+   182Fint
+   183T  mat_create_identity (
+   184F  fMatrix * dest ,
+   185F  int rows ,
+   186F  int columns ) ;
+   187F
+   188Fint
+   189T  mat_zero (
+   190F  fMatrix * dest ,
+   191F  int rows ,
+   192F  int columns ) ;
+   193F
+   194Fint
+   195T  mat_copy (
+   196F  fMatrix * src ,
+   197F  fMatrix * dest ) ;
+   198F//int mat_print( fMatrix* matrix );
+   199F//void hexPrint16( short byte );
+   200F 
+   201F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h*/
+   202F/*   CLOSE_FILE Include File */
+   203F 
+   204F#define SUCCESS ( 1 == 1 )
+   205F#define FAIL ( 0 == 1 )
+   206F#define MAG_UPDATE 0
+   207F#define ACCEL_UPDATE 1
+   208F         // Original values
+   209F#define ACCEL_VARIANCE 223.59E-4f
+   210F#define GYRO_VARIANCE 68.81E-5f
+   211F#define GYRO_BIAS_VARIANCE 201.93E-3f
+   212F#define MAGNETO_VARIANCE 48.12E-5f
+   213F#define GPS_VARIANCE 1.6E-3f
+   214F#define QUATERNION_NORM_VARIANCE 1.0E-9f
+   215F#define ACCEL_SCALE_FACTOR 0.03830859375f
+   216F#define GYRO_SCALE_FACTOR_DEG 0.06956521739f
+   217F#define GYRO_SCALE_FACTOR_RAD 0.00121414208f
+   218F#define MAG_SCALE_FACTOR 0.00151515151f
+   219F#define RAD2DEG 57.2957795130f
+   220F#define DEG2RAD 0.01745329251f
+   221F#define KM2M 0.27777777778f
+   222F//#define       ABS_PRESSURE_SCALE_FACTOR // -> Transfer function
+   223F//#define       DIFF_PRESSURE_SCALE_FACTOR // -> Transfer function
+   224F/* Structure for holding raw sensor data */
+   225F
+   226Ftypedef
+   227Fstruct sensor_data_raw
+   228F{
+   229F  int16_t gyro_x ;
+   230F  int16_t gyro_y ;
+   231F  int16_t gyro_z ;
+   232F  int16_t new_gyro_data ;
+   233F  int16_t accel_x ;
+   234F  int16_t accel_y ;
+   235F  int16_t accel_z ;
+   236F        // Flag specifies whether there is new accel data in the sensor data structure
+   237F  int16_t new_accel_data ;
+   238F  int16_t mag_x ;
+   239F  int16_t mag_y ;
+   240F  int16_t mag_z ;
+   241F        // Flag specifies whether there is new magnetometer data in the sensor data structure
+   242F  int16_t new_mag_data ;
+   243F        // Rate gyro temperature measurement
+   244F  int16_t gyro_temperature ;
+   245F  int32_t abs_pressure ;
+   246F  int16_t new_abs_pressure_data ;
+   247F  int16_t diff_pressure ;
+   248F  int16_t new_diff_pressure_data ;
+   249F} sensor_data_raw_t ;
+   250F/* Structure for holding scaled sensor data */
+   251F
+   252Ftypedef
+   253F  struct
+   254F  {
+   255F    float gyro_x ;
+   256F    float gyro_y ;
+   257F    float gyro_z ;
+   258F    float accel_x ;
+   259F    float accel_y ;
+   260F    float accel_z ;
+   261F    float mag_x ;
+   262F    float mag_y ;
+   263F    float mag_z ;
+   264F    float gyro_temperature ;
+   265F    float abs_pressure ;
+   266F    float baro_altitude ;
+   267F    float diff_pressure ;
+   268F    float airspeed ;
+   269F        /* GPS data */
+   270F        /* Latitude */
+   271F    int16_t gps_lat_deg ;
+   272F    uint32_t gps_lat_min ;
+   273F    uint8_t gps_lat_sector ;
+   274F        /* Longitude */
+   275F    int16_t gps_lon_deg ;
+   276F    uint32_t gps_lon_min ;
+   277F    uint8_t gps_lon_sector ;
+   278F        /* Altitude */
+   279F    int32_t gps_alt ;
+   280F        /* Speed */
+   281F    int32_t gps_speed ;
+   282F    int32_t gps_course ;
+   283F        /* Time */
+   284F    uint16_t gps_hour ;
+   285F    uint16_t gps_min ;
+   286F    float gps_sec ;
+   287F        // Status
+   288F    uint16_t gps_position_fix_status ;
+   289F    uint16_t gps_no_sv ;
+   290F    float gps_hdop ;
+   291F    uint16_t gps_new_message ;
+   292F  } sensor_data_scaled_t ;
+   293F// Structure for storing AHRS states and other data related to state computation
+   294F// This structure is, in a way, redundant because all this data is also stored in the
+   295F// UM6_config or UM6_data structures. However, in the config and data strucutres, the
+   296F// data is packaged as UInt32 entries into an array for convenience with communication.
+   297F// To use the data as floats, special formatting is required. This structure provides
+   298F// a place to store that data in the expected format, which makes accessing it easier.
+   299F
+   300Ftypedef
+   301F  struct
+   302F  {
+   303F        /* Attitude states */
+   304F    float psi ;
+   305F    float theta ;
+   306F    float phi ;
+   307F        /* Angle rate states */
+   308F    float psi_dot ;
+   309F    float theta_dot ;
+   310F    float phi_dot ;
+   311F        /* Quaternion states "qib" = Quaternion from Inertial to Body */
+   312F    quat qib ;
+   313F    quat quat_debug ;
+   314F        /* Gyro biases */
+   315F    float bias_p ;
+   316F    float bias_q ;
+   317F    float bias_r ;
+   318F        /* Accelerometer biases */
+   319F    float bias_accel_x ;
+   320F    float bias_accel_y ;
+   321F    float bias_accel_z ;
+   322F        /* Magnetometer biases */
+   323F    float bias_mag_x ;
+   324F    float bias_mag_y ;
+   325F    float bias_mag_z ;
+   326F        /* State Transition Matrix (jacobian of system matrix 'f') */
+   327F    fMatrix jac_f ;
+   328F        /* Linearized measurement equation (jacobian of output equation 'h') */
+   329F    fMatrix jac_h ;
+   330F        /* Measurement noise matrix */
+   331F    fMatrix R ;
+   332F        /* Auxiliary construction measurement matrix for phi and theta angles. */
+   333F    fMatrix R_phi_theta ;
+   334F        /* Auxiliary construction measurement matrix for psi angle. */
+   335F    fMatrix R_psi ;
+   336F        /* Process noise matrix */
+   337F    fMatrix Q ;
+   338F        /* Accelerometer alignment matrix */
+   339F    fMatrix accel_align_mat ;
+   340F        /* Gyro alignment matrix */
+   341F    fMatrix gyro_align_mat ;
+   342F        /* Magnetometer calibration matrix */
+   343F    fMatrix mag_align_mat ;
+   344F        // Error covariance matrix
+   345F    fMatrix P ;
+   346F        /* Magnetic field reference vector */
+   347F    float mag_ref_x ;
+   348F    float mag_ref_y ;
+   349F    float mag_ref_z ;
+   350F        /* Accelerometer reference vector */
+   351F    float accel_ref_x ;
+   352F    float accel_ref_y ;
+   353F    float accel_ref_z ;
+   354F        /* Accelerometer variance */
+   355F    float accel_var ;
+   356F        /* Gyrometer variance */
+   357F    float gyro_var ;
+   358F        /* Gyro bias variance */
+   359F    float gyro_bias_var ;
+   360F        /* Magnetometer variance */
+   361F    float mag_var ;
+   362F        /* GPS velocity variance */
+   363F    float gps_var ;
+   364F    float U ;
+   365F    float V ;
+   366F    float W ;
+   367F    float U_ant ;
+   368F    float V_ant ;
+   369F    float W_ant ;
+   370F    float U_dot ;
+   371F    float V_dot ;
+   372F    float W_dot ;
+   373F    float temperature ;
+   374F        // Time sampling
+   375F    float Ts ;    // In seconds
+   376F    float debug_misc [ 5 ] ;
+   377F        // GPS stuffs
+   378F    float GPS_north ;    // In meters
+   379F    float GPS_east ;
+   380F    float GPS_h ;
+   381F    float GPS_h_ant ;
+   382F    float GPS_speed ;    // In m/s
+   383F    float GPS_speed_ant ;    // past speed
+   384F    float GPS_heading ;    // In m/s
+   385F    float GPS_Ts ;
+   386F    float GPS_lat_home ;
+   387F    float GPS_lon_home ;
+   388F    float GPS_alt_home ;
+   389F  } ahrs_states_t ;
+   390F// Structure for holding raw sensor data
+   391F
+   392Ftypedef
+   393F  struct
+   394F  {
+   395F        // input
+   396F    float xk [ 9 ] ;
+   397F    float xk_1 [ 9 ] ;
+   398F    float xk_2 [ 9 ] ;
+   399F        // output
+   400F    float yk [ 9 ] ;
+   401F    float yk_1 [ 9 ] ;
+   402F    float yk_2 [ 9 ] ;
+   403F    float a [ 5 ] ; // denominator coefficient
+   404F    float b [ 5 ] ; // numerator coefficient
+   405F  } digital_filter_data_t ;
+   406F
+   407Fvoid
+   408T  compute_euler_angles (
+   409F  ahrs_states_t * estimated_states ) ;
+   410F
+   411Fvoid
+   412T  unroll_states (
+   413F  ahrs_states_t * states ) ;
+   414F 
+   415F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h*/
+   416F/*   CLOSE_FILE Include File */
+   417F 
+   418F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_gps.h */
+   419F/******************************************************************************
+   420F* FILENAME:
+   421F*
+   422F* DESCRIPTION:
+   423F* Function prototypes of ...
+   424F*
+   425F* FUNCTIONS:
+   426F* void xxx
+   427F* void xxx
+   428F*
+   429F* VERSION DATE WHO DETAIL
+   430F* 1.0 05 Set 2011 Rogerio Lima Start-up coding.
+   431F* Plínio Pereira
+   432F* -----------------------------------------------------------------------------
+   433F* 2.0 30 Aug 2014 Rogerio Lima Improving code quality rewriting the
+   434F* code and correcting errors.
+   435F******************************************************************************/
+   436F#ifndef DSP_GPS_H
+   437F#define DSP_GPS_H
+   438F#include <stdlib.h>
+   439F#include <string.h>
+   440F#include <stdio.h>
+   441F#define NULL 0
+   442F
+   443Ftypedef
+   444F  struct
+   445F  {
+   446F    int lat_deg ;
+   447F    double lat_min ;
+   448F    uint8_t lat_sector ;
+   449F    int lon_deg ;
+   450F    double lon_min ;
+   451F    uint8_t lon_sector ;
+   452F    double altitude ;
+   453F    double speed ;
+   454F    uint8_t speed_unit ;
+   455F    double course ;
+   456F    uint8_t course_type ;
+   457F    uint8_t hour ;
+   458F    uint8_t min ;
+   459F    float sec ;
+   460F    uint8_t position_fix_status ;
+   461F    uint8_t nosv ;
+   462F    float hdop ;
+   463F    int gps_new_message ;
+   464F  } gps_data_buffer_t ;
+   465F
+   466Ftypedef
+   467F  enum
+   468F  {
+   469F    GGA ,
+   470F    GSA ,
+   471F    GSV ,
+   472F    RMC ,
+   473F    VTG ,
+   474F    GLL ,
+   475F    ZDA
+   476F  } NMEA_type_t ;
+   477F// PROTOTYPES
+   478F
+   479Fuint8_t
+   480T  get_line (
+   481F  uint8_t * line ,
+   482F  uint8_t * msg_in ) ;
+   483F
+   484Fvoid
+   485T  translate_msg (
+   486F  uint8_t * line ,
+   487F  gps_data_buffer_t * gps_data ) ;
+   488F
+   489FNMEA_type_t
+   490T  get_NMEA_type (
+   491F  uint8_t * str ) ;
+   492F
+   493Fvoid
+   494T  translate_GGA (
+   495F  uint8_t * line ,
+   496F  gps_data_buffer_t * gps_data ) ;
+   497F
+   498Fvoid
+   499T  translate_GLL (
+   500F  uint8_t * line ,
+   501F  gps_data_buffer_t * gps_data ) ;
+   502F
+   503Fvoid
+   504T  translate_VTG (
+   505F  uint8_t * line ,
+   506F  gps_data_buffer_t * gps_data ) ;
+   507F
+   508Fvoid
+   509T  translate_GSA (
+   510F  uint8_t * line ,
+   511F  gps_data_buffer_t * gps_data ) ;
+   512F
+   513Fvoid
+   514T  translate_GSV (
+   515F  uint8_t * line ,
+   516F  gps_data_buffer_t * gps_data ) ;
+   517F
+   518Fvoid
+   519T  translate_RMC (
+   520F  uint8_t * line ,
+   521F  gps_data_buffer_t * gps_data ) ;
+   522F
+   523Fvoid
+   524T  translate_ZDA (
+   525F  uint8_t * line ,
+   526F  gps_data_buffer_t * gps_data ) ;
+   527F
+   528Fvoid
+   529T  print_serial_gps (
+   530F  gps_data_buffer_t * gps_data ) ;
+   531F
+   532Fvoid
+   533T  strcpy_len (
+   534F  uint8_t * destination ,
+   535F  uint8_t * source ,
+   536F  unsigned start ,
+   537F  unsigned lenght ) ;
+   538F
+   539Fdouble
+   540T  CvtStF (
+   541F  uint8_t * str ) ;
+   542F
+   543Fint
+   544T  str_split (
+   545F  uint8_t * str ,
+   546F  int start ,
+   547F  uint8_t c ,
+   548F  uint8_t * flag ) ;
+   549F
+   550Fuint8_t
+   551T  Process_GPS (
+   552F  gps_data_buffer_t * gps_dat ) ;
+   553F
+   554Fvoid
+   555F  Init_GPS() ;
+   556F
+   557Fuint8_t
+   558F  Read_Byte_RS232() ;
+   559F
+   560Fvoid
+   561T  Transmit_Byte_RS232 (
+   562F  uint8_t * byte ) ;
+   563F
+   564Fvoid
+   565T  Wait_for_uint8_t_RS232 (
+   566F  uint8_t c ) ;
+   567F// Read one messange until a new line is fouded.
+   568F
+   569Fint
+   570T  RS232_gets (
+   571F  uint8_t * line ,
+   572F  int max ) ;
+   573F       // GPS_H
+   574F 
+   575F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_gps.h*/
+   576F/*   CLOSE_FILE Include File */
+   577F 
+   578F
+   579Fuint8_t
+   580F  line [ 80 ] ;
+   581F
+   582Fuint8_t
+   583F  gps_in_index ;
+   584F
+   585Fuint8_t
+   586F  gps_in [ 200 ] ;  // = {"$GPGGA,184450.000,1954.3925,S,440437.10,W,2,5,1.03,902,M,55.2,M,,*76"}; // messenge received from GPS
+   587F
+   588Fuint8_t
+   589F  line [ 80 ] ;
+   590F
+   591Fuint8_t
+   592F  gps_in_flag ;
+   593F
+   594Fgps_data_buffer_t
+   595F  gps_data ;
+   596F
+   597Ffloat
+   598F  gps_speed ;
+   599F
+   600Ffloat
+   601F  gps_heading ;
+   602F // Abrir arquivo contendo mensagens do GPS
+   603F // Separar mensagem que começa com $ e termina com * + 2 caracteres(check)
+   604F // Esperar por caracteres <CR><LF que de fato terminam a mensagem
+   605F // Conferir sequencia GP no 2 e 3 digitos
+   606F // Descobrir tipo da mensagem no 4, 5, 6 digitos (ex: GGA)
+   607F // For each kind of messanges use property translate rules
+   608F // DATA NEEDED BY VANT
+   609F // GGA:
+   610F // -> Time
+   611F // -> Latitude
+   612F // -> Latitude sector
+   613F // -> Longitude
+   614F // -> Longitude sector
+   615F // -> altitude above sea level
+   616F // GLL
+   617F // VTG
+   618F // -> Speed over ground
+   619F // -> course over ground
+   620F // -> Speed over ground
+   621F
+   622Fuint8_t
+   623T  Process_GPS (
+   624F  gps_data_buffer_t * gps_dat )
+   625F  {
+   626F    static uint8_t
+   627F      returnval = 0U ;
+   628F    static uint8_t
+   629F      num_lines = 0U ;
+   630F    // Colocar aqui a função dinâmica dentro de um FOR para ir construindo as
+   631F    // linhas das mensagens GPS. Se houver apenas uma linha, o FOR é executado
+   632F    // apenas uma vez...
+   633T    for
+   634T      (
+   635T      num_lines = 0
+   636T      ;
+   637T      num_lines < 2
+   638T      ;
+   639T      num_lines ++
+   640T      )
+   641T      {
+   642T        returnval &=
+   643T          get_line (
+   644T          line , gps_in ) ;
+   645T
+   646T        translate_msg (
+   647T        line , gps_dat ) ;
+   648T      }
+   649T
+   650T    print_serial_gps (
+   651T    gps_dat ) ;
+   652F    // Indicates a if there is (1) or not (0) a new GPS message.
+   653T    gps_dat -> gps_new_message = 1 ;
+   654F// gps_speed = gps_dat->Speed;
+   655F// gps_heading = gps_dat->course;
+   656T    return
+   657T    returnval ;
+   658F  }
+   659F
+   660Fvoid
+   661T  Init_GPS()
+   662F  {
+   663T  }
+   664F/*
+   665Fuint8_t Read_Byte_RS232()
+   666F{
+   667F uint8_t *byte = 0;
+   668F sciBatchRead( byte, 1 );
+   669F return *byte;
+   670F}
+   671Fvoid Transmit_Byte_RS232(uint8_t *byte)
+   672F{
+   673F sciBatchWrite( byte, 1 );
+   674F}
+   675Fvoid Wait_for_uint8_t_RS232(uint8_t c)
+   676F{
+   677F uint8_t *byte = 0;
+   678F 
+   679F while (*byte != c){
+   680F sciBatchRead( byte, 1 );
+   681F }
+   682F}
+   683F// Read one messange until a new line is fouded.
+   684Fint RS232_gets(uint8_t* line, int max)
+   685F{
+   686F int i = -1;
+   687F 
+   688F if (max == 0) return NULL;
+   689F do{
+   690F i++;
+   691F line[i] = Read_Byte_RS232();
+   692F } while (i != max || line[i]=='\0' || line[i]=='\n');
+   693F 
+   694F return i;
+   695F}*/
+   696F// Receive the GPS line and check the header
+   697F// Separar mensagem que começa com $ e termina com * + 2 caracteres(checksum)
+   698F// Esperar por caracteres <CR><LF que de fato terminam a mensagem
+   699F// Check if the sequence started witch "GP" on 2 and 3 uint8_tacter
+   700F
+   701Fuint8_t
+   702T  get_line (
+   703F  uint8_t * line ,
+   704F  uint8_t * msg_in )
+   705F  {
+   706F    static uint8_t
+   707F      returnval ;
+   708F    static uint8_t
+   709F      j ;
+   710F    static uint8_t
+   711F      exitLoop ;
+   712F    uint8_t
+   713F      check ;
+   714F    static uint16_t
+   715F      h = 0 ;
+   716F    static uint16_t
+   717F      num_lines = 0 ;
+   718F    static uint8_t
+   719F      state = 's'  ;
+   720F// uint8_t msg_check[2];
+   721T    exitLoop = 1 ;
+   722T    check = 0 ;
+   723T    if
+   724T      (
+   725T      (
+   726T      h >= 160
+   727T      )
+   728T      ||
+   729T      ( num_lines >= 2
+   730T      )
+   731T      )
+   732T      {
+   733T        h = 0 ;
+   734T      }
+   735T    while
+   736T      (
+   737T      (
+   738T      exitLoop
+   739T      )
+   740T      &&
+   741T      ( h < 160
+   742T      )
+   743T      )
+   744T      {
+   745T        switch (
+   746T          state
+   747T          )
+   748T          {
+   749F            // start state - looking for '$'
+   750T          case 's' :
+   751T            {
+   752T              j = 0 ;
+   753T              if
+   754T                (
+   755T                msg_in [ h ++ ] == '$'
+   756T                )
+   757T                {
+   758T                  state = 'p'  ;
+   759T                }
+   760T              break ;
+   761T            }
+   762F            // in progress state of reading
+   763T          case 'p' :
+   764T            {
+   765T              if
+   766T                (
+   767T                msg_in [ h ] == '*'
+   768T                )
+   769T                {
+   770T                  state = 'e'  ;
+   771T                  j ++ ;
+   772T                  line [ j ] = '\n'  ;
+   773T                  num_lines ++ ;
+   774F                            // GPS message checksum
+   775F                            //msg_check[0] = msg_in[h+1];
+   776F                            //msg_check[1] = msg_in[h+2];
+   777T                }
+   778T              else
+   779T                {
+   780T                  line [ j ] = msg_in [ h ] ;
+   781T                  check = check ^ line [ j ] ;
+   782T                  j ++ ;
+   783T                  h ++ ;
+   784T                }
+   785T              break ;
+   786T            }
+   787F            // exit FOR loop
+   788T          case 'e' :
+   789T            {
+   790T              state = 's'  ;
+   791T              exitLoop = 0 ;
+   792T              if
+   793T                (
+   794T                num_lines >= 2
+   795T                )
+   796T                {
+   797T                  num_lines = 0 ;
+   798F                        //gps_new_message = 1;
+   799T                }
+   800T              break ;
+   801T            }
+   802T          }
+   803F          // end-switch
+   804T      }
+   805F      //end-while
+   806T  }
+   807F/* Wait_for_uint8_t_RS232('$');
+   808F if (RS232_gets(line, 80) != NULL){
+   809F if(line[0] == '$' && line[1] == 'G' && line[2] == 'P'){
+   810F p = strchr (line, '*'); // lookfor *
+   811F if (p == NULL) return 0;
+   812F *p = '\0'; // finish the string at *
+   813F return 1; // line is ok
+   814F }
+   815F }
+   816F return 0;
+   817F}
+   818F*/
+   819F/* For each kind of messanges use property translate rules */
+   820F
+   821Fvoid
+   822T  translate_msg (
+   823F  uint8_t * line ,
+   824F  gps_data_buffer_t * gps_data )
+   825F  {
+   826F    uint8_t
+   827F      header [ 10 ] ;
+   828F    uint8_t
+   829F      msgtype ;
+   830T
+   831T    strcpy_len (
+   832T    header , line , 2 , 3 ) ;       // get the header eliminating the $GP -> position should be 2 instead of originally 3
+   833T    msgtype =
+   834T      get_NMEA_type (
+   835T      header ) ;
+   836T    switch (
+   837T      msgtype
+   838T      )
+   839T      {
+   840T      case GGA :
+   841T
+   842T        translate_GGA (
+   843T        line , gps_data ) ;
+   844T        break ;
+   845T      case GSA :
+   846T
+   847T        translate_GSA (
+   848T        line , gps_data ) ;
+   849T        break ;
+   850T      case GSV :
+   851T
+   852T        translate_GSV (
+   853T        line , gps_data ) ;
+   854T        break ;
+   855T      case RMC :
+   856T
+   857T        translate_RMC (
+   858T        line , gps_data ) ;
+   859T        break ;
+   860T      case VTG :
+   861T
+   862T        translate_VTG (
+   863T        line , gps_data ) ;
+   864T        break ;
+   865T      case GLL :
+   866T
+   867T        translate_GLL (
+   868T        line , gps_data ) ;
+   869T        break ;
+   870T      case ZDA :
+   871T
+   872T        translate_ZDA (
+   873T        line , gps_data ) ;
+   874T        break ;
+   875T      default :
+   876T        break ;
+   877T      }
+   878T  }
+   879F
+   880TNMEA_type_t
+   881Tget_NMEA_type (
+   882Fuint8_t * str )
+   883F{
+   884T  if
+   885T    (
+   886T    ! strcmp ( str , "GGA" )
+   887T    )
+   888T    {
+   889T      return
+   890T      GGA ;
+   891T    }
+   892T  if
+   893T    (
+   894T    ! strcmp ( str , "GSA" )
+   895T    )
+   896T    {
+   897T      return
+   898T      GSA ;
+   899T    }
+   900T  if
+   901T    (
+   902T    ! strcmp ( str , "GSV" )
+   903T    )
+   904T    {
+   905T      return
+   906T      GSV ;
+   907T    }
+   908T  if
+   909T    (
+   910T    ! strcmp ( str , "RMC" )
+   911T    )
+   912T    {
+   913T      return
+   914T      RMC ;
+   915T    }
+   916T  if
+   917T    (
+   918T    ! strcmp ( str , "VTG" )
+   919T    )
+   920T    {
+   921T      return
+   922T      VTG ;
+   923T    }
+   924T  if
+   925T    (
+   926T    ! strcmp ( str , "GLL" )
+   927T    )
+   928T    {
+   929T      return
+   930T      GLL ;
+   931T    }
+   932T  if
+   933T    (
+   934T    ! strcmp ( str , "ZDA" )
+   935T    )
+   936T    {
+   937T      return
+   938T      ZDA ;
+   939T    }
+   940T  return
+   941T  ( 0 == 1 ) ;
+   942F}
+   943F
+   944Fvoid
+   945T  translate_GGA (
+   946F  uint8_t * line ,
+   947F  gps_data_buffer_t * gps_data )
+   948F  {
+   949F    uint8_t
+   950F      token [ 20 ] ;
+   951F    uint8_t
+   952F      aux [ 20 ] ;
+   953F    float
+   954F      faux ;
+   955F    int
+   956F      end ;
+   957F    int
+   958F      start = 0 ;
+   959F    uint8_t
+   960F      flag ;
+   961F    uint8_t
+   962F      estate = 0 ;
+   963T    while
+   964T      (
+   965T      estate != 10
+   966T      )
+   967T      {
+   968T        end =
+   969T          str_split (
+   970T          line , start , ','  , & flag ) ;
+   971T
+   972T        strcpy_len (
+   973T        token , line , start , end ) ;
+   974T        if
+   975T          (
+   976T          flag
+   977T          )
+   978T          {
+   979T            break ;
+   980T          }
+   981T        switch (
+   982T          estate
+   983T          )
+   984T          {
+   985T          case 0 :
+   986F                    // Ignore message's type
+   987T            break ;
+   988T          case 1 :
+   989F                    // gets the time [hhmmss.ss]
+   990T            if
+   991T              (
+   992T              end != 0
+   993T              )
+   994T              {
+   995T
+   996T                strcpy_len (
+   997T                aux , token , 0 , 2 ) ;                   // get hour [(hh)mmss.ss]
+   998T                gps_data -> hour = atoi ( aux ) ;
+   999T
+  1000T                strcpy_len (
+  1001T                aux , token , 2 , 2 ) ;                   // get min [hh(mm)ss.ss]
+  1002T                gps_data -> min = atoi ( aux ) ;
+  1003T
+  1004T                strcpy_len (
+  1005T                aux , token , 4 , 4 ) ;                   // get sec [hhmm(ss.ss)]
+  1006T                faux =
+  1007T                  CvtStF (
+  1008T                  aux ) ;
+  1009T                gps_data -> sec = faux ;
+  1010T                break ;
+  1011T              }
+  1012T            else              // empty field
+  1013T              {
+  1014T                gps_data -> hour = 0 ;
+  1015T                gps_data -> min = 0 ;
+  1016T                gps_data -> sec = 0.0 ;
+  1017T                break ;
+  1018T              }
+  1019T          case 2 :
+  1020F                    // gets the latitude [ddmm.mmmm]
+  1021T            if
+  1022T              (
+  1023T              end != 0
+  1024T              )
+  1025T              {
+  1026T
+  1027T                strcpy_len (
+  1028T                aux , token , 0 , 2 ) ;                   // get degree [(dd)mm.mmmm]
+  1029T                gps_data -> lat_deg = atoi ( aux ) ;
+  1030T
+  1031T                strcpy_len (
+  1032T                aux , token , 2 , 9 ) ;                   // get minuts [dd(mm.mmmm)]
+  1033T                faux =
+  1034T                  CvtStF (
+  1035T                  aux ) ;
+  1036T                gps_data -> lat_min = faux ;
+  1037T                break ;
+  1038T              }
+  1039T            else              // empty field
+  1040T              {
+  1041T                gps_data -> lat_deg = 0 ;
+  1042T                gps_data -> lat_min = 0.0 ;
+  1043T                break ;
+  1044T              }
+  1045T          case 3 :
+  1046F                    // gets the latitude's sector [uint8_t]
+  1047T            if
+  1048T              (
+  1049T              end != 0
+  1050T              )
+  1051T              {
+  1052T                gps_data -> lat_sector = token [ 0 ] ;
+  1053T                break ;
+  1054T              }
+  1055T            else
+  1056T              {
+  1057T                gps_data -> lat_sector = 0 ;
+  1058T                break ;
+  1059T              }
+  1060T          case 4 :
+  1061F                    // gets the longitude [dddmm.mmmm]
+  1062T            if
+  1063T              (
+  1064T              end != 0
+  1065T              )
+  1066T              {
+  1067T
+  1068T                strcpy_len (
+  1069T                aux , token , 0 , 3 ) ;                   // get degree [(ddd)mm.mmmm]
+  1070T                gps_data -> lon_deg = atoi ( aux ) ;
+  1071T
+  1072T                strcpy_len (
+  1073T                aux , token , 3 , 9 ) ;                   // get minuts [ddd(mm.mmmm)]
+  1074T                faux =
+  1075T                  CvtStF (
+  1076T                  aux ) ;
+  1077T                gps_data -> lon_min = faux ;
+  1078T                break ;
+  1079T              }
+  1080T            else
+  1081T              {
+  1082T                gps_data -> lon_deg = 0 ;
+  1083T                gps_data -> lon_min = 0.0 ;
+  1084T                break ;
+  1085T              }
+  1086T          case 5 :
+  1087F                    // gets the longitude's sector [uint8_t]
+  1088T            if
+  1089T              (
+  1090T              end != 0
+  1091T              )
+  1092T              {
+  1093T                gps_data -> lon_sector = token [ 0 ] ;
+  1094T                break ;
+  1095T              }
+  1096T            else
+  1097T              {
+  1098T                gps_data -> lon_sector = 0 ;
+  1099T                break ;
+  1100T              }
+  1101T          case 6 :
+  1102F                    // gets GPS quality indicator [uint8_t]
+  1103T            if
+  1104T              (
+  1105T              end != 0
+  1106T              )
+  1107T              {
+  1108T                gps_data -> position_fix_status = token [ 0 ] ;
+  1109T                break ;
+  1110T              }
+  1111T            else
+  1112T              {
+  1113T                gps_data -> position_fix_status = 0 ;
+  1114T                break ;
+  1115T              }
+  1116T          case 7 :
+  1117F                    // gets Number of SVs used in position estimation [uint8_t uint8_t]
+  1118T            if
+  1119T              (
+  1120T              end != 0
+  1121T              )
+  1122T              {
+  1123T
+  1124T                strcpy_len (
+  1125T                aux , token , 0 , 2 ) ;                   // get number of sat. used [uint8_t uint8_t]
+  1126T                gps_data -> nosv = atoi ( aux ) ;
+  1127T                break ;
+  1128T              }
+  1129T            else
+  1130T              {
+  1131T                gps_data -> nosv = 0 ;
+  1132T                break ;
+  1133T              }
+  1134T          case 8 :
+  1135F                    // gets hdop [uint8_t]
+  1136T            if
+  1137T              (
+  1138T              end != 0
+  1139T              )
+  1140T              {
+  1141T                faux =
+  1142T                  CvtStF (
+  1143T                  token ) ;
+  1144T                gps_data -> hdop = faux ;
+  1145T                break ;
+  1146T              }
+  1147T            else
+  1148T              {
+  1149T                gps_data -> hdop = 0.0 ;
+  1150T                break ;
+  1151T              }
+  1152T          case 9 :
+  1153F                    // gets altitude above mean sea level
+  1154T            if
+  1155T              (
+  1156T              end != 0
+  1157T              )
+  1158T              {
+  1159T                faux =
+  1160T                  CvtStF (
+  1161T                  token ) ;
+  1162T                gps_data -> altitude = faux ;
+  1163T                break ;
+  1164T              }
+  1165T            else
+  1166T              {
+  1167T                gps_data -> altitude = 0.0 ;
+  1168T                break ;
+  1169T              }
+  1170T          }
+  1171T        start = start + end + 1 ;
+  1172T        estate ++ ;
+  1173T      }
+  1174F// ignore the rest
+  1175T  }
+  1176F
+  1177Fvoid
+  1178T  translate_VTG (
+  1179F  uint8_t * line ,
+  1180F  gps_data_buffer_t * gps_data )
+  1181F  {
+  1182F    uint8_t
+  1183F      token [ 20 ] ;
+  1184F    uint8_t
+  1185F      aux [ 20 ] ;
+  1186F    float
+  1187F      faux ;
+  1188F    int
+  1189F      end ;
+  1190F    int
+  1191F      start = 0 ;
+  1192F    uint8_t
+  1193F      flag ;
+  1194F    uint8_t
+  1195F      estate = 0 ;
+  1196T    while
+  1197T      (
+  1198T      estate != 9
+  1199T      )
+  1200T      {
+  1201T        end =
+  1202T          str_split (
+  1203T          line , start , ','  , & flag ) ;
+  1204T
+  1205T        strcpy_len (
+  1206T        token , line , start , end ) ;
+  1207T        if
+  1208T          (
+  1209T          flag
+  1210T          )
+  1211T          {
+  1212T            break ;
+  1213T          }
+  1214T        switch (
+  1215T          estate
+  1216T          )
+  1217T          {
+  1218T          case 0 :
+  1219F                    // Ignore message's type
+  1220T            break ;
+  1221T          case 1 :
+  1222F                    // gets course over ground (degrees)
+  1223T            if
+  1224T              (
+  1225T              end != 0
+  1226T              )
+  1227T              {
+  1228T                faux =
+  1229T                  CvtStF (
+  1230T                  token ) ;
+  1231T                gps_data -> course = faux ;
+  1232T                break ;
+  1233T              }
+  1234T            else
+  1235T              {
+  1236T                gps_data -> course = 0.0 ;
+  1237T                break ;
+  1238T              }
+  1239T          case 2 :
+  1240F                    // gets T (true) uint8_t from true course
+  1241T            if
+  1242T              (
+  1243T              end != 0
+  1244T              )
+  1245T              {
+  1246T                gps_data -> course_type = token [ 0 ] ;
+  1247T                break ;
+  1248T              }
+  1249T            else
+  1250T              {
+  1251T                gps_data -> course_type = 0 ;
+  1252T                break ;
+  1253T              }
+  1254T          case 3 :
+  1255F                    // jump empty field
+  1256T            break ;
+  1257T          case 4 :
+  1258F                    // jump M (magnetic) uint8_t from magnetic course
+  1259T            break ;
+  1260T          case 5 :
+  1261F                    // jump speed over ground (sog) in knots
+  1262T            break ;
+  1263T          case 6 :
+  1264F                    // jump N (knots) uint8_t from sog
+  1265T            break ;
+  1266T          case 7 :
+  1267F                    // get speed over ground (kph) in km/h
+  1268T            if
+  1269T              (
+  1270T              end != 0
+  1271T              )
+  1272T              {
+  1273T                faux =
+  1274T                  CvtStF (
+  1275T                  token ) ;
+  1276T                gps_data -> speed = faux ;
+  1277T                break ;
+  1278T              }
+  1279T            else
+  1280T              {
+  1281T                gps_data -> speed = 0.0 ;
+  1282T                break ;
+  1283T              }
+  1284T          case 8 :
+  1285F                    // get K uint8_t from speed over ground in km/h
+  1286T            if
+  1287T              (
+  1288T              end != 0
+  1289T              )
+  1290T              {
+  1291T                gps_data -> speed_unit = token [ 0 ] ;
+  1292T                break ;
+  1293T              }
+  1294T            else
+  1295T              {
+  1296T                gps_data -> speed_unit = 0 ;
+  1297T                break ;
+  1298T              }
+  1299T          }
+  1300T        start = start + end + 1 ;
+  1301T        estate ++ ;
+  1302T      }
+  1303F// ignore the rest
+  1304T  }
+  1305F
+  1306Fvoid
+  1307T  translate_GLL (
+  1308F  uint8_t * line ,
+  1309F  gps_data_buffer_t * gps_data )
+  1310F  {
+  1311F    /* TODO */
+  1312T  }
+  1313F
+  1314Fvoid
+  1315T  translate_GSV (
+  1316F  uint8_t * line ,
+  1317F  gps_data_buffer_t * gps_data )
+  1318F  {
+  1319F    /* TODO */
+  1320T  }
+  1321F
+  1322Fvoid
+  1323T  translate_RMC (
+  1324F  uint8_t * line ,
+  1325F  gps_data_buffer_t * gps_data )
+  1326F  {
+  1327F    /* TODO */
+  1328T  }
+  1329F
+  1330Fvoid
+  1331T  translate_ZDA (
+  1332F  uint8_t * line ,
+  1333F  gps_data_buffer_t * gps_data )
+  1334F  {
+  1335F    /* TODO */
+  1336T  }
+  1337F
+  1338Fvoid
+  1339T  translate_GSA (
+  1340F  uint8_t * line ,
+  1341F  gps_data_buffer_t * gps_data )
+  1342F  {
+  1343F    /* TODO */
+  1344T  }
+  1345F
+  1346Fvoid
+  1347T  print_serial_gps (
+  1348F  gps_data_buffer_t * gps_data )
+  1349F  {
+  1350F// printf ("Hora: %d: %d: %d\naltitude = %f \nVelocidade = %f m/s \nLat = %d* %f\" %c\nLong = %d* %f\" %c\n",
+  1351F// gps_data->hour, gps_data->min, gps_data->sec, gps_data->altitude, gps_data->Speed,
+  1352F// gps_data->lat_deg, gps_data->lat_min, gps_data->lat_sector,
+  1353F// gps_data->lon_deg, gps_data->lon_min, gps_data->lon_sector);
+  1354T  }
+  1355F
+  1356Fvoid
+  1357T  strcpy_len (
+  1358F  uint8_t * destination ,
+  1359F  uint8_t * source ,
+  1360F  unsigned start ,
+  1361F  unsigned lenght )
+  1362F  {
+  1363T    memcpy ( destination , source + start , lenght ) ;
+  1364T    destination [ lenght ] = '\0'  ;
+  1365T  }
+  1366F
+  1367Fdouble
+  1368T  CvtStF (
+  1369F  uint8_t * str )
+  1370F  {
+  1371F    // converte string to float
+  1372F    double
+  1373F      inteiro = 0.0 ;     // convert 1st
+  1374F    double
+  1375F      decimal = 0.0 ;
+  1376F    double
+  1377F      divisor = 10 ;
+  1378F    int
+  1379F      i = 0 ;
+  1380F    // Convert uint8_tacter before point
+  1381T    while
+  1382T      (
+  1383T      str [ i ] != '\0'
+  1384T      &&
+  1385T      str [ i ] != '.'
+  1386T      )
+  1387T      {
+  1388T        inteiro = ( inteiro * 10 ) + str [ i ] - '0'  ;
+  1389T        i ++ ;
+  1390T      }
+  1391T    if
+  1392T      (
+  1393T      str [ i ] == '.'
+  1394T      )
+  1395T      {
+  1396T        i ++ ;
+  1397T      }
+  1398T    while
+  1399T      (
+  1400T      str [ i ] != '\0'
+  1401T      )
+  1402T      {
+  1403T        decimal += ( str [ i ] - '0'  ) /
+  1404T        divisor ;
+  1405T        divisor *= 10 ;
+  1406T        i ++ ;
+  1407T      }
+  1408T    return
+  1409T    inteiro + decimal ;
+  1410F  }
+  1411F// It's similar to strtok
+  1412F// return the diference between start and the first uint8_t c found
+  1413F// if flag = 1 end of string was found
+  1414F
+  1415Fint
+  1416T  str_split (
+  1417F  uint8_t * str ,
+  1418F  int start ,
+  1419F  uint8_t c ,
+  1420F  uint8_t * flag )
+  1421F  {
+  1422F    int
+  1423F      i = start ;
+  1424T    * flag = 0 ;
+  1425T    while
+  1426T      (
+  1427T      str [ i ] != NULL
+  1428T      )
+  1429T      {
+  1430T        if
+  1431T          (
+  1432T          str [ i ] == c
+  1433T          )
+  1434T          {
+  1435T            return
+  1436T            i - start ;
+  1437T          }
+  1438T        i ++ ;
+  1439T      }
+  1440T    * flag = 1 ;
+  1441T    return
+  1442T    i - start ;
+  1443F  }
+  1444F 

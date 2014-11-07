@@ -1,0 +1,560 @@
+     1F/*
+     2FC TESTBED VERSION  : 9.4.4                                                                                               
+     3FFILE UNDER TEST  : "F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\src\usr\dsp_conversions.c"    
+     4FDATE OF ANALYSIS : Fri Nov 07 10:51:56 2014                          
+     5F*/
+     6F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h */
+     7F//############################################################################
+     8F//
+     9F// File:         dsp_sensorhead_types.h
+    10F// Version:      0.1
+    11F//
+    12F// Description: Structure and variable definitions.
+    13F//
+    14F//############################################################################
+    15F// Author: Rogério Lima
+    16F// Release Date: July 2012
+    17F//############################################################################
+    18F#ifndef DSP_SENSORHEAD_TYPES_H
+    19F#define DSP_SENSORHEAD_TYPES_H
+    20F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h */
+    21F//############################################################################
+    22F//
+    23F// File:         dsp_types.h
+    24F// Version:      0.1
+    25F//
+    26F// Description: Structure and variable definitions.
+    27F//
+    28F//############################################################################
+    29F// Author: Rogério Lima
+    30F// Release Date: July 2012
+    31F//############################################################################
+    32F#ifndef DSP_TYPES_H
+    33F#define DSP_TYPES_H
+    34F/* These definitions might not be 8-bit wide */
+    35F
+    36Ftypedef
+    37Fsigned char
+    38F  int8_t ;
+    39F
+    40Ftypedef
+    41Funsigned char
+    42F  uint8_t ;
+    43F  /* 7.18.1.1 Exact-width integer types */
+    44F
+    45Ftypedef
+    46Fshort
+    47F  int16_t ;
+    48F
+    49Ftypedef
+    50Funsigned short
+    51F  uint16_t ;
+    52F
+    53Ftypedef
+    54Flong
+    55F  int32_t ;
+    56F
+    57Ftypedef
+    58Funsigned long
+    59F  uint32_t ;
+    60F       /* DSP_TYPES_H */
+    61F 
+    62F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_types.h*/
+    63F/*   CLOSE_FILE Include File */
+    64F 
+    65F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h */
+    66F//############################################################################
+    67F//
+    68F// File:         EKF_Quat.h
+    69F// Version:      0.1
+    70F//
+    71F// Description: Preprocessor definitions and function declarations for quater-
+    72F//       nion calculations.
+    73F//
+    74F//############################################################################
+    75F// Author: Rogério Lima
+    76F// Release Date: July 2012
+    77F//############################################################################
+    78F#ifndef __EKF_quat_h
+    79F#define __EKF_quat_h
+    80F
+    81Ftypedef
+    82Fstruct _quat
+    83F{
+    84F  float a ,
+    85F  b ,
+    86F  c ,
+    87F  d ;
+    88F} quat ;
+    89F
+    90Fint16_t
+    91T  quat_mult (
+    92F  quat * src1 ,
+    93F  quat * src2 ,
+    94F  quat * dest ) ;
+    95F
+    96Fint16_t
+    97T  quat_conj (
+    98F  quat * src ,
+    99F  quat * dest ) ;
+   100F
+   101Fint16_t
+   102T  quat_norm (
+   103F  quat * src ) ;
+   104F
+   105Fint16_t
+   106T  quat_add (
+   107F  quat * src1 ,
+   108F  quat * src2 ,
+   109F  quat * dest ) ;
+   110F
+   111Fint16_t
+   112T  quat_subtract (
+   113F  quat * src1 ,
+   114F  quat * src2 ,
+   115F  quat * dest ) ;
+   116F
+   117Fint16_t
+   118T  quat_scalar_mult (
+   119F  quat * qsrc ,
+   120F  float scalar ,
+   121F  quat * dest ) ;
+   122F 
+   123F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_quat.h*/
+   124F/*   CLOSE_FILE Include File */
+   125F 
+   126F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h */
+   127F//############################################################################
+   128F//
+   129F// File: dsp_matrix.h
+   130F// Version: 0.1
+   131F//
+   132F// Description: Preprocessor definitions and function declarations for matrix
+   133F// calculations.
+   134F//
+   135F//############################################################################
+   136F// Author: Rogério Lima
+   137F// Release Date: July 2012
+   138F//############################################################################
+   139F#ifndef DSP_MATRIX_H
+   140F#define DSP_MATRIX_H
+   141F#define MATRIX_MAX_ROWS 12
+   142F#define MATRIX_MAX_COLUMNS 12
+   143F
+   144Ftypedef
+   145Fstruct _fMatrix
+   146F{
+   147F  int rows ;
+   148F  int columns ;
+   149F  float data [ 12 ] [ 12 ] ;
+   150F} fMatrix ;
+   151F// Matrix operations
+   152F
+   153Fint
+   154T  mat_add (
+   155F  fMatrix * src1 ,
+   156F  fMatrix * src2 ,
+   157F  fMatrix * dest ) ;
+   158F
+   159Fint
+   160T  mat_mult (
+   161F  fMatrix * src1 ,
+   162F  fMatrix * src2 ,
+   163F  fMatrix * dest ) ;
+   164F
+   165Fint
+   166T  mat_scalar_mult (
+   167F  float scalar ,
+   168F  fMatrix * src ,
+   169F  fMatrix * dest ) ;
+   170F
+   171Fint
+   172T  mat_determinant (
+   173F  fMatrix * src ,
+   174F  float * det ) ;
+   175F
+   176Fint
+   177T  mat_transpose (
+   178F  fMatrix * src ,
+   179F  fMatrix * dest ) ;
+   180F
+   181Fint
+   182T  mat_create_identity (
+   183F  fMatrix * dest ,
+   184F  int rows ,
+   185F  int columns ) ;
+   186F
+   187Fint
+   188T  mat_zero (
+   189F  fMatrix * dest ,
+   190F  int rows ,
+   191F  int columns ) ;
+   192F
+   193Fint
+   194T  mat_copy (
+   195F  fMatrix * src ,
+   196F  fMatrix * dest ) ;
+   197F//int mat_print( fMatrix* matrix );
+   198F//void hexPrint16( short byte );
+   199F 
+   200F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_matrix.h*/
+   201F/*   CLOSE_FILE Include File */
+   202F 
+   203F#define SUCCESS ( 1 == 1 )
+   204F#define FAIL ( 0 == 1 )
+   205F#define MAG_UPDATE 0
+   206F#define ACCEL_UPDATE 1
+   207F         // Original values
+   208F#define ACCEL_VARIANCE 223.59E-4f
+   209F#define GYRO_VARIANCE 68.81E-5f
+   210F#define GYRO_BIAS_VARIANCE 201.93E-3f
+   211F#define MAGNETO_VARIANCE 48.12E-5f
+   212F#define GPS_VARIANCE 1.6E-3f
+   213F#define QUATERNION_NORM_VARIANCE 1.0E-9f
+   214F#define ACCEL_SCALE_FACTOR 0.03830859375f
+   215F#define GYRO_SCALE_FACTOR_DEG 0.06956521739f
+   216F#define GYRO_SCALE_FACTOR_RAD 0.00121414208f
+   217F#define MAG_SCALE_FACTOR 0.00151515151f
+   218F#define RAD2DEG 57.2957795130f
+   219F#define DEG2RAD 0.01745329251f
+   220F#define KM2M 0.27777777778f
+   221F//#define       ABS_PRESSURE_SCALE_FACTOR // -> Transfer function
+   222F//#define       DIFF_PRESSURE_SCALE_FACTOR // -> Transfer function
+   223F/* Structure for holding raw sensor data */
+   224F
+   225Ftypedef
+   226Fstruct sensor_data_raw
+   227F{
+   228F  int16_t gyro_x ;
+   229F  int16_t gyro_y ;
+   230F  int16_t gyro_z ;
+   231F  int16_t new_gyro_data ;
+   232F  int16_t accel_x ;
+   233F  int16_t accel_y ;
+   234F  int16_t accel_z ;
+   235F        // Flag specifies whether there is new accel data in the sensor data structure
+   236F  int16_t new_accel_data ;
+   237F  int16_t mag_x ;
+   238F  int16_t mag_y ;
+   239F  int16_t mag_z ;
+   240F        // Flag specifies whether there is new magnetometer data in the sensor data structure
+   241F  int16_t new_mag_data ;
+   242F        // Rate gyro temperature measurement
+   243F  int16_t gyro_temperature ;
+   244F  int32_t abs_pressure ;
+   245F  int16_t new_abs_pressure_data ;
+   246F  int16_t diff_pressure ;
+   247F  int16_t new_diff_pressure_data ;
+   248F} sensor_data_raw_t ;
+   249F/* Structure for holding scaled sensor data */
+   250F
+   251Ftypedef
+   252F  struct
+   253F  {
+   254F    float gyro_x ;
+   255F    float gyro_y ;
+   256F    float gyro_z ;
+   257F    float accel_x ;
+   258F    float accel_y ;
+   259F    float accel_z ;
+   260F    float mag_x ;
+   261F    float mag_y ;
+   262F    float mag_z ;
+   263F    float gyro_temperature ;
+   264F    float abs_pressure ;
+   265F    float baro_altitude ;
+   266F    float diff_pressure ;
+   267F    float airspeed ;
+   268F        /* GPS data */
+   269F        /* Latitude */
+   270F    int16_t gps_lat_deg ;
+   271F    uint32_t gps_lat_min ;
+   272F    uint8_t gps_lat_sector ;
+   273F        /* Longitude */
+   274F    int16_t gps_lon_deg ;
+   275F    uint32_t gps_lon_min ;
+   276F    uint8_t gps_lon_sector ;
+   277F        /* Altitude */
+   278F    int32_t gps_alt ;
+   279F        /* Speed */
+   280F    int32_t gps_speed ;
+   281F    int32_t gps_course ;
+   282F        /* Time */
+   283F    uint16_t gps_hour ;
+   284F    uint16_t gps_min ;
+   285F    float gps_sec ;
+   286F        // Status
+   287F    uint16_t gps_position_fix_status ;
+   288F    uint16_t gps_no_sv ;
+   289F    float gps_hdop ;
+   290F    uint16_t gps_new_message ;
+   291F  } sensor_data_scaled_t ;
+   292F// Structure for storing AHRS states and other data related to state computation
+   293F// This structure is, in a way, redundant because all this data is also stored in the
+   294F// UM6_config or UM6_data structures. However, in the config and data strucutres, the
+   295F// data is packaged as UInt32 entries into an array for convenience with communication.
+   296F// To use the data as floats, special formatting is required. This structure provides
+   297F// a place to store that data in the expected format, which makes accessing it easier.
+   298F
+   299Ftypedef
+   300F  struct
+   301F  {
+   302F        /* Attitude states */
+   303F    float psi ;
+   304F    float theta ;
+   305F    float phi ;
+   306F        /* Angle rate states */
+   307F    float psi_dot ;
+   308F    float theta_dot ;
+   309F    float phi_dot ;
+   310F        /* Quaternion states "qib" = Quaternion from Inertial to Body */
+   311F    quat qib ;
+   312F    quat quat_debug ;
+   313F        /* Gyro biases */
+   314F    float bias_p ;
+   315F    float bias_q ;
+   316F    float bias_r ;
+   317F        /* Accelerometer biases */
+   318F    float bias_accel_x ;
+   319F    float bias_accel_y ;
+   320F    float bias_accel_z ;
+   321F        /* Magnetometer biases */
+   322F    float bias_mag_x ;
+   323F    float bias_mag_y ;
+   324F    float bias_mag_z ;
+   325F        /* State Transition Matrix (jacobian of system matrix 'f') */
+   326F    fMatrix jac_f ;
+   327F        /* Linearized measurement equation (jacobian of output equation 'h') */
+   328F    fMatrix jac_h ;
+   329F        /* Measurement noise matrix */
+   330F    fMatrix R ;
+   331F        /* Auxiliary construction measurement matrix for phi and theta angles. */
+   332F    fMatrix R_phi_theta ;
+   333F        /* Auxiliary construction measurement matrix for psi angle. */
+   334F    fMatrix R_psi ;
+   335F        /* Process noise matrix */
+   336F    fMatrix Q ;
+   337F        /* Accelerometer alignment matrix */
+   338F    fMatrix accel_align_mat ;
+   339F        /* Gyro alignment matrix */
+   340F    fMatrix gyro_align_mat ;
+   341F        /* Magnetometer calibration matrix */
+   342F    fMatrix mag_align_mat ;
+   343F        // Error covariance matrix
+   344F    fMatrix P ;
+   345F        /* Magnetic field reference vector */
+   346F    float mag_ref_x ;
+   347F    float mag_ref_y ;
+   348F    float mag_ref_z ;
+   349F        /* Accelerometer reference vector */
+   350F    float accel_ref_x ;
+   351F    float accel_ref_y ;
+   352F    float accel_ref_z ;
+   353F        /* Accelerometer variance */
+   354F    float accel_var ;
+   355F        /* Gyrometer variance */
+   356F    float gyro_var ;
+   357F        /* Gyro bias variance */
+   358F    float gyro_bias_var ;
+   359F        /* Magnetometer variance */
+   360F    float mag_var ;
+   361F        /* GPS velocity variance */
+   362F    float gps_var ;
+   363F    float U ;
+   364F    float V ;
+   365F    float W ;
+   366F    float U_ant ;
+   367F    float V_ant ;
+   368F    float W_ant ;
+   369F    float U_dot ;
+   370F    float V_dot ;
+   371F    float W_dot ;
+   372F    float temperature ;
+   373F        // Time sampling
+   374F    float Ts ;    // In seconds
+   375F    float debug_misc [ 5 ] ;
+   376F        // GPS stuffs
+   377F    float GPS_north ;    // In meters
+   378F    float GPS_east ;
+   379F    float GPS_h ;
+   380F    float GPS_h_ant ;
+   381F    float GPS_speed ;    // In m/s
+   382F    float GPS_speed_ant ;    // past speed
+   383F    float GPS_heading ;    // In m/s
+   384F    float GPS_Ts ;
+   385F    float GPS_lat_home ;
+   386F    float GPS_lon_home ;
+   387F    float GPS_alt_home ;
+   388F  } ahrs_states_t ;
+   389F// Structure for holding raw sensor data
+   390F
+   391Ftypedef
+   392F  struct
+   393F  {
+   394F        // input
+   395F    float xk [ 9 ] ;
+   396F    float xk_1 [ 9 ] ;
+   397F    float xk_2 [ 9 ] ;
+   398F        // output
+   399F    float yk [ 9 ] ;
+   400F    float yk_1 [ 9 ] ;
+   401F    float yk_2 [ 9 ] ;
+   402F    float a [ 5 ] ; // denominator coefficient
+   403F    float b [ 5 ] ; // numerator coefficient
+   404F  } digital_filter_data_t ;
+   405F
+   406Fvoid
+   407T  compute_euler_angles (
+   408F  ahrs_states_t * estimated_states ) ;
+   409F
+   410Fvoid
+   411T  unroll_states (
+   412F  ahrs_states_t * states ) ;
+   413F 
+   414F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_sensorhead_types.h*/
+   415F/*   CLOSE_FILE Include File */
+   416F 
+   417F/* OPEN FILE F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_conversions.h */
+   418F/******************************************************************************
+   419F* FILENAME:
+   420F*
+   421F* DESCRIPTION:
+   422F* Function prototypes of communication peripherals.
+   423F*
+   424F* FUNCTIONS:
+   425F* void xxx
+   426F* void xxx
+   427F*
+   428F* VERSION DATE WHO DETAIL
+   429F* 1.0 05 Set 2011 Rogerio Lima Start-up coding.
+   430F* Plínio Pereira
+   431F* -----------------------------------------------------------------------------
+   432F* 2.0 30 Aug 2014 Rogerio Lima Improving code quality rewriting the
+   433F* code and correcting errors.
+   434F******************************************************************************/
+   435F#ifndef DSP_CONVERSIONS_H
+   436F#define DSP_CONVERSIONS_H
+   437F
+   438Fvoid
+   439T  apply_sensors_scale_factor (
+   440F  sensor_data_scaled_t * scaled_data ,
+   441F  sensor_data_raw_t * raw_data ) ;
+   442F
+   443Fvoid
+   444T  compute_euler_angles (
+   445F  ahrs_states_t * estimated_states ) ;
+   446F 
+   447F#endif /*00 F:\Dropbox\Project UAV\Firmware\Firmware_VANT_MAVLink_Flash[Netrino]\inc\usr\dsp_conversions.h*/
+   448F/*   CLOSE_FILE Include File */
+   449F 
+   450F/*******************************************************************************
+   451F* Function Name : apply_sensors_scale_factor
+   452F* Input : sensor_data_raw_t* sensor_data
+   453F* Output : ahrs_state_data_t* estimated_states
+   454F* Return : None
+   455F* Description :
+   456FConverts the raw sensor data in sensor_data to actual data (angular rates,
+   457Facceleration in gravities, etc. and stores in state_data. Also performs
+   458Fcalibration functions.
+   459F*******************************************************************************/
+   460F
+   461Fvoid
+   462T  apply_sensors_scale_factor (
+   463F  sensor_data_scaled_t * scaled_data ,
+   464F  sensor_data_raw_t * raw_data )
+   465F  {
+   466F// float aux_mag_x, aux_mag_y, aux_mag_z;
+   467F// float scaleFactor_SI; // Scale factor for Soft-Iron correction
+   468F// float theta_SI; // Rotation angle for Soft-Iron correction
+   469F// float rotMx, rotMy, rotMxCorr; // Auxilary variables for Soft-Iron correction
+   470F// float gps_ground_speed_kph, gps_heading_rad, V_N, V_E, V_D;
+   471F// float sin_phi, cos_phi, sin_the, cos_the, sin_psi, cos_psi;
+   472F//
+   473F//
+   474F// sin_phi = sin(DEG2RAD*scaled_data->phi);
+   475F// cos_phi = cos(DEG2RAD*scaled_data->phi);
+   476F// sin_the = sin(DEG2RAD*scaled_data->theta);
+   477F// cos_the = cos(DEG2RAD*scaled_data->theta);
+   478F//// Using heading angle from GPS as psi angle
+   479F//// sin_psi = sin(DEG2RAD*scaled_data->psi);
+   480F//// cos_psi = cos(DEG2RAD*scaled_data->psi);
+   481F//
+   482F// // Soft-Iron parameters
+   483F// // theta: 0.7243
+   484F// // scaleFactor: 1.2538
+   485F// theta_SI = -0.1529;
+   486F// scaleFactor_SI = 1.2131;
+   487F//
+   488F// // Converts accel count unit to the physical quantity units
+   489F// scaled_data->accel_x = (float)raw_data->accel_x*(-ACCEL_SCALE_FACTOR);
+   490F// scaled_data->accel_y = (float)raw_data->accel_y*(-ACCEL_SCALE_FACTOR);
+   491F// scaled_data->accel_z = (float)raw_data->accel_z*(-ACCEL_SCALE_FACTOR);
+   492F//
+   493F// // Converts gyro count unit to the physical quantity units
+   494F// scaled_data->gyro_x = (float)raw_data->gyro_x*GYRO_SCALE_FACTOR_RAD;
+   495F// scaled_data->gyro_y = (float)raw_data->gyro_y*GYRO_SCALE_FACTOR_RAD;
+   496F// scaled_data->gyro_z = (float)raw_data->gyro_z*GYRO_SCALE_FACTOR_RAD;
+   497F//
+   498F// // Converts magneto count unit to the physical quantity units
+   499F// aux_mag_x = (float)raw_data->mag_x*MAG_SCALE_FACTOR;
+   500F// aux_mag_y = (float)raw_data->mag_z*MAG_SCALE_FACTOR; // Eixo-y trocado com o
+   501F// aux_mag_z = (float)raw_data->mag_y*MAG_SCALE_FACTOR; // eixo-z
+   502F// // Hard-Iron Correction for magnetometers
+   503F// aux_mag_x = aux_mag_x + 0.0500;
+   504F// aux_mag_y = aux_mag_y - 0.0515;
+   505F//
+   506F// // Soft-Iron Correction for magnetometers
+   507F// rotMx = aux_mag_x*cos(theta_SI) + aux_mag_y*sin(theta_SI);
+   508F// rotMy = aux_mag_y*cos(theta_SI) - aux_mag_x*sin(theta_SI);
+   509F// // Rotation matrix correction
+   510F// rotMxCorr = rotMx/scaleFactor_SI;
+   511F// // rotate back to original position
+   512F// scaled_data->mag_x = rotMxCorr*cos(-theta_SI) + rotMy*sin(-theta_SI);
+   513F// scaled_data->mag_y = rotMy*cos(-theta_SI) - rotMxCorr*sin(-theta_SI);
+   514F// scaled_data->mag_z = aux_mag_z;
+   515F//
+   516F//
+   517F// // GPS data should be updated only if there is new GPS message
+   518F// if (raw_data->new_GPS_data)
+   519F// {
+   520F// raw_data->new_GPS_data = 0; // this variable is set in Process_GPS();
+   521F//
+   522F// scaled_data->GPS_h = (float)raw_data->GPS_altitude;
+   523F//
+   524F// // Saturation speed
+   525F// if( raw_data->GPS_speed < 10.0 )
+   526F// {
+   527F// gps_ground_speed_kph = 0.0;
+   528F// gps_heading_rad = 0.0;
+   529F// }
+   530F// else
+   531F// {
+   532F// gps_ground_speed_kph = (float)raw_data->GPS_speed;
+   533F// gps_heading_rad = (float)raw_data->GPS_course*DEG2RAD;
+   534F// }
+   535F//
+   536F// scaled_data->GPS_heading = gps_heading_rad;
+   537F//
+   538F// sin_psi = sin(gps_heading_rad);
+   539F// cos_psi = cos(gps_heading_rad);
+   540F//
+   541F// V_N = (float)KM2M*gps_ground_speed_kph*cos(gps_heading_rad);
+   542F// V_E = (float)KM2M*gps_ground_speed_kph*sin(gps_heading_rad);
+   543F// V_D = (float)(scaled_data->GPS_h - scaled_data->GPS_h_ant)/scaled_data->GPS_Ts;
+   544F//
+   545F// scaled_data->U = cos_psi*cos_the*V_N + sin_psi*cos_the*V_E - sin_the*V_D;
+   546F// scaled_data->V = (-sin_psi*cos_phi + cos_psi*sin_the*sin_phi)*V_N + (cos_psi*cos_phi + sin_psi*sin_the*sin_phi)*V_E + cos_the*sin_phi*V_D;
+   547F// scaled_data->W = (sin_psi*sin_phi + cos_psi*sin_the*cos_phi)*V_N + (-cos_psi*sin_phi + sin_psi*sin_the*cos_phi)*V_E + cos_the*cos_phi*V_D;
+   548F//
+   549F// scaled_data->U_dot = (scaled_data->U - scaled_data->U_ant)/scaled_data->GPS_Ts;
+   550F// scaled_data->V_dot = (scaled_data->V - scaled_data->V_ant)/scaled_data->GPS_Ts;
+   551F// scaled_data->W_dot = (scaled_data->W - scaled_data->W_ant)/scaled_data->GPS_Ts;
+   552F//
+   553F// // Update past variables
+   554F// scaled_data->GPS_h_ant = scaled_data->GPS_h;
+   555F// scaled_data->U_ant = scaled_data->U;
+   556F// scaled_data->V_ant = scaled_data->V;
+   557F// scaled_data->W_ant = scaled_data->W;
+   558F// }
+   559T  }
+   560F 

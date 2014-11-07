@@ -1,0 +1,142 @@
+<html><head><title>TBpublish / HTML Index</title></head>
+<body bgcolor="#fffff2">
+
+<img src="header.gif" alt=""><p>
+
+<font color="#ff9933"><strong>Overview</strong></font></p>
+
+LDRA Testbed produces an indexing facility which enables users to view LDRA Testbed textual results (ASCII or HTML) through an HTML browser. Navigation buttons facilitate the movement between textual results displays.<p>
+
+This HTML Index facility can be used to browse actual results files, or the TBpublish facility can be used to “publish” all generated results files to another directory and convert them to <tt><strong>.txt</strong></tt> files. This enables results to be shared on intranets, or published on to CDROMs as part of a documentation process.<p>
+
+<font color="#ff9933"><strong>HTML Index</strong></font></p>
+<center><table width=100%><tr>
+<td>Once analysis of a file or set has been completed, LDRA Testbed will automatically create the HTML files that are used to index all available results file for viewing with an HTML browser.<p>
+
+To view this index file, select the HTML index option from the Individual Results File menu if analysing a single file, or from the Set Results menu if analysing a Set.<p>
+
+This will invoke your HTML browser and load in the index HTML file:<p>
+
+<ul>
+<li><tt><strong>&lt;setname&gt;.frm.htm
+<li>&lt;filename&gt;_&lt;moduleid&gt;<br>.frm.htm</strong></tt></ul>
+depending on whether you are analysing a single file or set.<p>
+</td>
+<td valign="top" align="center">&nbsp;&nbsp;<img src="item001.gif" width="300" height="80" alt=""><p><img src="item002.gif" width="300" height="80" alt=""></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr><td colspan=3>&nbsp;<br></td>
+<tr>
+<td valign="top">The HTML index facility looks like the following (right) based on the testrian.c tutorial example.<p>
+
+The example shows the default start-up screen. To access the LDRA Testbed generated analysis results, select the buttons in the left hand frame.<p>
+
+The buttons change state when the mouse hovers over them, and the currently selected button is highlighted with an orange surround.<p>
+
+In the example (right), the Reformatted Code has just been selected.<p>
+
+After selection, the appropriate textual (ASCII or HTML) report will appear in the frame on the right.<p>
+
+</td>
+<td valign="top" align="center"><img src="item003.gif" width="350" height="257" alt=""></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr></table></center><p>
+
+<font color="#ff9933"><strong>Single Files and HTML Index</strong></font><p>
+
+<table width=100%><tr>
+<td valign="top">For a single source file the HTML Index facility produces buttons for each available analysis report produced.<p>
+In the examples below the first set of buttons were produced by running a number of Static Analysis results only. The second set of buttons were produced after all available analyses had been produced. The third set of buttons contains links to results files that are created when the user manually selects them.</td>
+<td valign="top" align="center"><img src="item001.gif" width="300" height="80" alt=""></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr></table></center><br>
+
+<table width=100%><tr>
+<td valign="top" align="center"><img src="item012.gif" width="118" height="282"alt=""></td>
+<td valign="top" align="center"><img src="item013.gif" width="154" height="507"alt=""></td>
+<td valign="top" align="center"><img src="item014.gif" width="161" height="541"alt=""></td>
+</tr></table></center><p>
+
+<font color="#ff9933"><strong>Sets and HTML Index</strong></font><p>
+
+<table width=100%><tr>
+<td valign="top">HTML Index for sets enables the navigation between:<p>
+
+<ul><li>Set based textual results.
+<li>Individual file based results.<p></ul>
+
+The indexing system is also highly flexible to allow navigation of reports on individual files to be based on either:<p>
+
+<ul><li>A source file by source file basis
+<li>By LDRA Testbed report</ul>
+
+</td>
+<td valign="top" align="center"><img src="item002.gif" alt=""></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr></table></center><br>
+
+This enables users to navigate through all of the results for a single results file for example, or easily view all of a particular report type through the set. Following is a set of screen shots which guide you through these facilities using the <tt><strong>tbsdemo</strong></tt> example set out in the set tutorial:<p>
+
+<ol>
+<li>Invoke HTML Index from the Set Results Menu, the browser will appear as shown below with the home page for the set results:<p>
+<img src="item015.gif" width="350" height="257" alt=""><p>
+
+From here we can view all of the set based results via the buttons in the top left hand frame. The Set Index button will bring us back to this page.<p>
+
+<li>In the screen shot below we have selected the individual results for source file <tt><strong>tbsdem1.c</strong></tt>:<p>
+
+<img src="item016.gif" width="350" height="257" alt=""><p>
+
+All of the available results for this file are available from the top left set of buttons.<p>
+
+<li>In the example below we have selected to view the Reformatted Code:<p>
+
+<img src="item017.gif" width="350" height="257" alt=""><p>
+
+<li>After viewing the reformatted code for <tt><strong>tbsdem1.c</strong></tt> we have decided to view the reformatted code for the other files in the set. This is achieved by selecting the Analysis Report Selected by File button.  We can then view the Reformatted Code for the other files in the set by selecting their name, in this example <tt><strong>tbsdem2.c</strong></tt><p>
+
+<img src="item018.gif" width="350" height="257" alt=""><p>
+
+
+<li>Then from here we can select the Set/File Index button:<p>
+
+<img src="item020.gif" width="350" height="257" alt=""><p>
+
+<li>Which enables us to view the other textual analysis results available for the selected source file:<p>
+
+<img src="item021.gif" width="350" height="257" alt=""><p>
+
+<li>After viewing other results displays, selecting Set Index in the example above, will take us back to our starting point as can be seen below:<p>
+
+<img src="item022.gif" width="350" height="257" alt=""><p></ol>
+
+<font color="#ff9933"><strong>TBpublish</strong></font><p>
+
+<center><table><tr>
+<td valign="top">TBpublish is an extension of the HTML Index facility. It can be selected from the Analysis menu, or by pressing the F8 key. TBpublish undertakes the following process:<p>
+
+<ul><li>Copies all available LDRA Testbed textual results, to a specified directory.
+<li>Renames all results files to have a .txt extension to overcome MIME and multi-platform issues.
+<li>Creates the HTML Index frame document.</ul>
+
+After selecting the TBpublish menu item, a dialog will appear prompting the user to specify a complete path name to the location the results files are to be published to. Users are required to type in the full path name such as:<p>
+
+<tt><strong>c:\my_publish_dirs\latest_version</strong></tt><p>
+
+If the directories do not exist then LDRA Testbed will create them for you. The files will then be copied to that location. To view the results, invoke your HTML browser and load in the index HTML file:<p>
+
+<blockquote><tt><strong>&lt;setname&gt;.frm.htm<br>
+&lt;filename&gt;_&lt;moduleid&gt;.frm.htm</strong></tt></blockquote>
+
+depending on whether you have published results for a single file or set.<p>
+
+</td>
+<td valign="top" align="center"><img src="item023.gif" width="200" height="218" alt=""><p><img src="item024.gif" alt=""></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+</tr></table></center><p>
+
+<font color="#ff9933"><strong>Help Page</strong></font><p>
+
+HTML Index features a help button that links to an HTML page containing this information.
+</body></html>

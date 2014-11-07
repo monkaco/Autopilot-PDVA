@@ -1,0 +1,5499 @@
+<!DOCTYPE html>
+<html><head>
+<title> LDRA TBrun Design Review Report </title>
+
+<style type="text/css">
+.orag-line, .break {background-color: #ff7b42;}
+.blue-line {background-color: #000080;}
+.break-p {background-color: #000084;}
+.break-p, .break {border-radius:10px;}
+div {padding:0;margin:0;}
+h2,h3,.header {text-align:center;}
+table td {text-align:left;}
+table {margin:auto;}
+ p.pagebreak {page-break-before: always}
+ p.nopagebreak {page-break-after: never}
+ p.shiftleft {margin-left:-54.0pt}
+ ul {padding-left: 20px;}
+ br.pagebreak {page-break-before: always}
+</style>
+
+<SCRIPT LANGUAGE="Javascript" SRC="imagejs.js"> 
+// -->
+</SCRIPT>
+</head><body bgcolor="#FFFFF2"  > 
+
+<div class="break"style="width:80%;height:10px;margin:0px auto;display:block;"></div>
+<BR>
+<Style type='text/css'><!--A.set1:link{color:#FBFCC8;background:none transparent;text-decoration: none}A.set1:visited{color:#FBFCC8;background:none transparent;text-decoration: none}A.set1:active{color:#FBFCC8;background:none transparent;text-decoration: none}A:link{color:BLUE;background:none transparent;text-decoration: none}A:visited{color:BLUE;background:none transparent;text-decoration: none}A:active{color:BLUE;background:none transparent;text-decoration: none}--></style><CENTER><font size='9'><b> LDRA Testbed TBrun &reg Design Review Report </font></b>
+</CENTER>
+<CENTER><font size='9'><b>  </font></b>
+</CENTER>
+<CENTER><H1> Set : AutoP </H1>
+</CENTER>
+<BR>
+<BR>
+
+<div class="break-p"style="width:425px;height:10px;margin:0px auto;display:block;"></div>
+<BR>
+<BR>
+ <CENTER> <TABLE bgcolor="#D7EDED" BORDER WIDTH=40% >
+<TR><th >  Report Production
+ </th></TR>
+<TR><td > <ul><li>C/C++ TBrun Version 9.4.4</li><li>Report Production : Fri Nov 07 2014 at 16:31:21</li></ul> </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+
+<div class="break-p"style="width:425px;height:10px;margin:0px auto;display:block;"></div>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure scia_init (dsp_comm.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 8
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 9
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > SciaRegs </td><td > struct SCI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICCR </td><td > union SCICCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL1 </td><td > union SCICTL1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2 </td><td > union SCICTL2_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2.bit </td><td > struct SCICTL2_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFCT </td><td > union SCIFFCT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX </td><td > union SCIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX </td><td > union SCIFFTX_REG
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICCR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL1.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2.bit.RXBKINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2.bit.TXINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFCT.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIHBAUD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCILBAUD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure spia_init (dsp_comm.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 13
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 26
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > SpiaRegs </td><td > struct SPI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR </td><td > union SPICCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit </td><td > struct SPICCR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL </td><td > union SPICTL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit </td><td > struct SPICTL_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFCT </td><td > union SPIFFCT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX </td><td > union SPIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit </td><td > struct SPIFFRX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX </td><td > union SPIFFTX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit </td><td > struct SPIFFTX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI </td><td > union SPIPRI_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI.bit </td><td > struct SPIPRI_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPISTS </td><td > union SPISTS_REG
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit.CLKPOLARITY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit.SPICHAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit.SPISWRESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.CLK_PHASE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.MASTER_SLAVE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.OVERRUNINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.SPIINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.TALK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFCT.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFIENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFIL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFINTCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFOVFCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFIFORESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.SPIFFENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.SPIRST </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFIENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFIL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFINTCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFIFO </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI.bit.FREE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI.bit.SOFT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPISTS.all </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure i2ca_init (dsp_comm.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 4
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 4
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.bit </td><td > struct I2CMDR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CPSC </td><td > union I2CPSC_REG
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCLKH </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCLKL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.bit.IRS </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CPSC.all </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure apply_sensors_scale_factor (dsp_conversions.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > scaled_data </td><td > sensor_data_scaled_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > raw_data </td><td > sensor_data_raw_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_init (dsp_ekf.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure lpf_butterworth_init (dsp_ekf.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > filtered_dat </td><td > digital_filter_data_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure lpf_butterworth (dsp_ekf.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > input_scaled_data </td><td > sensor_data_scaled_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > filtered_dat </td><td > digital_filter_data_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_estimate_states (dsp_ekf.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > states </td><td > ahrs_states_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > scaled_data </td><td > sensor_data_scaled_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > states </td><td > ahrs_states_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure Process_GPS (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 2
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 1
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > gps_dat </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > gps_in[200] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > line[80] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line[80] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure Init_GPS (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure get_line (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > msg_in </td><td > uint8_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_msg (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure get_NMEA_type (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > NMEA_type_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > str </td><td > uint8_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_GGA (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_VTG (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_GLL (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_GSV (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_RMC (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_ZDA (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure translate_GSA (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > line </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure print_serial_gps (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > gps_data </td><td > gps_data_buffer_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure strcpy_len (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 4
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > destination </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > source </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > start </td><td > unsigned
+ </td></TR>
+<TR ALIGN=CENTER><td > lenght </td><td > unsigned
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > destination </td><td > uint8_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure CvtStF (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > double
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > str </td><td > uint8_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure str_split (dsp_gps.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > str </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > start </td><td > int
+ </td></TR>
+<TR ALIGN=CENTER><td > c </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > flag </td><td > uint8_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure i2cBatchWrite (dsp_i2c.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 7
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 5
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > address7 </td><td > const uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > txBuffer </td><td > uint8_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > bytesToWrite </td><td > const uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure i2cBatchRead (dsp_i2c.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 9
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 5
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > address7 </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > device_start_address </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bytesToRead </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > rxBuffer </td><td > uint8_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure i2c_get_data (dsp_i2c.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 25
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 11
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > raw_data </td><td > sensor_data_raw_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > UT </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > bmp085_data_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC1 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC2 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC3 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC4 </td><td > uint16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC5 </td><td > uint16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC6 </td><td > uint16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B1 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B2 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MC </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MD </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.UP </td><td > int32_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > oversampling_setting </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > bmp085_data_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.UP </td><td > int32_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.true_P </td><td > int32_t
+ </td></TR>
+<TR ALIGN=CENTER><td > diff_pressure </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf[16] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure i2c_init_sensors (dsp_i2c.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 13
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 20
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs </td><td > struct SYS_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > bmp085_data_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs.WDKEY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > bmp085_data_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC1 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC2 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC3 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC4 </td><td > uint16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC5 </td><td > uint16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC6 </td><td > uint16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B1 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B2 </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MB </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MC </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MD </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf[16] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure adxl_init (dsp_i2c_adxl345.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 7
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf[16] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure adxl_self_test (dsp_i2c_adxl345.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 11
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 8
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_ADXL_Tested </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf[16] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure adxl_get_data (dsp_i2c_adxl345.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 9
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure bmp_init (dsp_i2c_bmp085.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 10
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > bmp_data </td><td > bmp085_data_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure bmp_ut_request (dsp_i2c_bmp085.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 7
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf[16] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure bmp_up_request (dsp_i2c_bmp085.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 7
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > oss </td><td > const uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf[16] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure bmp_temp_get_data (dsp_i2c_bmp085.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 10
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > bmp_data </td><td > bmp085_data_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure bmp_pressure_get_data (dsp_i2c_bmp085.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 12
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > bmp_data </td><td > bmp085_data_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > UT </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > oversampling_setting </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure hmc_init (dsp_i2c_hmc5883.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 7
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf[16] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure hmc_get_data (dsp_i2c_hmc5883.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 9
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure hsc_init (dsp_i2c_hsc.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure hsc_get_data (dsp_i2c_hsc.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 8
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > diff_pressure </td><td > uint16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure itg_init (dsp_i2c_itg3200.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 8
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs </td><td > struct SYS_CTRL_REGS
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs.WDKEY </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure itg_get_data (dsp_i2c_itg3200.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 9
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf[24] </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure SCIA_TX_isr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 10
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 7
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SCI_TX_Message </td><td > uint8_t*
+ </td></TR>
+<TR ALIGN=CENTER><td > SciTxQtd </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > SciTxStatus </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs </td><td > struct SCI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX </td><td > union SCIFFTX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX.bit </td><td > struct SCIFFTX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX.bit.TXFFST </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SCI_TX_Message </td><td > uint8_t*
+ </td></TR>
+<TR ALIGN=CENTER><td > SciTxQtd </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > SciTxStatus </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX.bit.TXFFIENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCITXBUF </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure SCIA_RX_isr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 14
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 8
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs </td><td > struct CPUTIMER_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TCR </td><td > union TCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TCR.bit </td><td > struct TCR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TIM </td><td > union TIM_GROUP
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs </td><td > struct SCI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX </td><td > union SCIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.bit </td><td > struct SCIFFRX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIRXBUF </td><td > union SCIRXBUF_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIRXBUF.bit </td><td > struct SCIRXBUF_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIRXBUF.bit.RXDT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in_flag </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in_index </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TCR.bit.TSS </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TIM.all </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.bit.RXFFINTCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.bit.RXFIFORESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in[200] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in_flag </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in_index </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure SPI_TxFifoIsr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 5
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 2
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs </td><td > struct SPI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX </td><td > union SPIFFTX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit </td><td > struct SPIFFTX_BITS
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFINTCLR </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure SPI_RxFifoIsr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 13
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs </td><td > struct SPI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX </td><td > union SPIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit </td><td > struct SPIFFRX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFINT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFOVF </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX </td><td > union SPIFFTX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit </td><td > struct SPIFFTX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIRXBUF </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPISTS </td><td > union SPISTS_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPISTS.bit </td><td > struct SPISTS_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPISTS.bit.INT_FLAG </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFINTCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFOVFCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFIFORESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFIENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPITXBUF </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure spi_cs_isr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 12
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 5
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs </td><td > struct GPIO_DATA_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPADAT </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPADAT.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPADAT.bit.GPIO19 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs </td><td > struct SPI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX </td><td > union SPIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit </td><td > struct SPIFFRX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFST </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX </td><td > union SPIFFTX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit </td><td > struct SPIFFTX_BITS
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFIFORESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFIFO </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > gtx_msg_ind_in </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > gtx_msg_ind_out </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure timing_isr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 8
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 5
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs </td><td > struct CPUTIMER_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs.TIM </td><td > union TIM_GROUP
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs </td><td > struct EPWM_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL </td><td > union ETSEL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit </td><td > struct ETSEL_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > g_internal_timing </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs.TIM.all </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit.INTEN </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2CRead_flag </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_internal_timing </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ePWM1A_compare_isr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 8
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs </td><td > struct CPUTIMER_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs.TIM </td><td > union TIM_GROUP
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs </td><td > struct EPWM_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETCLR </td><td > union ETCLR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETCLR.bit </td><td > struct ETCLR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs </td><td > struct SYS_CTRL_REGS
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs.TIM.all </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETCLR.bit.INT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2CRead_flag </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs.WDKEY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_internal_timing </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure cpu_timer0_isr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 8
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer0 </td><td > struct CPUTIMER_VARS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0.InterruptCount </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs </td><td > struct EPWM_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL </td><td > union ETSEL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit </td><td > struct ETSEL_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK </td><td > union PIEACK_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs </td><td > struct SYS_CTRL_REGS
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer0.InterruptCount </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit.INTEN </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEACK.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs.WDKEY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > g_internal_timing </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure cpu_timer1_isr (dsp_isr.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 11
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 6
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > interrupt void
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs </td><td > struct CPUTIMER_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TCR </td><td > union TCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TCR.bit </td><td > struct TCR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs </td><td > struct SCI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX </td><td > union SCIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.bit </td><td > struct SCIFFRX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.bit.RXFFST </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIRXBUF </td><td > union SCIRXBUF_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIRXBUF.bit </td><td > struct SCIRXBUF_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIRXBUF.bit.RXDT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in_index </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer1Regs.TCR.bit.TSS </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpsMessageReady </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.bit.RXFIFORESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in[200] </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in_flag </td><td > uint8_t
+ </td></TR>
+<TR ALIGN=CENTER><td > gps_in_index </td><td > uint8_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_add (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src1 </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > src2 </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_mult (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src1 </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > src2 </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_scalar_mult (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > scalar </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > src </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_determinant (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > det </td><td > float *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_transpose (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_create_identity (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > dest </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > rows </td><td > int
+ </td></TR>
+<TR ALIGN=CENTER><td > columns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_zero (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > dest </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > rows </td><td > int
+ </td></TR>
+<TR ALIGN=CENTER><td > columns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure mat_copy (dsp_matrix.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure quat_mult (dsp_quat.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int16_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src1 </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > src2 </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > quat *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure quat_conj (dsp_quat.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int16_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > quat *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure quat_norm (dsp_quat.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int16_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src </td><td > quat *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure quat_subtract (dsp_quat.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int16_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src1 </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > src2 </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > quat *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure quat_add (dsp_quat.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int16_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > src1 </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > src2 </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > quat *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure quat_scalar_mult (dsp_quat.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+<h4>Return Value
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  &nbsp; </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > Procedure Returns </td><td > int16_t
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > qsrc </td><td > quat *
+ </td></TR>
+<TR ALIGN=CENTER><td > scalar </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > dest </td><td > quat *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure gpio_select (dsp_system.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 22
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 34
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs </td><td > struct GPIO_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1 </td><td > union GPA1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1.bit </td><td > struct GPA1_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2 </td><td > union GPA2_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit </td><td > struct GPA2_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2 </td><td > union GPA2_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit </td><td > struct GPA2_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR </td><td > union GPBDAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR.bit </td><td > struct GPBDAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1 </td><td > union GPB1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1.bit </td><td > struct GPB1_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD </td><td > union GPBDAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD.bit </td><td > struct GPBDAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1 </td><td > union GPB1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1.bit </td><td > struct GPB1_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs </td><td > struct GPIO_INT_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT1SEL </td><td > union GPIOXINT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT2SEL </td><td > union GPIOXINT_REG
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit.GPIO20 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit.GPIO23 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit.GPIO6 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1.all </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1.bit.GPIO6 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.all </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO16 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO17 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO18 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO19 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO20 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO23 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO28 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO29 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO16 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO17 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO18 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO19 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO20 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO23 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO16 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO17 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO18 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO19 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT1SEL.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT2SEL.all </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure setup_epwm1a (dsp_system.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 8
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 9
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs </td><td > struct EPWM_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.AQCTLA </td><td > union AQCTL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETPS </td><td > union ETPS_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETPS.bit </td><td > struct ETPS_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL </td><td > union ETSEL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit </td><td > struct ETSEL_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL </td><td > union TBCTL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit </td><td > struct TBCTL_BITS
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.AQCTLA.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETPS.bit.INTPRD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit.INTEN </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit.INTSEL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit.CLKDIV </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit.CTRMODE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit.HSPCLKDIV </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBPRD </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_prediction (ekf_predict.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > scaled_data </td><td > sensor_data_scaled_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_stm (ekf_predict.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 3
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > stm </td><td > fMatrix *
+ </td></TR>
+<TR ALIGN=CENTER><td > scaled_data </td><td > sensor_data_scaled_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_apriori_covariance (ekf_predict.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > F </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > F </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_apriori_estimate (ekf_predict.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > scaled_data </td><td > sensor_data_scaled_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_correction (ekf_update.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 1
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > scaled_data </td><td > sensor_data_scaled_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure ekf_h_matrix (ekf_update.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 2
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+<TR ALIGN=CENTER><td > H </td><td > fMatrix *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure compute_euler_angles (ekf_update.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 1
+<BR>
+Number of Input Globals : 0
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 0
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Parameters
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > estimated_states </td><td > ahrs_states_t *
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure main (main.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 154
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 211
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > CpuTimer0 </td><td > struct CPUTIMER_VARS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0.CPUFreqInMHz </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0.InterruptCount </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0.PeriodInUSec </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0.RegsAddr </td><td > struct CPUTIMER_REGS*
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs </td><td > struct CPUTIMER_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs.TCR </td><td > union TCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs.TCR.bit </td><td > struct TCR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1 </td><td > struct CPUTIMER_VARS
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1.CPUFreqInMHz </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1.InterruptCount </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1.PeriodInUSec </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer1.RegsAddr </td><td > struct CPUTIMER_REGS*
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs </td><td > struct EPWM_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.AQCTLA </td><td > union AQCTL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETPS </td><td > union ETPS_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETPS.bit </td><td > struct ETPS_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL </td><td > union ETSEL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit </td><td > struct ETSEL_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL </td><td > union TBCTL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit </td><td > struct TBCTL_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs </td><td > struct GPIO_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1 </td><td > union GPA1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1.bit </td><td > struct GPA1_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2 </td><td > union GPA2_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit </td><td > struct GPA2_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2 </td><td > union GPA2_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit </td><td > struct GPA2_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR </td><td > union GPBDAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR.bit </td><td > struct GPBDAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1 </td><td > union GPB1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1.bit </td><td > struct GPB1_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD </td><td > union GPBDAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD.bit </td><td > struct GPBDAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1 </td><td > union GPB1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1.bit </td><td > struct GPB1_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs </td><td > struct GPIO_DATA_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs </td><td > struct GPIO_INT_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT1SEL </td><td > union GPIOXINT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT2SEL </td><td > union GPIOXINT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpsMessageReady </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > I2CRead_flag </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.bit </td><td > struct I2CMDR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CPSC </td><td > union I2CPSC_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > IER </td><td > cregister unsigned int
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs </td><td > struct PIE_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER1 </td><td > union PIEIER_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER1.bit </td><td > struct PIEIER_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER3 </td><td > union PIEIER_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER3.bit </td><td > struct PIEIER_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER6 </td><td > union PIEIER_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER6.bit </td><td > struct PIEIER_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER9 </td><td > union PIEIER_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER9.bit </td><td > struct PIEIER_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable </td><td > struct PIE_VECT_TABLE
+ </td></TR>
+<TR ALIGN=CENTER><td > RamfuncsLoadEnd </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > RamfuncsLoadStart </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > RamfuncsRunStart </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SCI_TX_Message </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > SciTxQtd </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > SciTxStatus </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs </td><td > struct SCI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICCR </td><td > union SCICCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL1 </td><td > union SCICTL1_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2 </td><td > union SCICTL2_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2.bit </td><td > struct SCICTL2_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFCT </td><td > union SCIFFCT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX </td><td > union SCIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX </td><td > union SCIFFTX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs </td><td > struct SPI_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR </td><td > union SPICCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit </td><td > struct SPICCR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL </td><td > union SPICTL_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit </td><td > struct SPICTL_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFCT </td><td > union SPIFFCT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX </td><td > union SPIFFRX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit </td><td > struct SPIFFRX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX </td><td > union SPIFFTX_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit </td><td > struct SPIFFTX_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI </td><td > union SPIPRI_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI.bit </td><td > struct SPIPRI_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPISTS </td><td > union SPISTS_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs </td><td > struct SYS_CTRL_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > UT </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs </td><td > struct XINTRUPT_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT1CR </td><td > union XINTCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT1CR.bit </td><td > struct XINTCR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT2CR </td><td > union XINTCR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT2CR.bit </td><td > struct XINTCR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XNMICR </td><td > union XNMICR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XNMICR.bit </td><td > struct XNMICR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC3 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC4 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC5 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC6 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MC </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MD </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.UP </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.oversampling_setting </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw </td><td > sensor_data_raw_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled </td><td > sensor_data_scaled_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.accel_x </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.accel_y </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.accel_z </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.gyro_x </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.gyro_y </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.gyro_z </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.mag_x </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.mag_y </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.mag_z </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states </td><td > ahrs_states_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.P </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.Q </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.Q.data[12][12] </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_phi_theta </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_phi_theta.data[12][12] </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_psi </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_psi.data[12][12] </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.accel_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.gps_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.gyro_bias_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.gyro_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.mag_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib </td><td > quat
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.a </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.b </td><td > float
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > g_states.qib.c </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.d </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug </td><td > quat
+ </td></TR>
+<TR ALIGN=CENTER><td > oversampling_setting </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > AC1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > AC2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > AC3 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > AC4 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > AC5 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > AC6 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > B1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > B2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > CpuTimer0Regs.TCR.bit.TSS </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.AQCTLA.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETPS.bit.INTPRD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit.INTEN </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.ETSEL.bit.INTSEL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit.CLKDIV </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit.CTRMODE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBCTL.bit.HSPCLKDIV </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > EPwm1Regs.TBPRD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit.GPIO20 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit.GPIO23 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPADIR.bit.GPIO6 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1.all </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX1.bit.GPIO6 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.all </td><td > Uint32
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO16 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO17 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO18 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO19 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO20 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO23 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO28 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAMUX2.bit.GPIO29 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO16 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO17 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO18 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO19 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO20 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAPUD.bit.GPIO23 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO16 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO17 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO18 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPAQSEL2.bit.GPIO19 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBDIR.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBMUX1.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBPUD.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1.bit.GPIO32 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioCtrlRegs.GPBQSEL1.bit.GPIO33 </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE.bit.GPIO6 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT1SEL.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioIntRegs.GPIOXINT2SEL.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpsMessageReady </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > I2CRead_flag </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCLKH </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCLKL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.bit.IRS </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CPSC.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > IER </td><td > cregister unsigned int
+ </td></TR>
+<TR ALIGN=CENTER><td > MB </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > MC </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > MD </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > NewGpsMessage </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER1.bit.INTx4 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER1.bit.INTx5 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER1.bit.INTx7 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER3.bit.INTx1 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER6.bit.INTx1 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER6.bit.INTx2 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER9.bit.INTx1 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieCtrlRegs.PIEIER9.bit.INTx2 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.EPWM1_INT </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.SCIRXINTA </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.SCITXINTA </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.SPIRXINTA </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.SPITXINTA </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.TINT0 </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.XINT1 </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.XINT13 </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > PieVectTable.XINT2 </td><td > PINT
+ </td></TR>
+<TR ALIGN=CENTER><td > RamfuncsRunStart </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICCR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL1.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2.bit.RXBKINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCICTL2.bit.TXINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFCT.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFRX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIFFTX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCIHBAUD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SciaRegs.SCILBAUD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit.CLKPOLARITY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit.SPICHAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICCR.bit.SPISWRESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.all </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.CLK_PHASE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.MASTER_SLAVE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.OVERRUNINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.SPIINTENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPICTL.bit.TALK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFCT.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFIENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFIL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFINTCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFFOVFCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFRX.bit.RXFIFORESET </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.SPIFFENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.SPIRST </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFIENA </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFIL </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFFINTCLR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIFFTX.bit.TXFIFO </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI.bit.FREE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPIPRI.bit.SOFT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SpiaRegs.SPISTS.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs.WDCR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > SysCtrlRegs.WDKEY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > UP </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > UT </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT1CR.bit.ENABLE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT1CR.bit.POLARITY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT2CR.bit.ENABLE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XINT2CR.bit.POLARITY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XNMICR.bit.ENABLE </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > XIntruptRegs.XNMICR.bit.SELECT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC3 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC4 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC5 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC6 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MB </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MC </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MD </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.UP </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.true_P </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > diff_pressure </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > gHSC_Initialized </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_ADXL_Initialized </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_ADXL_Tested </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > g_HMC_Initialized </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_ITG_Initialized </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_internal_timing </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw </td><td > sensor_data_raw_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.abs_pressure </td><td > int32_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.accel_x </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.accel_y </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.accel_z </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.diff_pressure </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_temperature </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_x </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_y </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_z </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.mag_x </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.mag_y </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.mag_z </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_abs_pressure_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_accel_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_diff_pressure_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_gyro_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_mag_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states </td><td > ahrs_states_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.GPS_Ts </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.P.data[12][12] </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.Q </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.Q.data[12][12] </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_phi_theta </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_phi_theta.data[12][12] </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_psi </td><td > fMatrix
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.R_psi.data[12][12] </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.Ts </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.accel_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.bias_p </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.bias_q </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.bias_r </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.gps_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.gyro_bias_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.gyro_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.mag_var </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.phi </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.phi_dot </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.psi </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.psi_dot </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.a </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.b </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.c </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.d </td><td > float
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.a </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.b </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.c </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.d </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.theta </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.theta_dot </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > gtx_msg_ind_in </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > gtx_msg_ind_out </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > oversampling_setting </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > pressure </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > temperature </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure escalonador (main.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 49
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 41
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs </td><td > struct GPIO_DATA_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpsMessageReady </td><td > int
+ </td></TR>
+<TR ALIGN=CENTER><td > I2CRead_flag </td><td > unsigned char
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs </td><td > struct I2C_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDRR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR </td><td > union I2CMDR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR </td><td > union I2CSTR_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit </td><td > struct I2CSTR_BITS
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.ARDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.NACK </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.RRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.XRDY </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > UT </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC3 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC4 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC5 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.AC6 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B1 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.B2 </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MC </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.MD </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.UP </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.oversampling_setting </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw </td><td > sensor_data_raw_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled </td><td > sensor_data_scaled_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.accel_x </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.accel_y </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.accel_z </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.gyro_x </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.gyro_y </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.gyro_z </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.mag_x </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.mag_y </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_scaled.mag_z </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states </td><td > ahrs_states_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib </td><td > quat
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.a </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.b </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.c </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.d </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug </td><td > quat
+ </td></TR>
+<TR ALIGN=CENTER><td > oversampling_setting </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE.bit.GPIO6 </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > GpsMessageReady </td><td > int
+ </td></TR>
+<TR ALIGN=CENTER><td > I2CRead_flag </td><td > unsigned char
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CCNT </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CDXR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CMDR.all </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSAR </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > I2caRegs.I2CSTR.bit.SCD </td><td > Uint16
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.UP </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > bmp_data_buffer.true_P </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > diff_pressure </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cRxBuf </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_i2cTxBuf </td><td > *** EXTERNAL GLOBAL ***
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw </td><td > sensor_data_raw_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.abs_pressure </td><td > int32_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.accel_x </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.accel_y </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.accel_z </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.diff_pressure </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_temperature </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_x </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_y </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.gyro_z </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.mag_x </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.mag_y </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.mag_z </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_abs_pressure_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_accel_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_diff_pressure_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_gyro_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_sensor_data_raw.new_mag_data </td><td > int16_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states </td><td > ahrs_states_t
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.a </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.b </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.c </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.qib.d </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.a </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.b </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.c </td><td > float
+ </td></TR>
+<TR ALIGN=CENTER><td > g_states.quat_debug.d </td><td > float
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><TABLE BORDER WIDTH=50%><TR><TH BGCOLOR="#2D2F93"><font color='#FBFCC8' size='5'> Procedure toggle_led (main.c) </font></TH></TR> </TABLE></CENTER>
+<BR>
+<BR>
+Number of Input Parameters : 0
+<BR>
+Number of Input Globals : 3
+<BR>
+Number of Output Parameters : 0
+<BR>
+Number of Output Globals : 1
+<BR>
+<BR>
+<BR>
+Procedure Returns : void
+<BR>
+<BR>
+<BR>
+<h4>Input Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs </td><td > struct GPIO_DATA_REGS
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE </td><td > union GPADAT_REG
+ </td></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE.bit </td><td > struct GPADAT_BITS
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<h4>Output Globals
+</h4>
+<BR>
+ <CENTER> <TABLE bgcolor="#ECE2E2" BORDER WIDTH=60% >
+<TR ALIGN=CENTER><th >  Name </th><th >  Type
+ </th></TR>
+<TR ALIGN=CENTER><td > GpioDataRegs.GPATOGGLE.bit.GPIO6 </td><td > Uint16
+ </td></TR>
+</TABLE>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+<CENTER><H3> End of Design Review Report </H3>
+</CENTER>
+<CENTER><H3>  </H3>
+</CENTER>
+<CENTER><H3> Copyright &copy 2014 Liverpool Data Research Associates </H3>
+</CENTER>
+
+<div class="break-p"style="width:80%;height:10px;margin:0px auto;display:block;"></div>
+</BODY>
+
+
+<SCRIPT LANGUAGE="Javascript">
+<!--
+if(navigator.appName == "Netscape"){ document.write("\<!--") }
+// -->
+</SCRIPT>
+<OBJECT ID="LDRATBLaunch" CLASSID="CLSID:58FEBB79-70F5-48A6-9697-E91591DA3F8E">
+<PARAM NAME="ImageLoc" VALUE="Null">
+<PARAM NAME="Run" VALUE="NULL">
+<PARAM NAME="RunParms" VALUE='NULL'>
+</OBJECT>
+<SCRIPT LANGUAGE="Javascript">
+<!--
+if(navigator.appName == "Netscape"){ document.write("--\>") }
+else { document.write("\<!--") }
+// -->
+</SCRIPT>
+<embed type="application/x-eskerplus"
+ID="LDRATBLaunch"
+classid="clsid:58FEBB79-70F5-48A6-9697-E91591DA3F8E"
+ImageLoc="NULL"
+Run="NULL"
+RunParms="NULL"
+onEvent1()="handler1()"
+onEvent2(arg1,arg2,arg3)="handler2(arg1,arg2,arg3)"
+AndRestore="True">
+<SCRIPT LANGUAGE="Javascript">
+<!--
+if(navigator.appName != "Netscape"){ document.write("--\>") }
+// -->
+</SCRIPT>
+
+
+
+
+</HTML>

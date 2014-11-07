@@ -1,0 +1,58 @@
+<HTML><HEAD><TITLE>LDRA Ltd.</TITLE>
+<SCRIPT LANGUAGE="Javascript" SRC="common.JS">
+// -->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="Javascript">
+// Declare 3 arrays of images. These contain firstly the normal
+// button images, then those images that appear when the mouse
+// hovers over a button and finally those images used to indicate
+// which button is currently selected.
+//
+
+normal   = new MakeArray(3);
+over     = new MakeArray(3);
+outlined = new MakeArray(3);
+
+for ( i=0; i < 3; i++ ){
+    normal[i] = new Image();
+    over[i] = new Image();
+    outlined[i] = new Image();
+}
+
+normal[0].src  = "../images/normal/help.gif";
+over[0].src  = "../images/over/help.gif";
+outlined[0].src  = "../images/outlined/help.gif";
+
+
+function msover(bnum) {
+        document.images[0].src = over[0].src;
+}
+
+function msout(bnum) {
+        document.images[0].src = normal[0].src;
+}
+
+function msclick(bnum) {
+        document.images[0].src = outlined[0].src;
+}
+
+
+// Variable 'highlighted' indicates which buttonin the
+// menu currently has an orange border highlight
+//
+var highlighted = 0;
+
+
+// -->
+</SCRIPT>
+</HEAD>
+<body background="../images/line_bg.gif" LINK="#DEDEEF">
+<CENTER> <A HREF = "../images/index_hlp.htm"; target="rFrame" onMouseover='msover(0);' onClick='msclick(0);' onMouseout='msout(0);'> <IMG SRC="../images/normal/help.gif" alt="Help" border=0 width="170" height="25"></A></center>
+<img src="../images/dot_clear.gif" width="1" height="15" alt=""><br>
+<img src="../images/dot_clear.gif" width="45" height="1" alt=""><A HREF="http://www.ldra.com" TARGET="parent.parent.rFrame"><img src="../images/sml_logo.gif" alt="LDRA Ltd" border="0"></A><br>
+<center>
+<img src="../images/dot_clear.gif" width="1" height="10" alt=""><br>
+</CENTER>
+</BODY>
+</HTML>
